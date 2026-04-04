@@ -1,0 +1,1123 @@
+Chapter Three 
+
+Program Control Constructs
+
+A running program spends all of its time executing instructions or statements 
+
+in that program. 
+
+The order in which statements in a program are executed is called flow of 
+
+that program. 
+
+Programmers can control which instruction to be executed in a program, 
+
+which is called flow control. 
+
+This term reflects the fact that the currently executing statement has the 
+
+control of the CPU, which when completed will be handed over (flow) to 
+
+another statement. 
+
+Flow control in a program is typically sequential, from one statement to the 
+
+next. 
+
+But we cal also have execution that might be divided to other paths by 
+
+branching statements. Or perform a block of statement repeatedly until a 
+
+condition fails by Repetition or looping. 
+
+Flow control is an important concept in programming because it will give all 
+
+the power to the programmer to decide what to do to execute during a run 
+
+and what is not, therefore, affecting the overall outcome of the program. 
+
+ይህ ሰነድ በዋናነት የሚያተኩረው በC++ ፕሮግራም መቆጣጠሪያ መንገዶች (Program Control Constructs) ላይ ሲሆን፣ ፕሮግራም እንዴት እንደሚሰራ፣ ትዕዛዞች በምን ቅደም ተከተል እንደሚፈጸሙ እና ተደጋጋሚ ስራዎችን እንዴት በቀላሉ ማከናወን እንደሚቻል ያብራራል ። በውስጡም ቅደም ተከተላዊ (Sequential) ፣ ምርጫዊ (Selection) እንደ if እና switch ያሉ ፣ እንዲሁም ተደጋጋሚ (Repetition) እንደ for፣ while እና do...while ያሉ የኮድ አይነቶችን በምሳሌዎችና በልምምድ ጥያቄዎች ያሳያል ።
+
+
+
+1. Sequential Statements 
+
+Such kind of statements are instruction in a program which will executed 
+
+one after the other in the order scripted in the program. In sequential 
+
+statements, the order will be determined during program development 
+
+and can not be changed. 
+
+አሁን ደግሞ በደስታ እና በፈገግታ ነገሩን እንየው! 😊✨
+
+1. Sequential Statements (ቅደም ተከተላዊ) 🚶‍♂️
+
+ይሄ በጣም ቅን ነው! ልክ እንደ ሰልፍ አንዱ ሲያልቅ ሌላኛው ይቀጥላል ። መሃል ላይ ማቋረጥ ወይም መዝለል አይቻልም፤ ከላይ ወደ ታች በቅደም ተከተል ይፈጸማል ።
+
+2. Selection Statements 
+
+Selection statements are statements in a program where there are points at 
+
+which the program will decide at runtime whether some part of the code 
+
+should or should not be executed. 
+
+
+
+ There are two types of selection statements in C++, which are the “if 
+
+statement” and the “switch statement” 
+
+2. Selection Statements (ምርጫዎች) 🤔🚦
+
+እዚህ ጋር ፕሮግራሙ "ምን ላድርግ?" ብሎ ይቆማል ።
+
+The if statement: "ይሄ ከሆነ ይሄን አድርግ" ባይ ነው ። ለምሳሌ ውጤትህ ከ70 በላይ ከሆነ "ጎበዝ!" ይልሃል ።
+
+The switch statement: ይሄ ደግሞ እንደ ኪቦርድ ⌨️ ነው ። ብዙ ምርጫዎች (cases) አሉት፤ የነካኸውን ቁጥር ወይም ፊደል አይቶ ተገቢውን ምላሽ ይሰጥሃል ። break ካልተጠቀምክ ግን ሁሉንም አሳፍሶ ሊያነብብብህ ይችላል! 😂 
+
+
+
+4.1. The if Statement 
+
+It is sometimes desirable to make the execution of a statement dependent upon a condition being satisfied. 
+
+ The different forms of the ‘If” statement will be used to decide 
+
+whether to execute part of the program based on a condition which 
+
+will be tested either for TRUE or FALSE result
+
+
+
+
+
+The different forms of the “If” statement are: 
+
+The simple if statement will decide only one part of the program to 
+
+be executed if the condition is satisfied or ignored if the condition 
+
+fails. 
+
+
+
+The General Syntax is: 
+
+
+
+In any “if” statement, first the “expression” will be evaluated and if 
+
+the outcome is non zero (which means TRUE), then the “statements”
+
+is executed. Otherwise, nothing happens (the statement will not be 
+
+executed) and execution resumes to the line immediately after the 
+
+“if” block. 
+
+if (expression) 
+
+ statements; 
+
+
+
+To make multiple statements dependent on the same condition we 
+
+can use a compound statement, which will be implemented by 
+
+embracing the group of instructions within the left “{“ and right “}” 
+
+French bracket. 
+
+
+
+3
+
+
+
+
+
+E.g.: 
+
+ if(age>18) 
+
+ cout<<”you are an adult”; 
+
+E.g.: 
+
+if(balance > 0) 
+
+ { 
+
+ interest = balance * creditRate; 
+
+ balance += interest; 
+
+ } 
+
+
+
+Most of the time “expression” will have relational expressions 
+
+testing whether something is equal, greater, less, or different from 
+
+something else. 
+
+
+
+It should be noted that the output of a relational expression is 
+
+either True (represented by anything different from zero) or False 
+
+(represented by Zero). 
+
+
+
+Thus any expression, whose final result is either zero or none zero 
+
+can be used in ”expression” 
+
+E.g.: 
+
+ int x; 
+
+cin>>x; 
+
+if(x) 
+
+ cout<<”you are an adult”; 
+
+
+
+In the above example, the value of variable x will be an input from 
+
+the user. The “if” statement will be true if the user gives anything 
+
+different from zero, which means the message “you are an adult” 
+
+will be displayed on the screen. If the user gives zero value for x, 
+
+which will be interpreted as False, nothing will be done as the if 
+
+statement is not satisfied. 
+
+Thus, expression and be: 
+
+Relational expression, 
+
+A variable, 
+
+A literal constant, or 
+
+Assignment operation, as the final result is whatever we 
+
+have at the right hand side and the one at the left hand side 
+
+is a variable. 
+
+The If else statement 
+
+Another form of the “if” is the “if …else” statement. 
+
+The “if else if” statement allows us to specify two alternative 
+
+statements: 
+
+One which will be executed if a condition is satisfied and 
+
+Another which will be executed if the condition is not 
+
+satisfied. 
+
+The General Syntax is: 
+
+
+
+If (expression)
+
+     Statement1;
+
+else 
+
+     Statements2;
+
+   
+
+
+
+
+
+
+
+
+
+First “expression” is evaluated and if the outcome is none zero 
+
+(true), then “statements1” will be executed. Otherwise, which means 
+
+the “expression” is false “statements2” will be executed. 
+
+E.g.: 
+
+ if(balance > 0) 
+
+{ 
+
+ interest = balance * creditRate; 
+
+ balance += interest; 
+
+} 
+
+else 
+
+{ 
+
+ interest = balance * debitRate; 
+
+ balance += interest; 
+
+}
+
+E.g.1:
+
+
+
+if(age > 18)
+
+    cout << "you are an adult";
+
+else
+
+    cout << "You are a kid";
+
+
+
+E.g.2:
+
+
+
+int x;
+
+cout << "Enter a number: ";
+
+cin >> x;
+
+if(x % 2 == 0)
+
+    cout << "The Number is Even";
+
+else
+
+    cout << "The Number is Odd";
+
+
+
+E.g.3:
+
+
+
+int x;
+
+cout << "Enter a number: ";
+
+cin >> x;
+
+if(x % 2)
+
+    cout << "The Number is Odd";
+
+else
+
+    cout << "The Number is Even";
+
+
+
+The above three examples illustrate the “if else” statement.
+
+
+
+The last two examples will do the same thing except that the expression in the Eg3 is changed from relational to arithmetic. We know that the result from the modulus operator is either 0 or one if the divider is 2. Thus the final result of the expression in Eg3 will either be 1 for odd numbers or be 0 for even numbers.
+
+
+
+if statements may be nested by having an if statement appear inside another if statement. For instance:
+
+
+
+
+
+if(callHour > 3)
+
+{
+
+    if(callDuration <= 5)
+
+        charge = callDuration * tarif1;
+
+    else
+
+        charge = 5 * tarif1 + (callDuration - 5) * tarif2;
+
+}
+
+else
+
+    charge = flatFee;
+
+}
+
+
+
+lets have an example on nested if statements 
+
+እስኪ አሁን ደግሞ በnested if አንድ ምሳሌ እንስራ
+
+በመጀመሪያ እንደተለመደው የምንሰራበትን library እና namespace እንጽፋለን። 
+
+#include<iostream>
+
+using namespace std;
+
+//ከዛ main function ውስጥ ስራችን እንጀምራለን።
+
+int main()
+
+{
+
+int testScore,age;
+
+/* እዚህ ጋ variable declare አደረግን። (የምጠቀማቸው ቃላት እነዚህ ናቸው ስለዚህ ታች ስጠራቸው አላውቅም እንዳትል አሁን ላስተዋውቅህ እያልነው ነው computer-ኣችን። */
+
+cout<<"\n enter your test score: ";
+
+cin>>testScore;
+
+cout<<"\ enter your age:";
+
+cin>>age;
+
+የ/* ያገኘነውን ውጤት እንዲጠይቀንና እንድናስገባ አደረግነው።
+
+እንግዲህ nested if statement-ኣችን ጀመርን*/
+
+
+
+if (testScore>=70) // በደንብ አስተውሉ የዚህ if curly brace ውስጥ ሌላ if አለ 
+
+         {
+
+          if(age<10) //ይሄኛው if የሚገኘው በመጀመሪያው ወይም በትልቁ if ውስጥ ነው።
+
+          cout<<"\n you did a great job";
+
+          else
+
+          cout<<"\n you did pass";
+
+          }
+
+else //የመጀመሪያው የትልቁ if የሆነው else የሚጀምረው እዚህ ነው።
+
+  cout<<"\n you didn't pass";
+
+return 0;
+
+}
+
+ባጭሩ ከላይ ያለውን code ስንገልጸው ያመጣው ውጤት ከ70 በላይ ከሆነ (ትልቁ if😊)  እንዲሁም እድሜው ከ10 በታች ከሆነ (ትንሹ if😊) በጣም ገራሚ ስራ ሰርተሃል በለው። ነገር ግን ከ70 በላይ አምጥቶ እድሜው ከ10 በታች ካልሆነ አልፈሃል በለው። (የትንሹ if አሊያም(else) ዓረፍተነገር ነው።) ይህ ሁሉ ካልሆነስ ማለት ልጁ እድሜውን አረጋግጠን ጎበዝ ከማለታችን በፊት ያመጣው ውጤት ከ70 የሚያንሶ ከሆነስ ምን እንበለው ስንል፣ አይዠዟችሁ እኔ አለሁ ይላል 😂 የትልቁ if አሊያም (else) ዓረፍተ ነገር) ስለዚህ የትልቁን else statement(ዓረፍተ ነገር) cout ብለን አላለፍክም ብለን እናሳውቀዋለን። ስለዚህ መጀመሪያ condition ወይም ሁኔታ check ያደርጋል። በዚህ ምሳሌ condition-ኣችን (testScore>=70) የሚሀው ነው። እሱን ያረጋግጥና እውነት ከሆነ ሁለተኛውን if ይሰራል እውነት ካልሆነ ግን እሱን ይተውና የራሱን else ወይም አላለፍክም የሚለውን ይሰራል ማለት ነው።
+
+ይሄን ታች በflow chart ማየት ይቻላል። ለብቻ በትንሽ dot dot ሳጥን ውስጥ ያለችው ትንሿ if ናት😊
+
+
+
+4.1.1. The Switch Statement 
+
+Another C++ statement that implements a selection control flow is the 
+
+switch statement (multiple-choice statement).  The switch statement provides a way of choosing between a set of 
+
+alternatives based on the value of an expression. 
+
+ሌላው ምርጫን የምንቆጣጠርበት ዓረፍተ ነገር switch statement ይባላል። ባለ ብዙ ምርጫውም በመባል ይታወቃል። እኛ ደግሞ keyboard-ኡ ⌨️ ብለነዋል።😂 ምክንያቱም keyboard ብዙ button-ኦች አሉት። ለምሳሌ computer-ኡን የሚጠቀመው ሰው (user-ኡ) የሆነ መጻፊያ app ከፍቶ Aን ቢጫን A ተብላ screen-ኡ ጋ ትታያለች። control+c ቢጫን copy ማድረግ ይችላል ማለት ነው። እንደዚሁ ሁሉ switch statement ብዙ የተዘረዘሩ ዓረፍተ ነገሮች አሉ፣። ለእነሱ መለያ እንሰጣቸዋለን። የምንሰጣቸው መለያ ለምሳሌ ቁጥር ከሆነ ወይም 1,2,3 እያልን ከሰጠናቸው። 1ን ስንጫን እንዴት ነህ እንዲል። 2ን ስጫን እንኳን ደህና መጣህ የሚል ጽሑፍ እንዲያወጣ ባስገባ። 1 ካልኩ እንዴት ነህ ይላል ማለት ነው። 
+
+The general form of the  switch statement is: 
+
+The switch statement has four components: 
+
+Switch
+
+Case 
+
+Break
+
+Default 
+
+Where Default and Break are Optional 
+
+የswitch statement አጠቃላይ ቅርጽ ይሄን ይመስላል።👇
+
+switch, switch statement - ይሄ ለማስመረጥ የምንጠቀምበትን አይነት ያመለክታል። ለምሳሌ በቁጥር እንዲመረጥ ከፈለግን ወይም በletters(A,BC,D...) ወይም ሌላ የራሳችን መለያ መፍጠር እንችላለን። ዋናው ከአላማው ሰው ይሄን ከተጫነ እንደዚህ አድርግ ይሄን ከተጫነ ደግሞ ይሄኛውን አድርግ እያልን የምናስመርጥበት ነው።
+
+case - ማለት ተጠቃሚው ሰው እንዲነካቸው የምንፈልጋቸው ነገሮቾ ናቸው። ከswitch ጋ እናዳትወዛገቡ እንበታትነው💪 ዛሬ የተኛ የለም ሁላችሁም ነቃ እ..💪 ስለዚህ switch የሚለው ማንን ነው የማቀያይር ለሚለው ቁጥሮችን ነው ብለን እንመልስለታለን። case ግን እሺ ቁጥሮች የሚባሉት እነማን ናቸው ሲለን 1,2,3,4 ... ናቸው የምንልበት ቦታ ነው። እሺ ስለዚህ እኛ 1 ብለን ስናስገባ እና 2 እና 3 የመሳሰሉትን ስናስገባ የተለያየ ውጤት እንዲሰጠን case እንጠቀማለን። አሁን simple ኣ?😊
+
+break - ማለት ስበረው ማለት ነው😂 እንዴት መሰላችሁ የመጀመሪያው case የሆነ ነገር ይጻፍበታል።
+
+ ለምሳሌ case 1:cout<<"welcome";
+
+case 2: cout<<"sorry, we are busy now!";
+
+ብንል computer-ኣችን ምርጫውን ሲያመጣ እኛ 1ን ወይም 2ን ብንጫን እዚህ ላይ break የሚባል ቃል ስለሌለ። code-ኡ run ማድረጉን አያቆምም ስለዚህ መጨረሻ ያገኘውን  sorry, we are busy now! የሚለውን ጽሑፍ ያሳያል። ነገር ግን case 1:cout<<"welcome"; Break;
+
+case 2: cout<<"sorry, we are busy now!";
+
+
+
+ብንል እና 1ን ብንጫን የመጀመሪያውን ብቻ ወይም welcome የሚለውን ብቻ ያወጣል። ለምን ካልን break የሚል keyword (ቃል) ስለተጠቀምን ነው። 
+
+ተጨማሪ ምሳሌ በቁጥር እንይ እስኪ፦
+
+switch (N) {
+
+Case 1: x=10;
+
+Case 1: x=20;
+
+Case 1: x=30;
+
+}
+
+እና 
+
+switch (N) {
+
+Case 1: x=10; break;
+
+Case 1: x=20; break;
+
+Case 1: x=30; break;
+
+}
+
+አሁን የመጀመሪያው ላይ break የሚል keyword ስላልተጠቀምን 1ን ወይም 2ን ብንጫን መልሱ 30 ነው የሚሆነው። ለምን ካልን ከላይ ባልነው መሰረት code-ኡ run ማድረጉን ስለማያቆም ነው። ነገር ግን የሁለተኛው ላይ break የሚል keyword ስላለ ተጠቃሚው 1ን ሲጫን 10ን፣ 2ን ሲጫን 20፣ 3ን ሲጫን 30ን እንደያዙት ዋጋ ያወጣል።
+
+Default - ማለት በcase የተዘረዘሩትን ባይጫንስ ለምሳሌ ከ1-5 ተዘርዝረው እኛ 6 ን ብንጫን ወይም ሌላዐቁጥር ከ1-5 ያልሆነ ብንጫን እንዲያሳየን የምንፈልገውን ነገር የምንጽፍበት ነው። ለምሳሌ የላይኛው ምሳሌ ላይ:
+
+case 1:cout<<"welcome"; Break;
+
+case 2: cout<<"sorry, we are busy now!";    break;
+
+default: cout<<"you have entered an incorrect number";
+
+አሁን እኔ 3ን ከkeybord ላይ ብጫን ወይም ሌላ ቁጥር ከ1 እና 2 ውጭ ብነካ you have entered an incorrect number የሚለው message ይወጣል። ምክንያቱም default የሚል keyword(ቃል) ስለተጠቀምን ማለት ነው።
+
+The General Syntax might be:
+
+አጠቃላይ የአጻጻፍ ህጉ ይሄን ይመስላል።
+
+switch(expression) //እዚህ ጋ expression የሚለው declar የምናደርገው variable ነው። 
+
+{
+
+ case constant1: 
+
+ statements; . 
+
+. 
+
+. 
+
+ case constant n:  statements; default: 
+
+ statements; 
+
+ } 
+
+Expression is called the switch tag and the constants preceding each case are called the case labels. The out put of “expression” should always be a constant value. 
+
+የswitch expression በሌላ ስሙ switch tag ሲባል case የሚለውን keyword ተከትለው የሚመጡ ቃላትን ወይም ቁጥሮችን ወይም ምልክቶችን ደግሞ case labels እንላቸዋለን። ምንጊዜም ቢሆን የexpression ወጤት constant ዋጋ ሊኖረው ይገባል።
+
+➠ ሌላው ከላይ እንደተነጋገርነው case label የተለያዩ ነገሮች መሆን ይችላሉ ።(ቁጥሮች፣ ፊደሎች፣ ምልክቶች...) ነገር ግን በquotation mark ወይም( "" ወይም '' )ማስገባት አለብን።
+
+ለምሳሌ እስኪ በምልክቶች ይሄን ምሳሌ እንይ።
+
+switch(operator)
+
+{
+
+case '+': result=a+b;
+
+break;
+
+case '-': result=a-b;
+
+break;
+
+case '×': 
+
+case '*': result=a*b;
+
+break;
+
+case '/': result=a/b;
+
+break;
+
+default: cout<<"unknown operator: " <<operator <<"\n";
+
+}
+
+Because case x has no break statement (in fact no statement at all), when this case satisfied, execution proceeds to the statements of the next case and the manipulation is performed.
+
+እዚህ ላይ ምን አስተዋላችሁ case × (ወይም ከcase "-" በታች ያለው) break የሚል keyword የለውም ስለዚህ እናንተ የ× ምልክት ብትጫኑ የሚሰራው ቀጣዩን ወይም case *ን ነው። እዚህ ላይ አንድ ጥያቄ ልታነሱ ትችላላችሁ። break ካልተጠቀምን እንዴት ሁሉንም አልፎ የመጨረሻውን አይሰራም? ይህ ያልሆነበት ምክንያት ከcase × ውጭ ሌሎቹ break ስላላቸው ነው።
+
+እሺ ከነዚህ ከተዘረዘሩት ውጭ ብነካስ? ለምሳሌ @ ወይም & ብጫን ምን ይፈጠራል ካልን? ቀላል ነው አይደል። ያስገባናቸው ምልክቶች ከላይ ከተዘረዘሩት ውስጥ አይደሉም ስለዚህ የdefault value ይወጣል ማለት ነው። በዚህ example እንደዚህ የሚል ጽሑፍ ይወጣል unknown operator: @ ወይም unknown operator: &።
+
+4.2 Repetition Statements 
+
+Repetition statements control a block of code to be executed repeatedly for a fixed number of times or until a certain condition fails. There are three C++ repetition statements: 
+
+1) The For Statement or loop 
+
+2) The While statement or loop 3) The do…while statement or loop
+
+Repetition Statements የምንላቸው ከስሙ እንደምንረዳው repeat የሚያደርጉ ወይም የሚደጋገሙ ናቸው። እስከ ምን ድረስ ካልን ማቆሚያቸውን እስከምንነግራቸው ድረስ ማለት ነው። ነገር ግን ረስተን ወይም ሆን ብለን ገደል ለማስገባት😂 የሚያቆሙበትን ካልነገርናቸው መደጋገማቸውን አያቆሙም።
+
+በc++ ሦስት አይነት መደጋገምን የምንገልጽባቸው statement-ኦች አሉ። እነሱም 
+
+for loop, while loop, do..while loop. lopp የሚለው መደጋገማቸውን ለማሳወቅ ነው። 
+
+ስለዚህ የመጀመሪያውን ወይም for የሚባለውን የlopp ወይም repetitive statement አይነት እንመልከት። ዝግጁ 💪 ነቃ የምን መዛል እ..😊
+
+4.2.1. The for Statement /loop
+
+The “for” statement (also called loop) is used to repeatedly execute a block of instructions until a specific condition fails
+
+for የምንለው statement ወይም በሌላ ስሙ for loop እንደ መኪና ጎማ አስቡት በተደጋጋሚ ይሽከረከራል። እስከ መቼ ካልን ሹፌሩ ፍሬን እስከሚይዝ። እንደዚህ ሁሉ ይሄ for loop.ማቆሚያውን እስከምንነግረው ድረስ ይሽከረከራል።
+
+The General Syntax is: for(expression1 ; expression2 ; expression3) 
+
+ statements; 
+
+አጠቃላይ አጻጻፉ ከላይ ያለውን ሲመስል እያንዳንዱን እስኪ እንበታትነው 💪
+
+for - የተጠቀምነው የloop አይነት for መሆኑን ለማሳወቅ ነው። (የመኪና ጎማ ያልነው ነው😊)
+
+expression1: is one or more statements that will be executed only once and before the looping starts.
+
+expression1 - ይሄ የመኪናው ጎማ የሚነሳበትን ይናገራል። ለምስሌ i=0; ብንል iን ከዜሮ ጀምሪ እያልናት ነው። የሚሰራውም አንዴ ብቻ ነው።
+
+expression2: is the part that decodes whether to preceed with executing the instructions in the loop or to stop.
+
+expression2 - ይሄ ደግሞ ወሳኙ part ሲሆን የመኪናው ጎማ የት ማቆም እንዳለበት የሚናገር ክፍል ነው። ስለዚህ i ከ0 ተነስታ እስከ ስንት ትሂድ ስንል i<4 ካልን i እስከ ሶስት ትሂድ እያልን ነው።  ስለዚህ loopኡ i ከ 4 ያነሰች ቁጥር ከሆነች ስራውን ይቀጥላል። ካልሆነች ግን ከloopኡ ይወጣል።
+
+expression3: is is one or more statements that will be executed after each iteration.
+
+expression3- ይሄ ደግሞ እሽ በዚያው ፍጥነት ልሂድ ወይስ ብሎ የሚጠይቀን ነው። ለምሳሌ i++; ብንል በእያንዳንዱ ዙር iን 1ጨምርባት እያልን ነው። ወይም i+2; ማለት እንችላለን እንደምንጽፈው code አስፈላጊነት ይቀየራል። i--; ብሎም መቀነስ ይቻላል።
+
+statements - ይሄ ሁሉ ሲደረግ እንዲሰሩልን የምንፈልጋቸውን ነገሮች የምንጽፍበት ክፍል ነው።
+
+ስለዚህ በቀላሉ እና ግልጽ በሆነ መልኩ እንደዚህ ሊጻፍ ይችላል።
+
+The general format can be expressed as follows for the sake of clarity: for(initialization ; condition ; increase/decrease) 
+
+statement; 
+
+steps of execution of the for loop: 
+
+1, initialization
+
+2, Condition Checked
+
+3, Statement Executed 
+
+4, Increase/decrease 
+
+initialization መጀመሪያ ይሰራል። ከዛ codition check ይደረጋል። የሰጠነው ገደብ ላይ ደርሻለሁ አልደረስንም ይላል። true ከሆነ ስራዎን ይቀጥላል። false ከሆነ ደግሞ ከloop-ኡ ይወጣል። ወይም loop ማድረጉን ያቆማል። ከዛ እንድንጨምር ወይም እንድንቀንስ የነገርነው statement3 ላይ ሂዶ ያዘዝነውን ያደርጋል ማለት ነው።
+
+➠ even though it is not recommended, expression1, expression2, expression3 can be optional.
+
+ይሄ ባይመከርም  ሶስቱን expression-ኦች በሙሉ መተው ወይም አንዱን ብቻ ወይም ሁለቶቹን ብቻ መጠቀም ይቻላል።  ምክንያቱም ሁለተኛውን ወይም expression2ን ባዶ አደረግነው ማለት የማያቆም loop ይሆናል ማለት ነው።
+
+example
+
+// the following code adds a number between 0 and 10.
+
+int sum; //sumን declare አደረግን
+
+for (int i=0;i<=10;i++)  // for expression ጻፍን
+
+/* መጀመሪያ iን ውስጥ declare አድርገን ከzero አስጀመርን። ከዛ እከ 10 እንዲሄድ እና በየዙሩ ደግሞ አንድ እንዲጨምር አደረግነው  */
+
+sum=sum+i;  
+
+/* እዚህ ላይ ሲደርስ sum መጀመሪያ ምንም የላትም ነበር። i ደግሞ ከ0 ነው የጀመረች ስለዚህ የመጀመሪያው ዙር sum=0 ትሆናለች። በመቀጠል i አንዶ ይጨምራል ምክንያቱም i++ ስላልን። ከዛ sum =0 ሲደመር 1 sum=1 በመባል አዲስ ዋጋ ትይዛለች ማለት ነው። i አሁንም አንድ ትጨምርና 2 ትሆናለች sum=sum+i ስለሆነ sum 1 ነበረች አሁን 2 ሲጨመርባት 3 ትሆናለች። እንደዚህ እያለ እስከ 10 ወይም 10ን ጨምሮ check ያደርጋል። መጨረሻ i ጨምራ 11 ስትሆን loopኡ ያበቃል። */
+
+
+
+
+
+4.2.2. The while statement
+
+
+
+The while statement (also called while loop) provides a way of repeating a statement or a block as long as a condition holds / is true.
+
+
+
+The general form of the while loop is:
+
+
+
+while(expression)
+
+    statements;
+
+
+
+First expression (called the loop condition) is evaluated. If the outcome is non zero then statement (called the loop body) is executed and the whole process is repeated. Otherwise, the loop is terminated.
+
+
+
+Suppose that we wish to calculate the sum of all numbers from 1 to some integer value n. this can be expressed as :
+
+
+
+E.g.1:
+
+
+
+// adds the numbers between 0 and any given number n
+
+i=1; sum = 0;
+
+while(i <= n)
+
+    sum += i++;
+
+
+
+
+
+E.g.2:
+
+
+
+// adds the numbers between 0 and 100
+
+number=1; sum=0;
+
+while(number <= 100)
+
+{
+
+    sum += number;
+
+    number++;
+
+}
+
+
+
+
+
+E.g.3:
+
+
+
+/*the following while loop will request the user to enter his/her age which should be between 0 and 130. If the user enters a value which is not in the range, the while loop test the value and request the age again until the user enters a valid age.*/
+
+cout << "\n enter your age [between 0 and 130]:";
+
+cin >> age;
+
+while(age < 0 || age > 130)
+
+{
+
+    cout << "\n invalid age. Plz try again!";
+
+    cin >> age;
+
+}
+
+
+
+
+
+ይህ ክፍል while loop ሲሆን፣ አንድ ትዕዛዝ ወይም ኮድ ስብስብ በተወሰነ ሁኔታ (condition) እውነት እስከሆነ ድረስ ደጋግሞ እንዲሰራ ያደርጋል። ሁኔታው ሐሰት ሲሆን ብቻ ስራው ያቆማል። በምሳሌዎቹ ላይ እንደሚታየው ቁጥሮችን መደመር፣ የተጠቃሚውን ዕድሜ ማረጋገጥ ወዘተ በቀላሉ ለመድገም ያገለግላል።
+
+
+
+👉 አናሎጂ:
+
+ይህ ልክ እንደ "የትምህርት ቀን መደጋገም" ነው። ተማሪው ትምህርቱን እስከሚጨርስ (ሁኔታው እውነት እስከሆነ) ድረስ ደጋግሞ ያነባል፤ ትምህርቱ ሲጨርስ (ሁኔታው ሐሰት) ብቻ ይቆማል።
+
+
+
+4.2.3. Do...while loop.
+
+
+
+The do statement (also called the do loop) is similar to the while statement, except that its body is executed first and then the loop condition is examined.
+
+
+
+In do...while loop, we are sure that the body of the loop will be executed at least once. Then the condition will be tested.
+
+
+
+The general form is:
+
+
+
+
+
+do {
+
+    statement;
+
+} while(expression);
+
+
+
+
+
+First statement is executed and then expression is evaluated. If the outcome of the expression is nonzero, then the whole process is repeated. Otherwise the loop is terminated.
+
+
+
+E.g.:
+
+
+
+//our previous example (Eg3) in the while loop might be changed as:
+
+age=-1;
+
+do {
+
+    cout<<"\n enter your valid age [between 0 and 130]:";
+
+    cin>>age;
+
+} while(age < 0 || age > 130);
+
+
+
+
+
+- E.g. what do you think is the outcome of the following code:
+
+
+
+
+
+unsigned long n;
+
+do {
+
+    cout<<"\n enter number (0 to end):";
+
+    cin>>n;
+
+    cout<<"\n you entered:"<<n;
+
+} while(n != 0);
+
+```
+
+
+
+ይህ do...while loop ሲሆን፣ ከ while ጋር ተመሳሳይ ነው ግን በመጀመሪያ የ loop body ስራው ይከናወናል፣ ከዚያ በኋላ ሁኔታው ይሞከራል። በዚህ ምክንያት ቢያንስ አንድ ጊዜ ስራው ይከናወናል (በ while ግን ሁኔታው እውነት ካልሆነ ምንም አይሰራም)።
+
+
+
+👉 አናሎጂ:
+
+ይህ ልክ እንደ "በመጀመሪያ ስራውን ስራ ከዚያ ጥያቄ ጠይቅ" ነው። ለምሳሌ ተማሪው በመጀመሪያ ትምህርቱን ያነባል፣ ከዚያ ትምህርቱ አሁንም እንዳለ ይጠየቃል። በ while ግን በመጀመሪያ ጥያቄውን ይጠይቃል (ሁኔታው እውነት ከሆነ ብቻ ያነባል)።
+
+
+
+4.2.4. Pitfalls in writing repetition statements
+
+
+
+There are some pitfalls worth mentioning in repetition statements. These pit falls are the most common programming errors committed by programmers
+
+
+
+ Infinite loop: no matter what you do with the while loop (and other repetition statements), make sure that the loop will eventually terminates.
+
+
+
+E.g.1:
+
+//Do you know why the following is an infinite loop?
+
+int product = 0;
+
+while(product < 50)
+
+    product *= 5;
+
+
+
+
+
+E.g.2:
+
+
+
+//Do you know why the following is an infinite loop?
+
+int counter = 1;
+
+while(counter != 10)
+
+    counter += 2;
+
+
+
+
+
+In the first example, since product is initialized with zero, the expression "product*=5" will always give us zero which will always be less than 50.
+
+
+
+In the second example, the variable counter is initialized to 1 and increment is 2, counter will never be equal to 10 as the counter only assumes odd values. In theory, this while loop is an infinite loop, but in practice, this loop eventually terminates because of an overflow error as counter is an integer it will have a maximum limit.
+
+
+
+Off-By-One Bugs (OBOB): another thing for which you have to watch out in writing a loop is the so called Off-By-One Bugs or errors. Suppose we want to execute the loop body 10 times. Does the following code work?
+
+
+
+E.g.:1
+
+
+
+count = 1;
+
+while(count < 10) {
+
+    
+
+    count++;
+
+}
+
+
+
+
+
+No, the loop body is executed nine times. How about the following?
+
+
+
+E.g.:2
+
+
+
+count = 0;
+
+while(count <= 10) {
+
+    ...
+
+    count++;
+
+}
+
+
+
+
+
+No this time the loop body is executed eleven times. The correct is
+
+
+
+E.g.:3
+
+count = 0;
+
+while(count < 10) {
+
+    
+
+    count++;
+
+}
+
+OR
+
+count = 1;
+
+while(count <= 10) {
+
+    
+
+    count++;
+
+}
+
+
+
+
+
+ይህ ክፍል በ loop ሲጽፉ የሚፈጸሙ የተለመዱ ስህተዎችን (pitfalls) ያሳያል። በተለይ infinite loop (የማያበቃ loop) እና Off-By-One Bugs (አንድ ቁጥር ተሳስቶ መቁጠር) በጣም የተለመዱ ናቸው።
+
+
+
+👉 አናሎጂ:
+
+Infinite loop ልክ እንደ "የማያበቃ የትምህርት ቀን" ነው። ተማሪው ትምህርቱን ሲጨርስ የማይቆም ከሆነ (ሁኔታው ሁልጊዜ እውነት) ህይወቱ ያልቃል!  
+
+Off-By-One ደግሞ ልክ እንደ "10 ቀን ብሎ መቁጠር ግን 9 ቀን መቆጠር" ነው። አንድ ቀን ተሳስተህ ብትቆጥር ሁሉም ነገር ተበላሽቶ ይወጣል።
+
+
+
+4.2.5. Types of Loops
+
+
+
+4.2.5.1. Count controlled loops
+
+Repeat a statement or block a specified number of times. Count-controlled loops contain:
+
+- An initialization of the loop control variable  
+
+- An expression to test if the proper number of repetitions has been completed  
+
+- An update of the loop control variable to be executed with each iteration of the body
+
+
+
+4.2.5.2. Event-controlled loops
+
+Repeat a statement or block until a condition within the loop body changes that causes the repetition to stop
+
+
+
+Types of Event-Controlled Loops
+
+1. Sentinel controlled: Keep processing data until a special value that is not a possible data value is entered to indicate that processing should stop  
+
+2. End-of-file controlled: Keep processing data as long as there is more data in the file  
+
+3. Flag controlled: Keep processing data until the value of a flag changes in the loop body
+
+
+
+ይህ ክፍል የ loop አይነቶችን ይዘረዝራል። Count controlled ማለት በተወሰነ ብዛት (እንደ 10 ጊዜ) መድገም ነው። Event-controlled ደግሞ እስከ ልዩ ሁኔታ (እንደ sentinel ወይም EOF) ድረስ መድገም ነው።
+
+
+
+👉 አናሎጂ:
+
+Count controlled ልክ እንደ "10 ጊዜ ጭማሪ ማድረግ" ነው።  
+
+Event-controlled ደግሞ ልክ እንደ "የትራፊክ መብራት አረንጓዴ እስከሆነ መሄድ" ነው (ቀይ ሲሆን ይቆማል)።
+
+
+
+4.3. The continue and break statements
+
+
+
+4.3.1. The continue statement
+
+The continue statement terminates the current iteration of a loop and instead jumps to the next iteration.
+
+
+
+It is an error to use the continue statement outside a loop.
+
+
+
+In while and do while loops, the next iteration commences from the loop condition.
+
+In a "for" loop, the next iteration commences from the loop's third expression.
+
+
+
+E.g.:
+
+
+
+for(int n=10;n>0;n--) {
+
+    if(n==5) continue;
+
+    cout<<n<<" ";
+
+}
+
+
+
+When the continue statement appears inside nested loops, it applies to the loop immediately enclosing it, and not to the outer loops. For example, in the following set of nested loops, the continue statement applies to the "for" loop, and not to the "while" loop.
+
+
+
+E.g.:
+
+
+
+while(more) {
+
+    for(j=0;j<n;j++) {
+
+        cin>>num;
+
+        if(num<0) continue; //causes a jump to : i++
+
+    }
+
+}
+
+
+
+
+
+4.3.2. The break statement
+
+A break statement may appear inside a loop (while, do, or for) or a switch statement. It causes a jump out of these constructs, and hence terminates them.
+
+
+
+Like the continue statement, a break statement only applies to the "loop" or "switch" immediately enclosing it. It is an error to use the break statement outside a loop or a switch statement.
+
+
+
+E.g.:
+
+for(n=10;n>0;n--) {
+
+    cout<<n<<" ";
+
+    if(n == 3) {
+
+        cout<<"count down aborted!!";
+
+        break;
+
+    }
+
+}
+
+
+
+
+
+ይህ ክፍል continue እና break የሚባሉትን ትዕዛዞች ያብራራል። Continue የአሁኑን iteration ያቆማል እና ወደ ቀጣይ iteration ይገባል። Break ደግሞ መላውን loop ወይም switch ያቆማል። ሁለቱም በ loop ውስጥ ብቻ ይሰራሉ።
+
+
+
+👉 አናሎጂ:
+
+Continue ልክ እንደ "በትምህርት ላይ እያለ ስልክ መጣ ግን ትምህርቱን ቀጥል" (ይህ iteration ብቻ ተቋርጦ ቀጣይ ይጀምራል)።  
+
+Break ደግሞ ልክ እንደ "በትምህርት ላይ እያለ ድንገት የእረፍት ደወል ደወለ እና ሁሉም ተቋርጦ ወጣ" (መላው loop ያበቃል)።
