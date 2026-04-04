@@ -1,0 +1,171 @@
+8 Develop a program that uses the function factorial() of exercise 6 to compute anapproximation of e (Euler’s number). Base your approximation on the followingformula for e:1 + 1/1! + 1/2! + 1/3! + …
+
+Full code
+
+#include <iostream>
+
+#include <iomanip> // For std::setprecision
+
+// Function to calculate factorial recursively
+
+long long factorial(int n) {
+
+    if (n < 0) {
+
+        return 0; // Factorial is not defined for negative numbers
+
+    }
+
+    if (n == 0 || n == 1) {
+
+        return 1;
+
+    }
+
+    return n * factorial(n - 1);
+
+}
+
+int main() {
+
+    double e_approximation = 0.0;
+
+    int num_terms;
+
+    std::cout << "Enter the number of terms to use for approximating e: ";
+
+    std::cin >> num_terms;
+
+    if (num_terms <= 0) {
+
+        std::cout << "Number of terms must be positive." << std::endl;
+
+        return 1;
+
+    }
+
+
+
+    for (int i = 0; i < num_terms; ++i) {
+
+        e_approximation += 1.0 / factorial(i);
+
+    }
+
+    std::cout << std::fixed << std::setprecision(15); // Set precision for output
+
+    std::cout << "Approximation of e using " << num_terms << " terms: " << e_approximation << std::endl;
+
+
+
+    return 0;
+
+}
+
+
+
+ማብራሪያ 😁
+
+👉#include <iostream> እና #include <iomanip> → ለ input/output  እና ቁጥርን በትክክል ለማሳየት የሚያገለግሉ መሳሪያዎች ናቸው።
+
+👉factorial(int n) → ቁጥርን እስከ 1 ድረስ በመባዛት ፋክቶሪያል (factorial) የሚያስላ ፋንክሽን ነው። ቁጥሩ 5 factorial ከሆነ 5×4×3×2×1 አርጎ ነው ሚሠራው
+
+👉main() → ከተጠቃሚ/user  ስንት ቁጥር መጠቀም እንደሚፈልግ ይጠይቃል።
+
+👉input ≤ 0 ከሆነ → Error  መልዕክት ያወጣና ፕሮግራሙ ይዝጋል።
+
+👉ካልሆነ → ከ0 እስከ num_terms-1 ድረስ በተደጋጋሚ ይዞራል ፣ በየጊዜው 1/factorial(i) እየጨመረ ወይም add እያረገበት ይሄዳል እናም ከe ጋር የሚያስተካክል/የሚቀራረብ ዋጋ ያገኛል።
+
+👉መጨረሻ → ውጤቱን በ15 የዲሲማል ቁጥር  ያቀርባል።
+
+
+
+
+
+👍  በአጭሩ፦ ይህ ኮድ ፋክቶሪያልን በመጠቀም በተደጋጋሚ ሒሳብ እየተጨመረ የ e ዋጋን የሚያቀርብ ነው።
+
+
+
+
+
+10 Write a function called isEven() that uses the remainder operator(%) to determinewhether an integer is even or not.
+
+Full code
+
+#include <iostream>
+
+bool isEven(int number) {
+
+    return (number % 2 == 0); 
+
+}
+
+
+
+int main() {
+
+    int num1 = 4;
+
+    int num2 = 7;
+
+
+
+    if (isEven(num1)) {
+
+        std::cout << num1 << " is even." << std::endl;
+
+    } else {
+
+        std::cout << num1 << " is odd." << std::endl;
+
+    }
+
+
+
+    if (isEven(num2)) {
+
+        std::cout << num2 << " is even." << std::endl;
+
+    } else {
+
+        std::cout << num2 << " is odd." << std::endl;
+
+    }
+
+    return 0;
+
+}
+
+ማብራሪያ 😁
+
+#include <iostream> — ፕሮግራሙ ከኮምፒውተር ጋር እንዲያወያይ የሚያስችል ሳጥን እንደሚያመጣ መሳሪያ ነው። 🖥️🗣️
+
+bool isEven(int number) { — ለራሱ ትንሽዬ ረዳት isEven የሚባል function ይፈጠራል፣ ሥራውም “ይህ ቁጥር በሁለት ይከፈላልን?” ብሎ መጠየቅ እና እንደ እውነት/ሐሰት ጥያቄ መመልስ ነው። 🤔➡️✅/❌
+
+    return (number % 2 == 0); — % ተባለውን ምልክት በመጠቀም ቁጥሩ በ2 ሲከፈል ቀሪው 0 ከሆነ true ካልሆነ false ይመልሳል። ✔️❌
+
+int main() { — የፕሮግራሙ መነሻ ቦታ፣ የትዕይንቱ ጅማሮ! 🎭
+
+    int num1 = 4; — አዲስ ቁጥር num1 ተፈጥሯል፣ ዋጋው 4 ነው። 4️⃣
+
+    int num2 = 7; — አዲስ ቁጥር num2 ተፈጥሯል፣ ዋጋው 7 ነው። 7️⃣
+
+    if (isEven(num1)) { — isEven(4) ተጠርቶ ይጠየቃል፣ እውነት ከሆነ የሚቀጥለው ስራ ይሰራል። 🔎
+
+        std::cout << num1 << " is even." << std::endl; — “4 is even.” ተብሎ outputኡ ይወጣል። 🖨️
+
+    } else { — ከላይ ☝️ሰርተን የኘበረው ሀሰት  ከሆነ ከዚህ በታች ያለው ይሰራል። 🔁
+
+        std::cout << num1 << " is odd." << std::endl; — “4 is odd” ተብሎ outputኡ ይወጣል (ነገር ግን እዚህ ጋር አይሆንም ለምሳሌ ያህል እንውሰደው እንጂ።) 🙃
+
+    if (isEven(num2)) { — isEven(7) ተጠርቶ ይጠየቃል፣ እውነት ከሆነ የሚቀጥለው ስራ ይሰራል። 🔎
+
+        std::cout << num2 << " is even." << std::endl; — “7 is even.” ተብሎ ይታተም (አይሆንም እዚህ ምክንያቱም 7 ተጋማሽ ቁጥር አይደለችም) 🖨️
+
+    } else { — ካልሆነ የሚቀጥለው ይሰራል። 🔁
+
+        std::cout << num2 << " is odd." << std::endl; — “7 is odd.” ብሎ outputኡ ይወጣል። 🎯
+
+    return 0; — ለኮምፒውተር “ሁሉም በትክክል ነው፣ ተጠናቋል” ይላል። 🎉
+
+👉 በአጭሩ፦ ይህ ኮድ ቁጥር even  ነው ወይስ odd እንደሆነ ይመለከታል፣ ከዚህም ጋር 4ን እና 7ን በምሳሌ ይፈትናል። ✨
