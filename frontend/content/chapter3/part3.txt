@@ -1,0 +1,263 @@
+4.2 Repetition Statements 
+
+Repetition statements control a block of code to be executed repeatedly for a fixed number of times or until a certain condition fails. There are three C++ repetition statements: 
+
+1) The For Statement or loop 
+
+2) The While statement or loop 3) The do…while statement or loop
+
+Repetition Statements የምንላቸው ከስሙ እንደምንረዳው repeat የሚያደርጉ ወይም የሚደጋገሙ ናቸው። እስከ ምን ድረስ ካልን ማቆሚያቸውን እስከምንነግራቸው ድረስ ማለት ነው። ነገር ግን ረስተን ወይም ሆን ብለን ገደል ለማስገባት😂 የሚያቆሙበትን ካልነገርናቸው መደጋገማቸውን አያቆሙም።
+
+በc++ ሦስት አይነት መደጋገምን የምንገልጽባቸው statement-ኦች አሉ። እነሱም 
+
+for loop, while loop, do..while loop. lopp የሚለው መደጋገማቸውን ለማሳወቅ ነው። 
+
+ስለዚህ የመጀመሪያውን ወይም for የሚባለውን የlopp ወይም repetitive statement አይነት እንመልከት። ዝግጁ 💪 ነቃ የምን መዛል እ..😊
+
+4.2.1. The for Statement /loop
+
+The “for” statement (also called loop) is used to repeatedly execute a block of instructions until a specific condition fails
+
+for የምንለው statement ወይም በሌላ ስሙ for loop እንደ መኪና ጎማ አስቡት በተደጋጋሚ ይሽከረከራል። እስከ መቼ ካልን ሹፌሩ ፍሬን እስከሚይዝ። እንደዚህ ሁሉ ይሄ for loop.ማቆሚያውን እስከምንነግረው ድረስ ይሽከረከራል።
+
+The General Syntax is: for(expression1 ; expression2 ; expression3) 
+
+ statements; 
+
+አጠቃላይ አጻጻፉ ከላይ ያለውን ሲመስል እያንዳንዱን እስኪ እንበታትነው 💪
+
+for - የተጠቀምነው የloop አይነት for መሆኑን ለማሳወቅ ነው። (የመኪና ጎማ ያልነው ነው😊)
+
+expression1: is one or more statements that will be executed only once and before the looping starts.
+
+expression1 - ይሄ የመኪናው ጎማ የሚነሳበትን ይናገራል። ለምስሌ i=0; ብንል iን ከዜሮ ጀምሪ እያልናት ነው። የሚሰራውም አንዴ ብቻ ነው።
+
+expression2: is the part that decodes whether to preceed with executing the instructions in the loop or to stop.
+
+expression2 - ይሄ ደግሞ ወሳኙ part ሲሆን የመኪናው ጎማ የት ማቆም እንዳለበት የሚናገር ክፍል ነው። ስለዚህ i ከ0 ተነስታ እስከ ስንት ትሂድ ስንል i<4 ካልን i እስከ ሶስት ትሂድ እያልን ነው።  ስለዚህ loopኡ i ከ 4 ያነሰች ቁጥር ከሆነች ስራውን ይቀጥላል። ካልሆነች ግን ከloopኡ ይወጣል።
+
+expression3: is is one or more statements that will be executed after each iteration.
+
+expression3- ይሄ ደግሞ እሽ በዚያው ፍጥነት ልሂድ ወይስ ብሎ የሚጠይቀን ነው። ለምሳሌ i++; ብንል በእያንዳንዱ ዙር iን 1ጨምርባት እያልን ነው። ወይም i+2; ማለት እንችላለን እንደምንጽፈው code አስፈላጊነት ይቀየራል። i--; ብሎም መቀነስ ይቻላል።
+
+statements - ይሄ ሁሉ ሲደረግ እንዲሰሩልን የምንፈልጋቸውን ነገሮች የምንጽፍበት ክፍል ነው።
+
+ስለዚህ በቀላሉ እና ግልጽ በሆነ መልኩ እንደዚህ ሊጻፍ ይችላል።
+
+The general format can be expressed as follows for the sake of clarity: for(initialization ; condition ; increase/decrease) 
+
+statement; 
+
+steps of execution of the for loop: 
+
+1, initialization
+
+2, Condition Checked
+
+3, Statement Executed 
+
+4, Increase/decrease 
+
+initialization መጀመሪያ ይሰራል። ከዛ codition check ይደረጋል። የሰጠነው ገደብ ላይ ደርሻለሁ አልደረስንም ይላል። true ከሆነ ስራዎን ይቀጥላል። false ከሆነ ደግሞ ከloop-ኡ ይወጣል። ወይም loop ማድረጉን ያቆማል። ከዛ እንድንጨምር ወይም እንድንቀንስ የነገርነው statement3 ላይ ሂዶ ያዘዝነውን ያደርጋል ማለት ነው።
+
+➠ even though it is not recommended, expression1, expression2, expression3 can be optional.
+
+ይሄ ባይመከርም  ሶስቱን expression-ኦች በሙሉ መተው ወይም አንዱን ብቻ ወይም ሁለቶቹን ብቻ መጠቀም ይቻላል።  ምክንያቱም ሁለተኛውን ወይም expression2ን ባዶ አደረግነው ማለት የማያቆም loop ይሆናል ማለት ነው።
+
+example
+
+// the following code adds a number between 0 and 10.
+
+int sum; //sumን declare አደረግን
+
+for (int i=0;i<=10;i++)  // for expression ጻፍን
+
+/* መጀመሪያ iን ውስጥ declare አድርገን ከzero አስጀመርን። ከዛ እከ 10 እንዲሄድ እና በየዙሩ ደግሞ አንድ እንዲጨምር አደረግነው  */
+
+sum=sum+i;  
+
+/* እዚህ ላይ ሲደርስ sum መጀመሪያ ምንም የላትም ነበር። i ደግሞ ከ0 ነው የጀመረች ስለዚህ የመጀመሪያው ዙር sum=0 ትሆናለች። በመቀጠል i አንዶ ይጨምራል ምክንያቱም i++ ስላልን። ከዛ sum =0 ሲደመር 1 sum=1 በመባል አዲስ ዋጋ ትይዛለች ማለት ነው። i አሁንም አንድ ትጨምርና 2 ትሆናለች sum=sum+i ስለሆነ sum 1 ነበረች አሁን 2 ሲጨመርባት 3 ትሆናለች። እንደዚህ እያለ እስከ 10 ወይም 10ን ጨምሮ check ያደርጋል። መጨረሻ i ጨምራ 11 ስትሆን loopኡ ያበቃል። */
+
+
+
+
+
+4.2.2. The while statement
+
+
+
+The while statement (also called while loop) provides a way of repeating a statement or a block as long as a condition holds / is true.
+
+
+
+The general form of the while loop is:
+
+
+
+while(expression)
+
+    statements;
+
+
+
+First expression (called the loop condition) is evaluated. If the outcome is non zero then statement (called the loop body) is executed and the whole process is repeated. Otherwise, the loop is terminated.
+
+
+
+Suppose that we wish to calculate the sum of all numbers from 1 to some integer value n. this can be expressed as :
+
+
+
+E.g.1:
+
+
+
+// adds the numbers between 0 and any given number n
+
+i=1; sum = 0;
+
+while(i <= n)
+
+    sum += i++;
+
+
+
+
+
+E.g.2:
+
+
+
+// adds the numbers between 0 and 100
+
+number=1; sum=0;
+
+while(number <= 100)
+
+{
+
+    sum += number;
+
+    number++;
+
+}
+
+
+
+
+
+E.g.3:
+
+
+
+/*the following while loop will request the user to enter his/her age which should be between 0 and 130. If the user enters a value which is not in the range, the while loop test the value and request the age again until the user enters a valid age.*/
+
+cout << "\n enter your age [between 0 and 130]:";
+
+cin >> age;
+
+while(age < 0 || age > 130)
+
+{
+
+    cout << "\n invalid age. Plz try again!";
+
+    cin >> age;
+
+}
+
+
+
+
+
+ይህ ክፍል while loop ሲሆን፣ አንድ ትዕዛዝ ወይም ኮድ ስብስብ በተወሰነ ሁኔታ (condition) እውነት እስከሆነ ድረስ ደጋግሞ እንዲሰራ ያደርጋል። ሁኔታው ሐሰት ሲሆን ብቻ ስራው ያቆማል። በምሳሌዎቹ ላይ እንደሚታየው ቁጥሮችን መደመር፣ የተጠቃሚውን ዕድሜ ማረጋገጥ ወዘተ በቀላሉ ለመድገም ያገለግላል።
+
+
+
+👉 አናሎጂ:
+
+ይህ ልክ እንደ "የትምህርት ቀን መደጋገም" ነው። ተማሪው ትምህርቱን እስከሚጨርስ (ሁኔታው እውነት እስከሆነ) ድረስ ደጋግሞ ያነባል፤ ትምህርቱ ሲጨርስ (ሁኔታው ሐሰት) ብቻ ይቆማል።
+
+
+
+4.2.3. Do...while loop.
+
+
+
+The do statement (also called the do loop) is similar to the while statement, except that its body is executed first and then the loop condition is examined.
+
+
+
+In do...while loop, we are sure that the body of the loop will be executed at least once. Then the condition will be tested.
+
+
+
+The general form is:
+
+
+
+
+
+do {
+
+    statement;
+
+} while(expression);
+
+
+
+
+
+First statement is executed and then expression is evaluated. If the outcome of the expression is nonzero, then the whole process is repeated. Otherwise the loop is terminated.
+
+
+
+E.g.:
+
+
+
+//our previous example (Eg3) in the while loop might be changed as:
+
+age=-1;
+
+do {
+
+    cout<<"\n enter your valid age [between 0 and 130]:";
+
+    cin>>age;
+
+} while(age < 0 || age > 130);
+
+
+
+
+
+- E.g. what do you think is the outcome of the following code:
+
+
+
+
+
+unsigned long n;
+
+do {
+
+    cout<<"\n enter number (0 to end):";
+
+    cin>>n;
+
+    cout<<"\n you entered:"<<n;
+
+} while(n != 0);
+
+```
+
+
+
+ይህ do...while loop ሲሆን፣ ከ while ጋር ተመሳሳይ ነው ግን በመጀመሪያ የ loop body ስራው ይከናወናል፣ ከዚያ በኋላ ሁኔታው ይሞከራል። በዚህ ምክንያት ቢያንስ አንድ ጊዜ ስራው ይከናወናል (በ while ግን ሁኔታው እውነት ካልሆነ ምንም አይሰራም)።
+
+
+
+👉 አናሎጂ:
+
+ይህ ልክ እንደ "በመጀመሪያ ስራውን ስራ ከዚያ ጥያቄ ጠይቅ" ነው። ለምሳሌ ተማሪው በመጀመሪያ ትምህርቱን ያነባል፣ ከዚያ ትምህርቱ አሁንም እንዳለ ይጠየቃል። በ while ግን በመጀመሪያ ጥያቄውን ይጠይቃል (ሁኔታው እውነት ከሆነ ብቻ ያነባል)።
