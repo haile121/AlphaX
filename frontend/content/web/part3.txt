@@ -1,0 +1,63 @@
+CSS — Session 1: selectors, cascade & visual design
+
+CSS (Cascading Style Sheets) describes how HTML elements look: color, type, spacing, and motion. This session covers how rules apply and how to style text and simple components; the next session goes deeper into layout systems.
+
+Rule structure
+A rule has a selector and a declaration block:
+
+p.intro {
+  color: #222;
+  line-height: 1.6;
+  margin-block: 0 1rem;
+}
+
+Selectors (common)
+• Type: p { }
+• Class: .card { } — class="card card--large" can match multiple classes.
+• ID: #app { } — high specificity; prefer classes for reusable styling.
+• Attribute: [type="submit"] { }, [href^="https"] { }
+• Combinators: descendant (space), child (>), adjacent (+), sibling (~)
+• Pseudo-classes: :hover, :focus, :focus-visible, :first-child, :is(), :where()
+• Pseudo-elements: ::before, ::after (need content for generated boxes)
+
+Specificity (simplified)
+Inline styles beat IDs beat classes/attributes/pseudo-classes beat elements/pseudo-elements. :where() has zero specificity. When two rules tie, later source order wins (same file or order of <link>). Use the cascade intentionally — avoid piling on !important.
+
+Inheritance
+Many text properties inherit (color, font-family); box properties usually do not (margin, padding, border). inherit and unset keywords help when you need explicit behavior.
+
+Custom properties (“CSS variables”)
+Define on :root or any selector:
+
+:root {
+  --color-text: #111;
+  --space: 1rem;
+}
+body { color: var(--color-text); padding: var(--space); }
+
+Great for themes: change variables in one place or per [data-theme="dark"].
+
+Typography
+font-family: stack fallbacks ("Inter", system-ui, sans-serif). font-size: rem for scalable text from the root; avoid shrinking body text below ~16px for main copy. font-weight, font-style, line-height (unitless multipliers work well for inheritance). letter-spacing and text-transform for fine control.
+
+Colors and contrast
+Formats: named, hex #rrggbb, rgb()/rgba(), hsl()/hsla(), color-mix() (modern). Check contrast between text and background. Prefer hsl() when you want to adjust lightness for hover states systematically.
+
+Spacing and sizing
+margin (outside border), padding (inside). Shorthand: margin: 1rem 2rem (vertical horizontal). max-width on paragraphs improves readability (e.g. 65ch).
+
+Transitions (light intro)
+transition: color 0.2s ease, transform 0.2s ease; — animate cheap properties (opacity, transform) for smoother pages; avoid animating layout-heavy properties every frame.
+
+የ CSS — ምርጫ እና ዝግጁ (አጭር)
+
+• Specificity — የሚያሸንፍ ህግ እንዴት እንደሚመረጥ።
+• var(--token) — ጭብጥ እና ጨለማ ሞድ ለመቀያየር።
+• rem — ከ root ጋር የተመሳሰለ የፊደል መጠን።
+
+Practice ideas
+1. Style an article: max-width in ch, comfortable line-height, distinct h2/h3 styles using variables.
+2. Build a primary button: default, :hover, :focus-visible states with sufficient contrast.
+3. Add a .card class with padding, border-radius, and a subtle box-shadow.
+
+Key terms: selector, specificity, cascade, inheritance, rem, custom property, :focus-visible.
