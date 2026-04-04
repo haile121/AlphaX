@@ -1,0 +1,1184 @@
+Chapter One 
+
+Functions 
+
+1. What is a function? 
+
+􀂾 A function provides a convenient way of packaging a computational recipe, so that it can be used as often as required. 
+
+􀂾 Therefore, a function is a block of code designed to tackle a specific problem. 
+
+1.1. Function Basics 
+
+􀂾 One of the best ways to tackle a problem is to start with the overall goal, then divide this goal into several smaller tasks. You should never lose sight of the overall goal, but think also of how individual pieces can fit together to accomplish such a goal. 
+
+􀂾 If your program does a lot, break it into several functions. Each function should do only one primary task. 
+
+1.2. Summarized function basics. 
+
+􀂾 C++ functions generally adhere to the following rules. 
+
+1. Every function must have a name. 
+
+2. Function names are made up and assigned by the programmer following the same rules that apply to naming variables. They can contain up to 32 characters, they must begin with a letter, and they can consist of letters, numbers, and the underscore (_) character. 
+
+3. All function names have one set of parenthesis immediately following them. This helps you (and C++ compiler) differentiate them from variables. 
+
+4. The body of each function, starting immediately after parenthesis of the function name, must be enclosed by braces. 
+
+1.3. Declaring, defining and calling functions 
+
+1.3.1. Declaring function: 
+
+o The interface of a function (also called its prototype) specifies how it may be used. It consists of three entities: 
+
+o The function return type. This specifies the type of value the function returns. A function which returns nothing should have a return type void. 
+
+o The function name. this is simply a unique identifier 
+
+o The function parameters (also called its signature). This is a set of zero or more typed identifiers used for passing values to and from the function. 
+
+o Function parameters are the names listed in the function's definition. Function arguments are the real values passed to the function. Parameters are initialized to the values of the arguments supplied.
+
+1.3.2. Defining a function: 
+
+o A function definition consists of two parts: interface (prototype) & body. The brace of a function contains the computational steps (statements) that computerize the function. The definition consists of a line called the decelerator. 
+
+o If function definition is done before the main function, then there is no need to put the prototype, otherwise the prototype should be scripted before the main function starts. 
+
+
+
+1.3.3. Calling the function: 
+
+o Using a function involves calling it. 
+
+o Calling a function means making the instruction of the function to be executed. 
+
+o A function call consists of the function name followed by the call operator brackets (), inside which zero or more comma-separated arguments appear. The number and type of arguments should match the number of function parameters. Each argument is an expression whose type should match the type of the corresponding parameter in the function interface. 
+
+o When a function call is executed, the arguments are first evaluated and their resulting values are assigned to the corresponding parameters. The function body is then executed. Finally the return value (if any) is passed to the caller. 
+
+􀂾 A function call in C++ is like a detour on a highway. Imagine that you are traveling along the “road” of the primary function called main(). When you run into a function-calling statement, you must temporarily leave the main() function and execute the function that was called. After that function finishes (its return statement is reached), program control returns to main(). In other words, when you finish a detour, you return to the main route and continue the trip. Control continues as main() calls other functions. 
+
+􀂾 Lets have a simple example: 
+
+void func1(); prototype of function definition 
+
+void main() 
+
+{ no return type as it is void in the definition. 
+
+--------------- 
+
+func1(); function call (notice the semicolon) 
+
+--------------- 
+
+} 
+
+Return type is void 
+
+void func1() no semicolon. Decelerator 
+
+{ 
+
+-------------- function body definition 
+
+} no semicolon. 
+
+
+
+
+
+ C++ Function
+
+በ C++ ውስጥ ተግባራት (functions) እንዴት እንደሚሰሩ በቀላል አማርኛ እንመልከት።
+
+ለመሆኑ፤
+
+1 ተግባር (Function) ማለት ምን ማለት ነው?
+
+Function ማለት አንድ የተወሰነ ስራ ለመስራት ተብሎ የተጻፈ የኮድ ክፍል (block of code) ነው። ልክ እንደ ምግብ አሰራር አይነት ማለት ነው፤ አንድ ምግብ ለማዘጋጀት የተለያዩ ንጥረ ነገሮችን እንደምንጠቀም ሁሉ፣ አንድን ተግባር ለመስራት ደግሞ የተለያዩ ትዕዛዞችን (instructions) እንጠቀማለን።
+
+ 1.1 ለምን ተግባራትን እንጠቀማለን?
+
+1.ኮዳችንን በንጽህና ለመያዝ: አንድ ትልቅ ፕሮግራም (program) ወደ ትናንሽ ክፍሎች ከፍለን ብንሰራው ለማንበብ እና ለመረዳት ቀላል ይሆናል።
+
+2.ጊዜ ለመቆጠብ:አንድን ተግባር ብዙ ጊዜ መጠቀም ስንፈልግ አንድ ጊዜ ብቻ እንጽፈዋለን፣ ከዚያም በፈለግንበት ቦታ እየጠራን (calling) እንጠቀመዋለን። ይህም ድጋሚ ድጋሚ ከመጻፍ ያድነናል።
+
+3.ስህተቶችን በቀላሉ ለማግኘት:ፕሮግራማችንን ወደ ትናንሽ ክፍሎች ስንከፍለው፣ ስህተት ቢፈጠር የት እንደተፈጠረ በቀላሉ ማወቅ እንችላለን።
+
+1.2 Parts of Funtion (የተግባር ክፍሎች)
+
+እያንዳንዱ Function የሚከተሉት ክፍሎች አሉት፡
+
+
+
+1.  ስም (Name):እያንዳንዱ ተግባር የራሱ የሆነ ስም ሊኖረው ይገባል። በፕሮግራሙ ውስጥ ያሉትን ተግባራት ለመለየት ስሙን እንጠቀማለን።
+
+2.  ቅንፍ (Parenthesis): ከእያንዳንዱ የተግባር ስም በኋላ ቅንፍ ይኖራል። ለምሳሌ `func1()`
+
+3.  ማካተቻ (Braces):የተግባሩ ኮድ የሚጻፈው በሁለት ማካተቻዎች ውስጥ ነው። ለምሳሌ `{ }`
+
+1.3 How Function Works?
+
+የ Function አጠቃቀም
+
+Functionንን ለመጠቀም ሶስት ነገሮችን ማድረግ አለብን፡
+
+1.  ማወጅ (Declaring):ተግባሩ ምን እንደሚሰራ እና እንዴት እንደሚጠራ እንገልጻለን።
+
+2.  መግለጽ (Defining): ተግባሩ ምን አይነት ስራ እንደሚሰራ ኮዱን እንጽፋለን።
+
+3.  መጥራት (Calling):ተግባሩን ስራውን እንዲሰራ እንጠራዋለን።
+
+1.3.1 ማወጅ (Declaring)
+
+functionንን declare ስናደርግ(ተግባርን ስናውጅ) የሚከተሉትን ነገሮች እንገልጻለን፡
+
+i.የተግባሩ መመለሻ አይነት (Return Type): ተግባሩ ስራውን ከጨረሰ በኋላ የሚመልሰው የውሂብ አይነት (data type) ምን እንደሆነ እንገልጻለን። ለምሳሌ `int`, `float`, `string` ወዘተ. ምንም ነገር የማይመልስ ከሆነ `void` እንጠቀማለን።
+
+ii.የተግባሩ ስም (Function Name):ተግባሩን የምንጠራበት ስም ነው።
+
+         iii.መለኪያዎች (Parameters):ተግባሩ ከውጪ የሚቀበላቸው መረጃዎች ካሉ እንገልጻለን።
+
+    ለምሳሌ:
+
+    ```c++
+
+    int add(int x, int y); //ተግባሩ ሁለት ኢንቲጀር ይቀበላል፤ ኢንቲጀር ይመልሳል
+
+    ```
+
+ 1.3.2 መግለጽ (Defining)
+
+ተግባርን ስንገልጽ የተግባሩን ስራ የሚገልጽ ኮድ እንጽፋለን።
+
+ለምሳሌ:
+
+```c++
+
+int add(int x, int y) {
+
+  int sum = x + y;
+
+  return sum;
+
+}
+
+```
+
+       1.3.3 መጥራት (Calling)
+
+ተግባርን ስንጠራ ስሙን ከቅንፍ ጋር እንጽፋለን። አስፈላጊ ከሆነ ደግሞ መለኪያዎችን (arguments)
+
+እንሰጣለን።
+
+ለምሳሌ:
+
+```c++
+
+int result = add(5, 3); //ተግባሩን ጠራን፤ 5 እና 3ን ሰጠን
+
+```
+
+## ምሳሌ
+
+```c++
+
+#include <iostream>
+
+//ተግባሩን ማወጅ
+
+          int add(int x, int y);
+
+int main() {
+
+  int result = add(5, 3); //ተግባሩን መጥራት
+
+  std::cout << "The sum is: " << result << std::endl;
+
+  return 0;
+
+}
+
+//ተግባሩን መግለጽ
+
+int add(int x, int y) {
+
+  int sum = x + y;
+
+  return sum;
+
+}
+
+```
+
+በዚህ ምሳሌ፡-
+
+
+
+*   `add` የተባለ ተግባር አውጀናል። ይህ ተግባር ሁለት ኢንቲጀር ተቀብሎ ኢንቲጀር ይመልሳል።
+
+*   በ `main` ተግባር ውስጥ `add(5, 3)` ብለን ጠርተነዋል። ይህም `add` ተግባር 5 እና 3ን እንዲደምር ያደርገዋል።
+
+*   `add` ተግባር ስራውን ከጨረሰ በኋላ ድምሩን ይመልሳል፣ ይህም `result` በተባለ ተለዋዋጭ (variable) ውስጥ ይቀመጣል።
+
+ስናጠቃልለው፤
+
+ተግባራት በ C++ ውስጥ ትልቅ ቦታ የሚሰጣቸው ሲሆን ኮዳችንን በንጽህና ለመያዝ፣ ጊዜ ለመቆጠብ እና ስህተቶችን በቀላሉ ለማግኘት ይረዳሉ።
+
+4.4. Function Parameters and arguments 
+
+¾ The parameters of a function are list of variables used by the function 
+
+to perform its task and the arguments passed to the function during 
+
+calling of a function are values sent to the function. 
+
+¾ The arguments of function calling can be using either of the two 
+
+supported styles in C++: 
+
+passing by value or 
+
+passing by reference. 
+
+
+
+4.4.1. Passing by value: 
+
+o A value parameter receives a copy of only the value of the argument passed to it. As a result, if the function makes any changes to the parameters, this will not affect the argument. For instance: 
+
+#..... 
+
+void Foo(int num) 
+
+{ Num = 0; 
+
+cout<< “num = ” << num << “ \n”; 
+
+} 
+
+int main(void) 
+
+{ int x = 10; 
+
+Foo(x); 
+
+cout<< “x = ”<<x<< “\n”; 
+
+getch(); 
+
+return 0; 
+
+} 
+
+o The single parameter of Foo is a value parameter. As far as this function is concerned, num behaves just like a local variable inside the function. When the function is called and x passed to it, num receives a copy of the value of x. As a result, although num is set to 0 by the function, this does not affect  the program produces the following output: 
+
+Num = 0 
+
+x = 10 
+
+o Passing arguments in this way, where the function creates copies of the arguments passed to it is called passing by value.
+
+# 1.7.1. Passing by Value
+
+
+
+Passing by value ማለት አንድ Function Argument ሲቀበል የ Argumentውን ዋጋ ብቻ ቅጂ (copy) በመቀበል የሚሰራበት መንገድ ነው። በዚህ መንገድ Functionው በ Argumentው ላይ ለውጥ ቢያደርግ እንኳ በዋናው Argument ላይ ምንም ተጽዕኖ አይኖረውም።
+
+
+
+### ምሳሌ
+
+
+
+#include <iostream>
+
+#include <conio.h>
+
+
+
+using namespace std;
+
+
+
+void Foo(int num) {
+
+    num = 0;
+
+    cout << "num = " << num << " \n";
+
+}
+
+
+
+int main(void) {
+
+    int x = 10;
+
+    Foo(x);
+
+    cout << "x = " << x << " \n";
+
+    getch();
+
+    return 0;
+
+}
+
+
+
+### ማብራሪያ
+
+
+
+*   Foo የተባለው Function አንድ int አይነት Parameter ይቀበላል (num)።
+
+*   main Function ውስጥ x የተባለ ተለዋዋጭ (variable) አለ፤ እሱም 10 የሚል እሴት (value) አለው።
+
+*   Foo(x) ስንል x ለ Foo Function ይላካል።
+
+*   Foo Function ውስጥ num = 0; የሚለው ትዕዛዝ ቢኖርም፣ ይህ የሚቀይረው የ x`ን ሳይሆን የ `num`ን ዋጋ ነው። ምክንያቱም `num የ x ቅጂ ስለሆነች (copy)።
+
+*   ስለዚህ Foo Function ከሰራ በኋላ x አሁንም 10 ሆኖ ይቀጥላል።
+
+
+
+### ውጤት
+
+
+
+ፕሮግራሙ የሚከተለውን ውጤት ያሳያል:
+
+
+
+num = 0
+
+x = 10
+
+
+
+ይህ የሚያሳየው Foo Function ውስጥ num ቢቀየርም x እንዳለ መቆየቱን ነው። ይህ የሆነበት ምክንያት Passing by value ስንጠቀም Functionው የ Argumentውን ዋጋ ቅጂ ስለሚቀበል ነው።
+
+1.7.2. Passing by Reference: 
+
+o A reference parameter, on the other hand, receives the argument passed to it and works on it directly. Any change made by the function to a reference parameter is in effect directly applied to the argument. 
+
+o Passing parameters in this way is called pass-by-reference. 
+
+o Taking the same example above: 
+
+#..... 
+
+#..... 
+
+void Foo(int & num) 
+
+{ 
+
+num = 0; 
+
+cout<< “num = ” << num << “ \n”; 
+
+} 
+
+int main(void) 
+
+{ 
+
+int x = 10; 
+
+Foo(x); 
+
+cout<< “x = ”<<x<< “\n”; 
+
+getch(); 
+
+return 0; 
+
+} 
+
+o The parameter of Foo is a reference parameter. Num will correspond to x for this specific program as it x is sent by its reference and not its value. Any change made on num will be effected to x. Thus, the program produces the following output: 
+
+num = 0 
+
+x = 0 // do this one also
+
+ 4.4.2. Passing by Reference
+
+
+
+Passing by Reference ማለት አንድ Function Argument ሲቀበል የ Argumentውን ማመሳከሪያ (reference) በቀጥታ በመቀበል የሚሰራበት መንገድ ነው። በዚህ መንገድ Functionው በ Argumentው ላይ የሚያደርገው ማንኛውም ለውጥ በቀጥታ በዋናው Argument ላይ ተጽዕኖ ይኖረዋል።
+
+
+
+### ማብራሪያ
+
+
+
+*   Passing parameters በዚህ መንገድ ሲሆን pass-by-reference ይባላል።
+
+*   ማመሳከሪያ (reference) Parameter, በሌላ በኩል, ወደ እሱ ያለፈውን ክርክር ይቀበላል እና በቀጥታ በእሱ ላይ ይሰራል. በተግባሩ ለማመሳከሪያ መለኪያ የተደረገ ማንኛውም ለውጥ በቀጥታ በክርክሩ ላይ ይተገበራል።
+
+
+
+### ምሳሌ
+
+
+
+#include <iostream>
+
+#include <conio.h>
+
+
+
+using namespace std;
+
+
+
+void Foo(int & num) {
+
+    num = 0;
+
+    cout << "num = " << num << " \n";
+
+}
+
+
+
+int main(void) {
+
+    int x = 10;
+
+    Foo(x);
+
+    cout << "x = " << x << " \n";
+
+    getch();
+
+    return 0;
+
+}
+
+
+
+### ማብራሪያ
+
+
+
+*   Foo የተባለው Function አንድ int አይነት Reference Parameter ይቀበላል (int & num)።
+
+*   main Function ውስጥ x የተባለ ተለዋዋጭ (variable) አለ፤ እሱም 10 የሚል እሴት (value) አለው።
+
+*   Foo(x) ስንል x ለ Foo Function ይላካል። ነገር ግን በዚህ ጊዜ x ራሱ ነው የሚላከው እንጂ ቅጂው አይደለም።
+
+*   Foo Function ውስጥ num = 0; የሚለው ትዕዛዝ ሲፈጸም፣ ይህ በቀጥታ የሚቀይረው የ x`ን ዋጋ ነው። ምክንያቱም `num እና x አንድ አይነት የማህደረ ትውስታ ቦታ (memory location) ስለሚጋሩ።
+
+
+
+### ውጤት
+
+
+
+ፕሮግራሙ የሚከተለውን ውጤት ያሳያል:
+
+
+
+num = 0
+
+x = 0
+
+
+
+ይህ የሚያሳየው Foo Function ውስጥ num ሲቀየር `x`ም አብሮ መቀየሩን ነው። ይህ የሆነበት ምክንያት Passing by Reference ስንጠቀም Functionው የ Argumentውን ማመሳከሪያ ስለሚቀበል ነው። ስለዚህ Functionው በ Argumentው ላይ የሚያደርገው ማንኛውም ለውጥ በቀጥታ በዋናው Argument ላይ ተጽዕኖ ይኖረዋል።
+
+ውዶች🥰 እንዴት ናችሁ።
+
+ነቃ ብለን የዛሬውን ትምህርት እንጀምራለን። ዝግጁ😊💪
+
+4.5. Global versus local variables 
+
+Everything defined at the program scope level (outside functions) is said to have a global scope, meaning that the entire program knows each variable and has the capability to change any of them. 
+
+እንግዲህ chapter 2 ላይ ስለ variable አውርተናል። እነዚህ variable-ኦች ከሚጻፉበት ቦታ አንጻር Global እና local variables በመባል ይከፈላሉ። ይሄውም ከfunction-ኡ ውጭ የሚጻፍ ከሆነ Global በfunction ውስጥ የሚጻፍ ከሆነ ደግሞ local variable በመባል ይታወቃል። Global variable ካልን ሁሉም የተጻፈው program ያን variable ያውቁታል ወይም መጠቀም ይችላሉ። 
+
+Global variables are visible (“known”) from their point of definition down to the end of the program. the body of a function represents a local scope. The parameters of a function have the same scope as the function body. 
+
+Global variables define ከተደረጉበት ጀምሮ ወደ ታች በሁሉም ቦታ መጠቀም እንችላለን። local vatiable ግን በfanction-ኡ ውስጥ ብቻ ነው የሚታወቁት። በተመሳሳይ የfunction parameters ወይም ከfanction ስም ቀጥሎ በቅንፍ የሚጻፉት parameter-ኦችም እንደ local variable የሚታወቁት በfunction-ኡ ብቻ ነው።
+
+Local scopes may be nested, in which case the inner scope overrides the outer scopes. 
+
+Local scope ወይም locally expressed የተደረገ variable nested ሊሆን ይችላል። መቼም ስለ nested ከዚህ በፊት አውርተናል። አንዱ በሌላው ውስጥ ሲጻፍ ማለት ነው። ለምሳሌ፦
+
+Eg:  
+
+int xyz;//xyz is global እዚህ ላይ እንደሚታየው xyz global ነው። ምክንያቱም በየትኛውም function ውስጥ አይደለም።
+
+void Foo(int xyz)//xyz is local to the body of Foo አሁን ግን parameter xyz Foo በሚባለው function ውስጥ ብቻ ነው የሚታወቀው። 
+
+  {  
+
+if(xyz > 0)  {  Double xyz;//xyz is local to this block  ይሄኛው xyz variable ደግሞ nested if ውስጥ ስላለ የሚታወቀው በዚህ curly brace  ውስጥ ብቻ ነው። ተከፍቶ { እስከሚዘጋ } ባለችው ቦታ ብቻ ማለት ነው። …  }  }
+
+
+
+
+
+Scope Operator 
+
+ Because a local scope overrides the global scope, having a local variable with the same name as a global variable makes the latter inaccessible to the local scope. 
+
+ይሄ ደግሞ በአጭሩ ምንድን ነው ... ሁለት ተመሳሳይ ስም ያላቸው variable-ኦች ቢኖሩና አንዱ Global ወይም ከfunction ውጭ declare ቢደረግ ሌላኛው ደግሞ local ቢሆን ተመሳሳይ ስም ስላላቸው ሁለተኛው (local scope variable) የመጀመሪያውን ይውጠውና😊 እሱ ብቻ በዚያ function ታዋቂ ይሆናል። ለምሳሌ፦
+
+Eg 
+
+int num1; void fun1(int num1) 
+
+{ 
+
+ //… }
+
+ከላይ num1 ሁለት ጊዜ ተጽፋለች። ከfunction ውጭ እና ውስጥ። ስለዚህ የሆነ code function-ኡ ውስጥ ብንጽፍ ይሄ num1 ዋጋ በfunction ውስጥ የተጻፈውን ነው የሚይዝ። ይሄን ሂደት ለማስቀረት ወይም የglobal variable-ን ዋጋ ከfunction ውስጥ መጠቀም ስንፈልግ scope operator ‘::’ እንጠቀማለን። ይሄ ፈተና ላይ የማይቀር symbol ነው። በደንብ ተከታተሉን።😊 በምሳሌ እንመልከተው👇
+
+int num1 = 2; 
+
+void fun1(int num1) 
+
+{ 
+
+ //… 
+
+ num1=33; 
+
+ cout<<num1; // the out put will be 33 
+
+ cout<<::num1; //the out put will be 2 which is the global 
+
+ if(::num1 != 0)//refers to global num1 
+
+ //… 
+
+} 
+
+ከfunction ውጭ የnum1 ዋጋ 2 ነበር። Global variable ነው። እንደገና በfunction ውስጥ ግን አዲስ ዋጋ 33 ተሰጥቶታል። 
+
+ስለዚህ በመጀመሪያው output coutስንለው የሚያወጣልን የlocal variableኡን ዋጋ ወይም 33ትን ነው። ቀጣይ ግን cout ብለን አራት ነጥብ ። ማለቴ scope operator😊 ስለተጠቀምን የሚያወጣልን Global variable-ኡን ወይም 2ትን ይሆናል።
+
+ከዛ በኋላም ሌሎች ስራወች በif else or loop ሊሆን ይችላል ብንሰራ የሚይዘው የlocal variable-ን ዋጋ ነው። ምን እስካላደረግን? በscope operator እስካልጻፍነው ድረስ። ስለዚህ Global variableን function ውስጥ call ማድረግ ስንፈልግ ከvariable name በፊት አራትነጥብ ማለቴ 🙈 scope operator😊 እናደርጋለን። 
+
+4.7. Automatic versus static variables
+
+Automatic: they are erased when their function ends. You can designate a variable as automatic by prefixing its definition with the term auto
+
+The opposite of an automatic is a static variable. All global variables are static and, as mentioned, all static variables retain their values. 
+
+Automatic የምንላቸው variables የተጠቀማቸው function ስራውን ለምሳሌ የተለያዩ calculations ሰርቶ ሲጨርስ ወደ ነበሩበት ዋጋቸው የሚመለሱ ሲሆኑ static ግን ከስሙእንደምንረዳው አንዴ ከቀየርናቸው በኋላ ወደ ቀደመ ዋጋቸው የማይመለሱ ናቸው። ሁሉም global variableኦች static ናቸው። automatic ማድረግ ስንፈልግ ከፊት ለፊታቸው auto የሚል ቃል መጨመር ነው። ፍላጎታችን static variable ከሆነ ደግሞ static ን አስቀድሞ መጻፍ ነው።
+
+void my_fun() 
+
+{ 
+
+ static int num; 
+
+ static int count = 2; 
+
+ count=count*5; 
+
+ num=num+4; }
+
+ለምሳሌ ይሄን code ስንመለከት num መጀመሪያ ዋጋ የለውም ስለዚህ እንደ 0 ብንወስደው። num = num +4; ስንሰራ 0+4=4ይሆናል። አሁን የnum ዋጋ ወደ 4 ተቀይሯል። ስለዚህ functionኡን ድጋሜ call ስናደርገው የሚኖረን num=4+4 =8 ይሆናል ማለት ነው። ቀጣይ call ብናደርገው 12 እያለ ይቀጥላል። ነገር ግን የመጀመሪያ value-ን እንደያዘ አይቆይም። ይሄ ግን auto ሆኖ ቢሆን ድጋሜም call ሲደረግ የnum value 0 እንደሆነ ይቀጥል ነበር።
+
+countም በተመሳሳይ መጀመሪያ 2 ነበር ከዛ ተቀይሮ (በ5 ተባዝቶ) 10 ይሆናል። ከዛ 50 እያለ ድጋሜ በጠራነው ቁጥር አዲሱን ዋጋ እየያዘ ይቀጥላል። auto ብለነው ቢሆን ግን ድጋሜ ስንጠራው value 2 ይሆን ነበር።
+
+
+
+4.8. Inline functionsSuppose that a program frequently requires finding the absolute value 
+
+of an integer quantity. For a value denoted by n, this may be expressed 
+
+as: (n > 0 ? n : -n) 
+
+However, instead of replicating this expression in many places in the 
+
+program, it is better to define it as a function: 
+
+int Abs(int n) 
+
+{ 
+
+return n > 0 ? n : -n; 
+
+} 
+
+inline function ማለት የምንጽፈው program አንድን ስራ ደጋግሞ በተለያዩ ቦታዎች የሚጠይቅ ከሆነ ሁሌ ከመጻፍ አንዴ ጽፈን በተለያዩ ቦታዎች ግን function -ኡን ብቻ መጥራት ነው። (ሲጠራ ግን inline የሚል keyword ካለበት ይለያል። ወደ ታች እናየዋለን። አያሳስብም😊) ለምሳሌ absolute value በተደጋጋሚ የሚጠይቅ program ከሆነ absolute value function አንድ ጊዜ እንሰራና መጠቀም ስንፈልግ function call ብቻ እናደርጋለን። 
+
+ከላይ እንዳለው example ማለት ነው።
+
+➢ The function version has a number of advantages. - It leads to a more readable program. - It is reusable. ➢ The disadvantage of the function version, however is that - Its frequent use can lead to considerable performance penalty due to overheads associated with calling a function. 
+
+ይሄ የfunction አይነት ሁለት ጠቀሜታዎች አሉት። 
+
+1ኛ program-ኣችን የመነበብና ግልጽ እንዲሆን ያደርጋል።
+
+2ኛ በተደጋጋሚ መጠቀም እንችላለን።
+
+በተቃራኒው ደግሞ በተደጋጋሚ እነዚህን መጠቀም የcomputer performance ችግር ያስከትላል።
+
+The overhead can be avoided by defining Abs as an inline function. 
+
+inline int Abs(int n) 
+
+ይሄን የመደጋገም ችግር ለመፍታት ከfunction-ኣችን በፊት inline የሚል keyword መጠቀም አለብን።
+
+ይሄ መሆኑም Abs የሚባለው የፈጠርነው function call በሚደረግበት ጊዜ እንደ አዲስ Abs የሚባለውን code generate ከማድረግ ይልቅ የምንጽፈው program ውስጥ በማስገባት (expand and substitute) እንዲሰራ ያደርገዋል። 
+
+➢ Not every function can be inlined. Some typical reasons why inlining is sometimes not done include: 
+
+➠ the function calls itself, that is, is recursive 
+
+➠ the function contains loops such as for(;;) or while() ➠ the function size is too large 
+
+➢ ማንኛውም function ግን inline አይሆንም። ከማይሆኑትም ውስጥ recursive function ወይም ራሱን የሚጠራ function ከሆነ፣ loop የያዘ ከሆነ፣ ወይም የfunction ኡ ብዙ line of code ካለው የመሳሰሉትን መጥቀስ ይቻላል።
+
+➢ Another good reason to inline is that you can sometimes speed up your program by inlining the right function.
+
+ሌላው inline የማድረግ ጥቅም programኣችን ፈጣን እንዲሆን ያደርገዋል። ነገርግን inline የሚደረገው code ብዙ ከሆነ የጻፍነው program በጣም ትልቅ እና ውስብስብ ሊያደርግብን ይችላል።
+
+
+
+
+
+
+
+
+
+
+
+Another example 
+
+#include<iostream.h> 
+
+#include<conio.h> 
+
+void starLine(); //prototype of the function with a name starLine 
+
+int main() 
+
+{ 
+
+starLine(); //Calling the function with a name starLine 
+
+cout<< Data type Range << endl; 
+
+starLine(); 
+
+cout<< char -128 to 127 <<endl 
+
+<< short -32,768 to 32,767 <<endl 
+
+<<  int system dependent <<endl 
+
+<< long -2,147,483,648 to 2,147,483,647 << endl; 
+
+starLine(); 
+
+return 0; 
+
+} 
+
+void starLine() 
+
+{ 
+
+for(int j=0;j<45;j++) definition of the function with a 
+
+cout<< *; name starLine 
+
+cout<<endl; 
+
+} 
+
+
+
+
+
+
+
+⚡ ምሳሌ 1፡ የኮከብ ፕሮግራም ✨
+
+የታሪክ ጊዜ 🎭፡ (እስቲ ዘና እያልን እንማማር)
+
+int main() {
+
+   starLine();
+
+   cout << "Data type Range"" << endl;
+
+   starLine();
+
+}
+
+void starLine() {
+
+   for (int j=0; j<45; j++)
+
+      cout << "*";
+
+   cout << endl;
+
+}
+
+
+
+
+
+main() ልክ እንደ ተሰጥኦ ትርኢት አቅራቢ (መድረክ መሪ)  ነው።
+
+እንዲህ ይላል፡- “hey ተመልካቾች፣ ስለ Data type አንዳንድ መረጃዎች እኔ ጋር  አሉ!” ነገር ግን ከመናገሩ በፊት እና በኋላ፣  የሚያምር የኮከቦች ስዕል እንዲሳልለት ይፈልጋል።  ኮከቦችን በራሱ ከመሳል ይልቅ (በጣም ብዙ ስራ  ነው😮‍💨)፣ “ስማ starLine()፣ ና እዚህ ጋር  ኮከቦችን ሳል!” ብሎ ይጮኻል።
+
+starLine() በፍጥነት ገብቶ ኮከቦችን ይስል፣ እና ከመጋረጃው ጀርባ ይመለሳል።
+
+ስለዚህ:
+
+main() 👉 የሚጠራ / calling function
+
+starLine() 👉 የተጠራ  / called  function
+
+
+
+􀂾 Given the next program, which function is the calling function and which is the called function? 
+
+#include<iostream.h> 
+
+#include<conio.h> 
+
+void nextMsg() 
+
+int main() 
+
+{ 
+
+cout<< “Hello!\n”; 
+
+nextMsg(); 
+
+return 0; 
+
+} 
+
+void nextMsg() 
+
+{ 
+
+cout<< “GoodBye!\n”; 
+
+return; 
+
+} 
+
+
+
+
+
+
+
+:
+
+⚡ምሳሌ 2፡  The Hello & Goodbye Program 👋
+
+አሁንም Story mode😁 🎬፡
+
+main() በመጀመሪያ ወደ መድረክ መጥቶ “Hello!” ይላል 👋
+
+ከዚያም ያስባል 🤔- “Hmm፣ ለምን ሌላ ሰው ትርኢቱን እንዲያጠናቅቅልኝ አላረግም… ስማ nextMsg()፣ ወደዚህ ና!” 🎤 nextMsg() ወጥቶ እጁን እያወዛወዘ “ደህና ሁን!” ይላል 👋😢 ሁሉም ያጨበጭባል 👏👏👏
+
+ስለዚህ፡
+
+main() 👉 calling function (እርዳታ የሚጠይቀው አለቃ)
+
+nextMsg() 👉called function ("ባይ!" የሚለው ረዳት)።
+
+🥤 በእውነተኛ የህይወት ምሳሌ እንየው እስኪ
+
+በአንድ ካፌ ውስጥ እንዳላቹ አስቡት ☕:
+
+እርስዎ (ደንበኛው) = main()
+
+ባሪስታው = starLine() ወይም nextMsg()
+
+እናንተ፡- “እባክህን አንድ ቡና ታመጣልኝ!” ☕ ብትሉ እናንተ አሁን calling function ናችሁ። ቡናውን የሚሰራው ባሪስታ called function ነው። ያለ እርስዎ ትዕዛዝ ባሪስታው ቡና አይሰራም። ያለ ባሪስታው ቡና ማግኘት አይችሉም። አብረው ይሰራሉ ማለት ነው! 🤝
+
+✅ በአጭሩ:
+
+main() አብዛኛውን ጊዜ ሌሎች ተግባራትን የሚጠራው ነው። ሌሎች ተግባራት የሚጠሩት ሲጠሩ ብቻ ነው ስራቸውን የሚሰሩት።
+
+4.9. Default arguments and function overloading 
+
+􀂾 C++ has two capabilities that regular C doesn’t have. Default arguments and function overloading. 
+
+4.9.1. Default arguments 
+
+􀃖 Default argument is a programming convenience which removes the burden of having to specify argument values for all function parameters. 
+
+Eg. You might pass a function an error message that is stored in a character array, and the function displays the error for a certain period of time. The prototype for such a function can be this: 
+
+Void pr_msg(char note[]); 
+
+􀃖 Therefore, to request that pr_msg() display the line ‘Turn printer on’, you call it this way: 
+
+Pr_msg(“Turn printer on”); 
+
+􀃖 As you write more of the program, you begin to realize that you are displaying one message-for instance, the ‘Turn printer on’ msg-more often than any other message. 
+
+􀃖 Instead of calling the function over and over, typing the same message each time, you can set up the prototype for pr_msg() so that it defaults to the ‘turn printer on’ message in this way: 
+
+Void pr_msg(char note[] = “Turn printr on”); 
+
+􀃖 This makes your programming job easier. Because you would usually want pr_msg() to display ‘turn printer on’, the default argument list takes care of the message and you don’t have to pass the message when you call the function. 
+
+􀃖 For functions having more than one argument with default, the parameters with possible default value should be declared in the right side of the function definition and prototype. 
+
+E.g.: Let us develop part of the program with default arguments. 
+
+#include
+.. 
+
+void Add_Display(int x=10, int y=20, int z=30) 
+
+{ 
+
+cout<< (x+y+z); 
+
+} 
+
+void Mult_Dispaly (int x, int y=70) 
+
+{ 
+
+cout<< (x*y); 
+
+} 
+
+void main() 
+
+{ 
+
+int a=40, b=50, c=60; 
+
+Add_Display(a,b,c); //will print 150 (ie 40+50+60) 
+
+Add_Display(a,b); //will print 120 (ie 40+50+30) 
+
+Add_Display(a); //will print 90 (ie 40+20+30) 
+
+Add_Display(); //will print 60 (ie 10+20+30) 
+
+Mult_Display(a,b) //will print 2000 (40*50) 
+
+Mult_Display(a) //will print 2800 (40*70) 
+
+//Mult_Display() //is invalid as there is no default for x 
+
+getch(); 
+
+} 
+
+//the following function definition is invalid as z is 
+
+//a parameter without a default and written after y 
+
+//parameters with default should always be at the 
+
+//right side of function declaration 
+
+void Mult_Dispaly (int x, int y=70, int z) 
+
+{ 
+
+cout<< (x*y*z); 
+
+} 
+
+//thus the following function definition will be correct 
+
+void Mult_Dispaly (int x, int z, int y=70) 
+
+{ 
+
+cout<< (x*y*z); 
+
+} 
+
+
+
+4.9. Default arguments and function overloading 
+
+C++ C የሚባለው language የሌላቸው 2 ነገሮች አሉት። Default argument እና function overloading።
+
+4.9.1. Default arguments 
+
+👉 ምንድን ነው?
+
+Default arguments ለአንድ ተግባር “የመጠባበቂያ ዕቅድ”  እንደመስጠት ነው።
+
+ለዚያ unteger ምንም ነገር/vslue ካላሳለፉ ፤ ነባሪውን ወይም እንጀ መጠባበቂያ አስቀምጠንለት የነበረውን value (default) ይጠቀማል።
+
+እንደ ፒዛ 🍕 ማዘዝ አስቡት፡-
+
+የትኛውን ፒዛ እንደሚፈልጉ ካልተናገሩ normal ፒዛ ብቻ ይሰጡዎታል። Special ፒዛ ምናምን ብለን ካልመረጥን ማለት ነው ። 
+
+ከመረጥን ግን በኛ ምርጫ ይሰጠናል።
+
+🌟 ምሳሌ
+
+1. Add_Display(int x=10, int y=20, int z=30)
+
+👉 ይህ ተግባር ሶስት ቁጥሮችን አንድ ላይ ጨምሮ ውጤቱን ያትማል። ግን ልብ በሉ፡
+
+Default Arguments ካልሰጠህ functionኡ ቀድመን የሰጠነውን value ይጠቀማል።
+
+Add_Display(a,b,c); // a=40, b=50, c=60
+
+👉 ውጤት፡ 150 (40+50+60)
+
+
+
+Add_Display(a,b); // a=40, b=50, c ቀዳሚ/default= 30
+
+👉 ውጤት፡ 120 (40+50+30)
+
+
+
+Add_Display(a); // a=40, b=20 (ቀዳሚ/default), c=30 (ቀዳሚ/default)
+
+👉 ውጤት፡ 90 (40+20+30)
+
+
+
+Add_Display(); // ሁሉም ቀዳሚ/default፡ a=10, b=20, c=30
+
+👉 ውጤት፡ 60 (10+20+30)
+
+
+
+💡 ጥሩ ነገሩ፦ ሁሉንም value መስጠት አይጠበቅብንም ፣ ቀዳሚ value (default value) “ባዶውን ቦታ” ይሞላዋል 😎
+
+
+
+2. Mult_Display(int x, int y=70)
+
+ይህ ሁለት ቁጥሮችን በማባዛት ይሰራል። ነገር ግን y ብቻ ቀዳሚ/default አለው (70)።
+
+ስለዚህ x አስፈላጊ ነው፤ value ባትሰጠው አይሰራም።
+
+
+
+Mult_Display(a,b); // a=40, b=50
+
+👉 ውጤት፡ 2000 (40*50)
+
+
+
+Mult_Display(a); // a=40, y=70 (ቀዳሚ)
+
+👉 ውጤት፡ 2800 (40*70)
+
+
+
+Mult_Display(); // ❌ ልክ አይደለም
+
+👉 ምክንያቱ፡ x ቀዳሚ/default አልተሰጠውም! So እኛ ራሳችን value ልንሰጠው ይገባ ነበር። አሁን ግን ስላልሰጠን አይሰራም።
+
+የ Invalid Function 
+
+ምሳሌ
+
+void Mult_Display (int x, int y=70, int z) { ... }
+
+
+
+⚠️ ችግር ፦ እዚህ y ቀዳሚ/default  አለው(70)፣ ግን z የለውም ሆኖም z የተፃፈው ከ y በኋላ ነው።
+
+
+
+👉 የC++ ደንብ እንዲህ ይላል፦ ቀዳሚ value/default valur ያላቸው አባላት ሁሉ ሲፃፋ በቀኝ መጨረሻ መሆን አለባቸው።
+
+
+
+✔️ ስለዚህ የትክክለኛው መንገድ፦
+
+void Mult_Display(int x, int z, int y=70) { ... } ነው።
+
+8 Develop a program that uses the function factorial() of exercise 6 to compute anapproximation of e (Euler’s number). Base your approximation on the followingformula for e:1 + 1/1! + 1/2! + 1/3! + …
+
+Full code
+
+#include <iostream>
+
+#include <iomanip> // For std::setprecision
+
+// Function to calculate factorial recursively
+
+long long factorial(int n) {
+
+    if (n < 0) {
+
+        return 0; // Factorial is not defined for negative numbers
+
+    }
+
+    if (n == 0 || n == 1) {
+
+        return 1;
+
+    }
+
+    return n * factorial(n - 1);
+
+}
+
+int main() {
+
+    double e_approximation = 0.0;
+
+    int num_terms;
+
+    std::cout << "Enter the number of terms to use for approximating e: ";
+
+    std::cin >> num_terms;
+
+    if (num_terms <= 0) {
+
+        std::cout << "Number of terms must be positive." << std::endl;
+
+        return 1;
+
+    }
+
+
+
+    for (int i = 0; i < num_terms; ++i) {
+
+        e_approximation += 1.0 / factorial(i);
+
+    }
+
+    std::cout << std::fixed << std::setprecision(15); // Set precision for output
+
+    std::cout << "Approximation of e using " << num_terms << " terms: " << e_approximation << std::endl;
+
+
+
+    return 0;
+
+}
+
+
+
+ማብራሪያ 😁
+
+👉#include <iostream> እና #include <iomanip> → ለ input/output  እና ቁጥርን በትክክል ለማሳየት የሚያገለግሉ መሳሪያዎች ናቸው።
+
+👉factorial(int n) → ቁጥርን እስከ 1 ድረስ በመባዛት ፋክቶሪያል (factorial) የሚያስላ ፋንክሽን ነው። ቁጥሩ 5 factorial ከሆነ 5×4×3×2×1 አርጎ ነው ሚሠራው
+
+👉main() → ከተጠቃሚ/user  ስንት ቁጥር መጠቀም እንደሚፈልግ ይጠይቃል።
+
+👉input ≤ 0 ከሆነ → Error  መልዕክት ያወጣና ፕሮግራሙ ይዝጋል።
+
+👉ካልሆነ → ከ0 እስከ num_terms-1 ድረስ በተደጋጋሚ ይዞራል ፣ በየጊዜው 1/factorial(i) እየጨመረ ወይም add እያረገበት ይሄዳል እናም ከe ጋር የሚያስተካክል/የሚቀራረብ ዋጋ ያገኛል።
+
+👉መጨረሻ → ውጤቱን በ15 የዲሲማል ቁጥር  ያቀርባል።
+
+
+
+
+
+👍  በአጭሩ፦ ይህ ኮድ ፋክቶሪያልን በመጠቀም በተደጋጋሚ ሒሳብ እየተጨመረ የ e ዋጋን የሚያቀርብ ነው።
+
+
+
+
+
+10 Write a function called isEven() that uses the remainder operator(%) to determinewhether an integer is even or not.
+
+Full code
+
+#include <iostream>
+
+bool isEven(int number) {
+
+    return (number % 2 == 0); 
+
+}
+
+
+
+int main() {
+
+    int num1 = 4;
+
+    int num2 = 7;
+
+
+
+    if (isEven(num1)) {
+
+        std::cout << num1 << " is even." << std::endl;
+
+    } else {
+
+        std::cout << num1 << " is odd." << std::endl;
+
+    }
+
+
+
+    if (isEven(num2)) {
+
+        std::cout << num2 << " is even." << std::endl;
+
+    } else {
+
+        std::cout << num2 << " is odd." << std::endl;
+
+    }
+
+    return 0;
+
+}
+
+ማብራሪያ 😁
+
+#include <iostream> — ፕሮግራሙ ከኮምፒውተር ጋር እንዲያወያይ የሚያስችል ሳጥን እንደሚያመጣ መሳሪያ ነው። 🖥️🗣️
+
+bool isEven(int number) { — ለራሱ ትንሽዬ ረዳት isEven የሚባል function ይፈጠራል፣ ሥራውም “ይህ ቁጥር በሁለት ይከፈላልን?” ብሎ መጠየቅ እና እንደ እውነት/ሐሰት ጥያቄ መመልስ ነው። 🤔➡️✅/❌
+
+    return (number % 2 == 0); — % ተባለውን ምልክት በመጠቀም ቁጥሩ በ2 ሲከፈል ቀሪው 0 ከሆነ true ካልሆነ false ይመልሳል። ✔️❌
+
+int main() { — የፕሮግራሙ መነሻ ቦታ፣ የትዕይንቱ ጅማሮ! 🎭
+
+    int num1 = 4; — አዲስ ቁጥር num1 ተፈጥሯል፣ ዋጋው 4 ነው። 4️⃣
+
+    int num2 = 7; — አዲስ ቁጥር num2 ተፈጥሯል፣ ዋጋው 7 ነው። 7️⃣
+
+    if (isEven(num1)) { — isEven(4) ተጠርቶ ይጠየቃል፣ እውነት ከሆነ የሚቀጥለው ስራ ይሰራል። 🔎
+
+        std::cout << num1 << " is even." << std::endl; — “4 is even.” ተብሎ outputኡ ይወጣል። 🖨️
+
+    } else { — ከላይ ☝️ሰርተን የኘበረው ሀሰት  ከሆነ ከዚህ በታች ያለው ይሰራል። 🔁
+
+        std::cout << num1 << " is odd." << std::endl; — “4 is odd” ተብሎ outputኡ ይወጣል (ነገር ግን እዚህ ጋር አይሆንም ለምሳሌ ያህል እንውሰደው እንጂ።) 🙃
+
+    if (isEven(num2)) { — isEven(7) ተጠርቶ ይጠየቃል፣ እውነት ከሆነ የሚቀጥለው ስራ ይሰራል። 🔎
+
+        std::cout << num2 << " is even." << std::endl; — “7 is even.” ተብሎ ይታተም (አይሆንም እዚህ ምክንያቱም 7 ተጋማሽ ቁጥር አይደለችም) 🖨️
+
+    } else { — ካልሆነ የሚቀጥለው ይሰራል። 🔁
+
+        std::cout << num2 << " is odd." << std::endl; — “7 is odd.” ብሎ outputኡ ይወጣል። 🎯
+
+    return 0; — ለኮምፒውተር “ሁሉም በትክክል ነው፣ ተጠናቋል” ይላል። 🎉
+
+👉 በአጭሩ፦ ይህ ኮድ ቁጥር even  ነው ወይስ odd እንደሆነ ይመለከታል፣ ከዚህም ጋር 4ን እና 7ን በምሳሌ ይፈትናል። ✨
