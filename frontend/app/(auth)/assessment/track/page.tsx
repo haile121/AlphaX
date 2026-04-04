@@ -25,8 +25,8 @@ const cards = [
     description:
       'HTML, CSS & JavaScript in six sessions — structure, styling, layout, and browser scripting with bilingual notes.',
     icon: Globe,
-    accent: 'from-violet-600/15 to-fuchsia-600/10 border-violet-200/80 dark:border-violet-500/25',
-    iconClass: 'text-violet-600 dark:text-violet-400',
+    accent: 'from-teal-600/15 to-cyan-600/10 border-teal-200/80 dark:border-teal-500/25',
+    iconClass: 'text-teal-700 dark:text-teal-400',
   },
 ];
 

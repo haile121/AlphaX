@@ -30,7 +30,7 @@ function formatPlacementLevel(level: Level | null | undefined): string {
 
 const QUICK_LINKS = [
   { href: '/lessons', label: 'Lessons', icon: BookOpen, desc: 'Continue learning C++', color: 'text-blue-500', bg: 'bg-blue-500/10' },
-  { href: '/compiler', label: 'Compiler', icon: Terminal, desc: 'Write and run C++ code', color: 'text-purple-500', bg: 'bg-purple-500/10' },
+  { href: '/compiler', label: 'Compiler', icon: Terminal, desc: 'Write and run C++ code', color: 'text-teal-600', bg: 'bg-teal-500/10' },
   { href: '/ai-tutor', label: 'AI Tutor', icon: Bot, desc: 'Get hints and guidance', color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
   { href: '/leaderboard', label: 'Leaderboard', icon: Trophy, desc: 'See how you rank', color: 'text-amber-500', bg: 'bg-amber-500/10' },
   { href: '/progress', label: 'Progress', icon: BarChart, desc: 'Track your journey', color: 'text-rose-500', bg: 'bg-rose-500/10' },
@@ -191,14 +191,14 @@ export default function DashboardPage() {
               <div
                 className={cn(
                   'h-full rounded-full bg-gradient-to-r transition-[width] duration-500',
-                  'from-violet-600 to-fuchsia-500'
+                  'from-teal-600 to-cyan-500'
                 )}
                 style={{ width: `${webReading.pct}%` }}
               />
             </div>
             <Link
               href="/lessons"
-              className="mt-2 inline-block text-xs font-medium text-violet-600 dark:text-violet-400 hover:underline"
+              className="mt-2 inline-block text-xs font-medium text-teal-700 dark:text-teal-400 hover:underline"
             >
               Open Web lessons
             </Link>
