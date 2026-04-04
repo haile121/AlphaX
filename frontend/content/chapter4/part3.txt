@@ -1,0 +1,69 @@
+4.5. Global versus local variables 
+
+Everything defined at the program scope level (outside functions) is said to have a global scope, meaning that the entire program knows each variable and has the capability to change any of them. 
+
+እንግዲህ chapter 2 ላይ ስለ variable አውርተናል። እነዚህ variable-ኦች ከሚጻፉበት ቦታ አንጻር Global እና local variables በመባል ይከፈላሉ። ይሄውም ከfunction-ኡ ውጭ የሚጻፍ ከሆነ Global በfunction ውስጥ የሚጻፍ ከሆነ ደግሞ local variable በመባል ይታወቃል። Global variable ካልን ሁሉም የተጻፈው program ያን variable ያውቁታል ወይም መጠቀም ይችላሉ። 
+
+Global variables are visible (“known”) from their point of definition down to the end of the program. the body of a function represents a local scope. The parameters of a function have the same scope as the function body. 
+
+Global variables define ከተደረጉበት ጀምሮ ወደ ታች በሁሉም ቦታ መጠቀም እንችላለን። local vatiable ግን በfanction-ኡ ውስጥ ብቻ ነው የሚታወቁት። በተመሳሳይ የfunction parameters ወይም ከfanction ስም ቀጥሎ በቅንፍ የሚጻፉት parameter-ኦችም እንደ local variable የሚታወቁት በfunction-ኡ ብቻ ነው።
+
+Local scopes may be nested, in which case the inner scope overrides the outer scopes. 
+
+Local scope ወይም locally expressed የተደረገ variable nested ሊሆን ይችላል። መቼም ስለ nested ከዚህ በፊት አውርተናል። አንዱ በሌላው ውስጥ ሲጻፍ ማለት ነው። ለምሳሌ፦
+
+Eg:  
+
+int xyz;//xyz is global እዚህ ላይ እንደሚታየው xyz global ነው። ምክንያቱም በየትኛውም function ውስጥ አይደለም።
+
+void Foo(int xyz)//xyz is local to the body of Foo አሁን ግን parameter xyz Foo በሚባለው function ውስጥ ብቻ ነው የሚታወቀው። 
+
+  {  
+
+if(xyz > 0)  {  Double xyz;//xyz is local to this block  ይሄኛው xyz variable ደግሞ nested if ውስጥ ስላለ የሚታወቀው በዚህ curly brace  ውስጥ ብቻ ነው። ተከፍቶ { እስከሚዘጋ } ባለችው ቦታ ብቻ ማለት ነው። …  }  }
+
+
+
+
+
+Scope Operator 
+
+ Because a local scope overrides the global scope, having a local variable with the same name as a global variable makes the latter inaccessible to the local scope. 
+
+ይሄ ደግሞ በአጭሩ ምንድን ነው ... ሁለት ተመሳሳይ ስም ያላቸው variable-ኦች ቢኖሩና አንዱ Global ወይም ከfunction ውጭ declare ቢደረግ ሌላኛው ደግሞ local ቢሆን ተመሳሳይ ስም ስላላቸው ሁለተኛው (local scope variable) የመጀመሪያውን ይውጠውና😊 እሱ ብቻ በዚያ function ታዋቂ ይሆናል። ለምሳሌ፦
+
+Eg 
+
+int num1; void fun1(int num1) 
+
+{ 
+
+ //… }
+
+ከላይ num1 ሁለት ጊዜ ተጽፋለች። ከfunction ውጭ እና ውስጥ። ስለዚህ የሆነ code function-ኡ ውስጥ ብንጽፍ ይሄ num1 ዋጋ በfunction ውስጥ የተጻፈውን ነው የሚይዝ። ይሄን ሂደት ለማስቀረት ወይም የglobal variable-ን ዋጋ ከfunction ውስጥ መጠቀም ስንፈልግ scope operator ‘::’ እንጠቀማለን። ይሄ ፈተና ላይ የማይቀር symbol ነው። በደንብ ተከታተሉን።😊 በምሳሌ እንመልከተው👇
+
+int num1 = 2; 
+
+void fun1(int num1) 
+
+{ 
+
+ //… 
+
+ num1=33; 
+
+ cout<<num1; // the out put will be 33 
+
+ cout<<::num1; //the out put will be 2 which is the global 
+
+ if(::num1 != 0)//refers to global num1 
+
+ //… 
+
+} 
+
+ከfunction ውጭ የnum1 ዋጋ 2 ነበር። Global variable ነው። እንደገና በfunction ውስጥ ግን አዲስ ዋጋ 33 ተሰጥቶታል። 
+
+ስለዚህ በመጀመሪያው output coutስንለው የሚያወጣልን የlocal variableኡን ዋጋ ወይም 33ትን ነው። ቀጣይ ግን cout ብለን አራት ነጥብ ። ማለቴ scope operator😊 ስለተጠቀምን የሚያወጣልን Global variable-ኡን ወይም 2ትን ይሆናል።
+
+ከዛ በኋላም ሌሎች ስራወች በif else or loop ሊሆን ይችላል ብንሰራ የሚይዘው የlocal variable-ን ዋጋ ነው። ምን እስካላደረግን? በscope operator እስካልጻፍነው ድረስ። ስለዚህ Global variableን function ውስጥ call ማድረግ ስንፈልግ ከvariable name በፊት አራትነጥብ ማለቴ 🙈 scope operator😊 እናደርጋለን።
