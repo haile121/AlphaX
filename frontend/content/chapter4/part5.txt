@@ -1,0 +1,196 @@
+4.9. Default arguments and function overloading 
+
+􀂾 C++ has two capabilities that regular C doesn’t have. Default arguments and function overloading. 
+
+4.9.1. Default arguments 
+
+􀃖 Default argument is a programming convenience which removes the burden of having to specify argument values for all function parameters. 
+
+Eg. You might pass a function an error message that is stored in a character array, and the function displays the error for a certain period of time. The prototype for such a function can be this: 
+
+Void pr_msg(char note[]); 
+
+􀃖 Therefore, to request that pr_msg() display the line ‘Turn printer on’, you call it this way: 
+
+Pr_msg(“Turn printer on”); 
+
+􀃖 As you write more of the program, you begin to realize that you are displaying one message-for instance, the ‘Turn printer on’ msg-more often than any other message. 
+
+􀃖 Instead of calling the function over and over, typing the same message each time, you can set up the prototype for pr_msg() so that it defaults to the ‘turn printer on’ message in this way: 
+
+Void pr_msg(char note[] = “Turn printr on”); 
+
+􀃖 This makes your programming job easier. Because you would usually want pr_msg() to display ‘turn printer on’, the default argument list takes care of the message and you don’t have to pass the message when you call the function. 
+
+􀃖 For functions having more than one argument with default, the parameters with possible default value should be declared in the right side of the function definition and prototype. 
+
+E.g.: Let us develop part of the program with default arguments. 
+
+#include
+.. 
+
+void Add_Display(int x=10, int y=20, int z=30) 
+
+{ 
+
+cout<< (x+y+z); 
+
+} 
+
+void Mult_Dispaly (int x, int y=70) 
+
+{ 
+
+cout<< (x*y); 
+
+} 
+
+void main() 
+
+{ 
+
+int a=40, b=50, c=60; 
+
+Add_Display(a,b,c); //will print 150 (ie 40+50+60) 
+
+Add_Display(a,b); //will print 120 (ie 40+50+30) 
+
+Add_Display(a); //will print 90 (ie 40+20+30) 
+
+Add_Display(); //will print 60 (ie 10+20+30) 
+
+Mult_Display(a,b) //will print 2000 (40*50) 
+
+Mult_Display(a) //will print 2800 (40*70) 
+
+//Mult_Display() //is invalid as there is no default for x 
+
+getch(); 
+
+} 
+
+//the following function definition is invalid as z is 
+
+//a parameter without a default and written after y 
+
+//parameters with default should always be at the 
+
+//right side of function declaration 
+
+void Mult_Dispaly (int x, int y=70, int z) 
+
+{ 
+
+cout<< (x*y*z); 
+
+} 
+
+//thus the following function definition will be correct 
+
+void Mult_Dispaly (int x, int z, int y=70) 
+
+{ 
+
+cout<< (x*y*z); 
+
+} 
+
+
+
+4.9. Default arguments and function overloading 
+
+C++ C የሚባለው language የሌላቸው 2 ነገሮች አሉት። Default argument እና function overloading።
+
+4.9.1. Default arguments 
+
+👉 ምንድን ነው?
+
+Default arguments ለአንድ ተግባር “የመጠባበቂያ ዕቅድ”  እንደመስጠት ነው።
+
+ለዚያ unteger ምንም ነገር/vslue ካላሳለፉ ፤ ነባሪውን ወይም እንጀ መጠባበቂያ አስቀምጠንለት የነበረውን value (default) ይጠቀማል።
+
+እንደ ፒዛ 🍕 ማዘዝ አስቡት፡-
+
+የትኛውን ፒዛ እንደሚፈልጉ ካልተናገሩ normal ፒዛ ብቻ ይሰጡዎታል። Special ፒዛ ምናምን ብለን ካልመረጥን ማለት ነው ። 
+
+ከመረጥን ግን በኛ ምርጫ ይሰጠናል።
+
+🌟 ምሳሌ
+
+1. Add_Display(int x=10, int y=20, int z=30)
+
+👉 ይህ ተግባር ሶስት ቁጥሮችን አንድ ላይ ጨምሮ ውጤቱን ያትማል። ግን ልብ በሉ፡
+
+Default Arguments ካልሰጠህ functionኡ ቀድመን የሰጠነውን value ይጠቀማል።
+
+Add_Display(a,b,c); // a=40, b=50, c=60
+
+👉 ውጤት፡ 150 (40+50+60)
+
+
+
+Add_Display(a,b); // a=40, b=50, c ቀዳሚ/default= 30
+
+👉 ውጤት፡ 120 (40+50+30)
+
+
+
+Add_Display(a); // a=40, b=20 (ቀዳሚ/default), c=30 (ቀዳሚ/default)
+
+👉 ውጤት፡ 90 (40+20+30)
+
+
+
+Add_Display(); // ሁሉም ቀዳሚ/default፡ a=10, b=20, c=30
+
+👉 ውጤት፡ 60 (10+20+30)
+
+
+
+💡 ጥሩ ነገሩ፦ ሁሉንም value መስጠት አይጠበቅብንም ፣ ቀዳሚ value (default value) “ባዶውን ቦታ” ይሞላዋል 😎
+
+
+
+2. Mult_Display(int x, int y=70)
+
+ይህ ሁለት ቁጥሮችን በማባዛት ይሰራል። ነገር ግን y ብቻ ቀዳሚ/default አለው (70)።
+
+ስለዚህ x አስፈላጊ ነው፤ value ባትሰጠው አይሰራም።
+
+
+
+Mult_Display(a,b); // a=40, b=50
+
+👉 ውጤት፡ 2000 (40*50)
+
+
+
+Mult_Display(a); // a=40, y=70 (ቀዳሚ)
+
+👉 ውጤት፡ 2800 (40*70)
+
+
+
+Mult_Display(); // ❌ ልክ አይደለም
+
+👉 ምክንያቱ፡ x ቀዳሚ/default አልተሰጠውም! So እኛ ራሳችን value ልንሰጠው ይገባ ነበር። አሁን ግን ስላልሰጠን አይሰራም።
+
+የ Invalid Function 
+
+ምሳሌ
+
+void Mult_Display (int x, int y=70, int z) { ... }
+
+
+
+⚠️ ችግር ፦ እዚህ y ቀዳሚ/default  አለው(70)፣ ግን z የለውም ሆኖም z የተፃፈው ከ y በኋላ ነው።
+
+
+
+👉 የC++ ደንብ እንዲህ ይላል፦ ቀዳሚ value/default valur ያላቸው አባላት ሁሉ ሲፃፋ በቀኝ መጨረሻ መሆን አለባቸው።
+
+
+
+✔️ ስለዚህ የትክክለኛው መንገድ፦
+
+void Mult_Display(int x, int z, int y=70) { ... } ነው።
