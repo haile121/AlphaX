@@ -1,0 +1,51 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/src/app.js",
+  "scripts": {
+    "dev": "tsx watch src/app.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/src/app.js",
+    "test": "npm run build && node --test tests/*.test.js",
+    "seed:chapter1": "tsx db/seeds/seedChapter1.ts",
+    "migrate:001": "tsx scripts/run-migration-001.ts",
+    "migrate:002": "tsx scripts/run-migration-002.ts",
+    "migrate:003": "tsx scripts/run-migration-003.ts",
+    "seed:cpp-placement": "tsx scripts/run-seed-cpp-placement.ts",
+    "migrate:004": "tsx scripts/run-migration-004.ts",
+    "migrate:005": "tsx scripts/run-migration-005.ts",
+    "migrate:course-track": "npm run migrate:001 && npm run migrate:005 && npm run seed:course-track-quizzes",
+    "seed:course-track-quizzes": "tsx scripts/seed-course-track-quizzes.ts",
+    "check:course-db": "tsx scripts/verify-course-track-db.ts",
+    "diagnose:track-cert": "tsx scripts/diagnose-track-cert.ts",
+    "refresh:streaks": "tsx scripts/refresh-all-streaks.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.5",
+    "nodemailer": "^7.0.5",
+    "pdfkit": "^0.17.2",
+    "uuid": "^11.1.0",
+    "ws": "^8.18.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.5.2",
+    "@types/nodemailer": "^7.0.1",
+    "@types/pdfkit": "^0.17.3",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}
