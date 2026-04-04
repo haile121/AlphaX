@@ -1,0 +1,269 @@
+4.4. Function Parameters and arguments 
+
+¾ The parameters of a function are list of variables used by the function 
+
+to perform its task and the arguments passed to the function during 
+
+calling of a function are values sent to the function. 
+
+¾ The arguments of function calling can be using either of the two 
+
+supported styles in C++: 
+
+passing by value or 
+
+passing by reference. 
+
+
+
+4.4.1. Passing by value: 
+
+o A value parameter receives a copy of only the value of the argument passed to it. As a result, if the function makes any changes to the parameters, this will not affect the argument. For instance: 
+
+#..... 
+
+void Foo(int num) 
+
+{ Num = 0; 
+
+cout<< “num = ” << num << “ \n”; 
+
+} 
+
+int main(void) 
+
+{ int x = 10; 
+
+Foo(x); 
+
+cout<< “x = ”<<x<< “\n”; 
+
+getch(); 
+
+return 0; 
+
+} 
+
+o The single parameter of Foo is a value parameter. As far as this function is concerned, num behaves just like a local variable inside the function. When the function is called and x passed to it, num receives a copy of the value of x. As a result, although num is set to 0 by the function, this does not affect  the program produces the following output: 
+
+Num = 0 
+
+x = 10 
+
+o Passing arguments in this way, where the function creates copies of the arguments passed to it is called passing by value.
+
+# 1.7.1. Passing by Value
+
+
+
+Passing by value ማለት አንድ Function Argument ሲቀበል የ Argumentውን ዋጋ ብቻ ቅጂ (copy) በመቀበል የሚሰራበት መንገድ ነው። በዚህ መንገድ Functionው በ Argumentው ላይ ለውጥ ቢያደርግ እንኳ በዋናው Argument ላይ ምንም ተጽዕኖ አይኖረውም።
+
+
+
+### ምሳሌ
+
+
+
+#include <iostream>
+
+#include <conio.h>
+
+
+
+using namespace std;
+
+
+
+void Foo(int num) {
+
+    num = 0;
+
+    cout << "num = " << num << " \n";
+
+}
+
+
+
+int main(void) {
+
+    int x = 10;
+
+    Foo(x);
+
+    cout << "x = " << x << " \n";
+
+    getch();
+
+    return 0;
+
+}
+
+
+
+### ማብራሪያ
+
+
+
+*   Foo የተባለው Function አንድ int አይነት Parameter ይቀበላል (num)።
+
+*   main Function ውስጥ x የተባለ ተለዋዋጭ (variable) አለ፤ እሱም 10 የሚል እሴት (value) አለው።
+
+*   Foo(x) ስንል x ለ Foo Function ይላካል።
+
+*   Foo Function ውስጥ num = 0; የሚለው ትዕዛዝ ቢኖርም፣ ይህ የሚቀይረው የ x`ን ሳይሆን የ `num`ን ዋጋ ነው። ምክንያቱም `num የ x ቅጂ ስለሆነች (copy)።
+
+*   ስለዚህ Foo Function ከሰራ በኋላ x አሁንም 10 ሆኖ ይቀጥላል።
+
+
+
+### ውጤት
+
+
+
+ፕሮግራሙ የሚከተለውን ውጤት ያሳያል:
+
+
+
+num = 0
+
+x = 10
+
+
+
+ይህ የሚያሳየው Foo Function ውስጥ num ቢቀየርም x እንዳለ መቆየቱን ነው። ይህ የሆነበት ምክንያት Passing by value ስንጠቀም Functionው የ Argumentውን ዋጋ ቅጂ ስለሚቀበል ነው።
+
+1.7.2. Passing by Reference: 
+
+o A reference parameter, on the other hand, receives the argument passed to it and works on it directly. Any change made by the function to a reference parameter is in effect directly applied to the argument. 
+
+o Passing parameters in this way is called pass-by-reference. 
+
+o Taking the same example above: 
+
+#..... 
+
+#..... 
+
+void Foo(int & num) 
+
+{ 
+
+num = 0; 
+
+cout<< “num = ” << num << “ \n”; 
+
+} 
+
+int main(void) 
+
+{ 
+
+int x = 10; 
+
+Foo(x); 
+
+cout<< “x = ”<<x<< “\n”; 
+
+getch(); 
+
+return 0; 
+
+} 
+
+o The parameter of Foo is a reference parameter. Num will correspond to x for this specific program as it x is sent by its reference and not its value. Any change made on num will be effected to x. Thus, the program produces the following output: 
+
+num = 0 
+
+x = 0 // do this one also
+
+ 4.4.2. Passing by Reference
+
+
+
+Passing by Reference ማለት አንድ Function Argument ሲቀበል የ Argumentውን ማመሳከሪያ (reference) በቀጥታ በመቀበል የሚሰራበት መንገድ ነው። በዚህ መንገድ Functionው በ Argumentው ላይ የሚያደርገው ማንኛውም ለውጥ በቀጥታ በዋናው Argument ላይ ተጽዕኖ ይኖረዋል።
+
+
+
+### ማብራሪያ
+
+
+
+*   Passing parameters በዚህ መንገድ ሲሆን pass-by-reference ይባላል።
+
+*   ማመሳከሪያ (reference) Parameter, በሌላ በኩል, ወደ እሱ ያለፈውን ክርክር ይቀበላል እና በቀጥታ በእሱ ላይ ይሰራል. በተግባሩ ለማመሳከሪያ መለኪያ የተደረገ ማንኛውም ለውጥ በቀጥታ በክርክሩ ላይ ይተገበራል።
+
+
+
+### ምሳሌ
+
+
+
+#include <iostream>
+
+#include <conio.h>
+
+
+
+using namespace std;
+
+
+
+void Foo(int & num) {
+
+    num = 0;
+
+    cout << "num = " << num << " \n";
+
+}
+
+
+
+int main(void) {
+
+    int x = 10;
+
+    Foo(x);
+
+    cout << "x = " << x << " \n";
+
+    getch();
+
+    return 0;
+
+}
+
+
+
+### ማብራሪያ
+
+
+
+*   Foo የተባለው Function አንድ int አይነት Reference Parameter ይቀበላል (int & num)።
+
+*   main Function ውስጥ x የተባለ ተለዋዋጭ (variable) አለ፤ እሱም 10 የሚል እሴት (value) አለው።
+
+*   Foo(x) ስንል x ለ Foo Function ይላካል። ነገር ግን በዚህ ጊዜ x ራሱ ነው የሚላከው እንጂ ቅጂው አይደለም።
+
+*   Foo Function ውስጥ num = 0; የሚለው ትዕዛዝ ሲፈጸም፣ ይህ በቀጥታ የሚቀይረው የ x`ን ዋጋ ነው። ምክንያቱም `num እና x አንድ አይነት የማህደረ ትውስታ ቦታ (memory location) ስለሚጋሩ።
+
+
+
+### ውጤት
+
+
+
+ፕሮግራሙ የሚከተለውን ውጤት ያሳያል:
+
+
+
+num = 0
+
+x = 0
+
+
+
+ይህ የሚያሳየው Foo Function ውስጥ num ሲቀየር `x`ም አብሮ መቀየሩን ነው። ይህ የሆነበት ምክንያት Passing by Reference ስንጠቀም Functionው የ Argumentውን ማመሳከሪያ ስለሚቀበል ነው። ስለዚህ Functionው በ Argumentው ላይ የሚያደርገው ማንኛውም ለውጥ በቀጥታ በዋናው Argument ላይ ተጽዕኖ ይኖረዋል።
+
+ውዶች🥰 እንዴት ናችሁ።
+
+ነቃ ብለን የዛሬውን ትምህርት እንጀምራለን። ዝግጁ😊💪
