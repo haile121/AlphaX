@@ -23,8 +23,11 @@ import {
   backendPublicUrl,
   certificatesApi,
   courseTrackQuizzesApi,
+  trackCompletionVideosApi,
   type TrackCertificateSummary,
+  type TrackCompletionVideo,
 } from '@/lib/api';
+import { TrackAdditionalResource } from '@/components/lessons/TrackAdditionalResource';
 import { useDialog } from '@/components/ui/DialogProvider';
 import { canAccessLessonTrack } from '@/lib/trackAccess';
 import { useGamificationRefresh } from '@/lib/gamificationRefresh';
@@ -66,12 +69,12 @@ function ProgressChip({
   done: number;
   total: number;
   label?: string;
-  variant?: 'blue' | 'violet';
+  variant?: 'blue' | 'teal';
 }) {
   const pct = total ? Math.round((done / total) * 100) : 0;
   const barClass =
-    variant === 'violet'
-      ? 'from-violet-600 to-fuchsia-500'
+    variant === 'teal'
+      ? 'from-teal-600 to-cyan-500'
       : 'from-blue-600 to-sky-500';
   return (
     <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-800/80 pl-2 pr-2.5 py-1 text-xs font-semibold text-gray-800 dark:text-gray-200 tabular-nums shadow-sm ring-1 ring-black/5 dark:ring-white/10">
@@ -212,7 +215,7 @@ function OverallProgressPanel({
               </div>
               <div className="hidden h-28 w-px shrink-0 bg-gray-200/90 dark:bg-gray-700/90 sm:block" aria-hidden />
               <div className="flex w-full min-w-0 max-w-[12rem] flex-col items-center text-center sm:w-auto">
-                <div className="mb-3 inline-flex max-w-full items-center justify-center gap-1.5 rounded-full bg-violet-50/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-violet-700 dark:bg-violet-950/60 dark:text-violet-300">
+                <div className="mb-3 inline-flex max-w-full items-center justify-center gap-1.5 rounded-full bg-teal-50/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-teal-800 dark:bg-teal-950/60 dark:text-teal-300">
                   <TrendingUp className="h-3.5 w-3.5 shrink-0" aria-hidden />
                   <span className="break-words leading-tight">Web fundamentals</span>
                 </div>
@@ -220,9 +223,9 @@ function OverallProgressPanel({
                   pct={web.pct}
                   mounted={mounted}
                   gradientId={gradWeb}
-                  strokeGradientFrom="#7c3aed"
-                  strokeGradientMid="#c026d3"
-                  strokeGradientTo="#e879f9"
+                  strokeGradientFrom="#0f766e"
+                  strokeGradientMid="#14b8a6"
+                  strokeGradientTo="#5eead4"
                 />
                 <p className="mt-2 text-sm font-semibold tabular-nums text-gray-900 dark:text-white">
                   {mounted ? (
@@ -273,7 +276,7 @@ function OverallProgressPanel({
               </div>
               <div className="h-3.5 overflow-hidden rounded-full bg-gray-200/90 ring-1 ring-inset ring-black/[0.06] dark:bg-gray-800 dark:ring-white/10">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-400 shadow-[0_0_20px_rgba(124,58,237,0.2)] transition-[width] duration-700 ease-out motion-reduce:transition-none"
+                  className="h-full rounded-full bg-gradient-to-r from-teal-600 via-cyan-500 to-emerald-400 shadow-[0_0_20px_rgba(13,148,136,0.22)] transition-[width] duration-700 ease-out motion-reduce:transition-none"
                   style={{ width: `${mounted ? web.pct : 0}%` }}
                 />
               </div>
@@ -346,7 +349,7 @@ function OverallProgressPanel({
                           'flex h-7 min-w-[1.75rem] px-1 shrink-0 items-center justify-center rounded-lg text-[10px] font-bold uppercase tracking-tight',
                           complete
                             ? 'bg-emerald-500 text-white shadow-sm shadow-emerald-500/25'
-                            : 'bg-violet-100 text-violet-700 dark:bg-violet-950/60 dark:text-violet-300'
+                            : 'bg-teal-100 text-teal-800 dark:bg-teal-950/60 dark:text-teal-300'
                         )}
                       >
                         Web
@@ -366,7 +369,7 @@ function OverallProgressPanel({
                               'h-full rounded-full transition-[width] duration-500 ease-out',
                               complete
                                 ? 'bg-gradient-to-r from-emerald-500 to-teal-400'
-                                : 'bg-gradient-to-r from-violet-600 to-fuchsia-400'
+                                : 'bg-gradient-to-r from-teal-600 to-cyan-400'
                             )}
                             style={{ width: `${mounted ? chPct : 0}%` }}
                           />
@@ -414,7 +417,7 @@ function ChapterQuizFooter({
             'inline-flex items-center gap-2 text-sm font-semibold rounded-xl px-4 py-2.5 transition-colors',
             variant === 'cpp'
               ? 'bg-blue-600 text-white hover:bg-blue-500 shadow-md shadow-blue-600/15'
-              : 'bg-violet-600 text-white hover:bg-violet-500 shadow-md shadow-violet-600/15'
+              : 'bg-teal-600 text-white hover:bg-teal-500 shadow-md shadow-teal-600/15'
           )}
         >
           Take quiz (XP)
@@ -427,6 +430,16 @@ function ChapterQuizFooter({
   );
 }
 
+function trackReadingsUnlocked(
+  track: 'cpp' | 'web',
+  done: string[],
+  accessibleLessonIds: Set<string>
+): boolean {
+  const ids = track === 'cpp' ? CPP_LESSON_IDS : WEB_LESSON_IDS;
+  const acc = ids.filter((id) => accessibleLessonIds.has(id));
+  return acc.length > 0 && acc.every((id) => done.includes(id));
+}
+
 function ModuleFinalCard({
   track,
   done,
@@ -436,9 +449,7 @@ function ModuleFinalCard({
   done: string[];
   accessibleLessonIds: Set<string>;
 }) {
-  const ids = track === 'cpp' ? CPP_LESSON_IDS : WEB_LESSON_IDS;
-  const acc = ids.filter((id) => accessibleLessonIds.has(id));
-  const unlocked = acc.length > 0 && acc.every((id) => done.includes(id));
+  const unlocked = trackReadingsUnlocked(track, done, accessibleLessonIds);
   const quizId = COURSE_TRACK_FINAL_QUIZ_IDS[track];
   const title = track === 'cpp' ? 'C++ module final exam' : 'Web fundamentals module final exam';
   const desc =
@@ -451,7 +462,7 @@ function ModuleFinalCard({
         'rounded-2xl border p-5 mt-2',
         track === 'cpp'
           ? 'border-blue-200/90 dark:border-blue-900/50 bg-blue-50/50 dark:bg-blue-950/20'
-          : 'border-violet-200/90 dark:border-violet-900/50 bg-violet-50/50 dark:bg-violet-950/20'
+          : 'border-teal-200/90 dark:border-teal-900/50 bg-teal-50/50 dark:bg-teal-950/20'
       )}
     >
       <h3 className="text-sm font-semibold text-gray-900 dark:text-white flex items-center gap-2">
@@ -467,7 +478,7 @@ function ModuleFinalCard({
               'inline-flex items-center gap-2 text-sm font-semibold rounded-xl px-4 py-2.5 transition-colors',
               track === 'cpp'
                 ? 'bg-blue-600 text-white hover:bg-blue-500 shadow-md shadow-blue-600/15'
-                : 'bg-violet-600 text-white hover:bg-violet-500 shadow-md shadow-violet-600/15'
+                : 'bg-teal-600 text-white hover:bg-teal-500 shadow-md shadow-teal-600/15'
             )}
           >
             Take final exam
@@ -490,6 +501,9 @@ export function Chapter1LessonList() {
   const [summaryCpp, setSummaryCpp] = useState<TrackCertificateSummary | null>(null);
   const [summaryWeb, setSummaryWeb] = useState<TrackCertificateSummary | null>(null);
   const [genCertLoading, setGenCertLoading] = useState<'cpp' | 'web' | null>(null);
+  const [completionVideos, setCompletionVideos] = useState<Partial<Record<'cpp' | 'web', TrackCompletionVideo>>>(
+    {}
+  );
 
   const refresh = useCallback(async () => {
     const ids = await syncCourseReadingProgressWithServer();
@@ -538,6 +552,24 @@ export function Chapter1LessonList() {
       cancelled = true;
     };
   }, [authHint.ready, authHint.signedIn]);
+
+  useEffect(() => {
+    let cancelled = false;
+    void trackCompletionVideosApi
+      .list()
+      .then((r) => {
+        if (cancelled) return;
+        const next: Partial<Record<'cpp' | 'web', TrackCompletionVideo>> = {};
+        for (const v of r.data.videos) next[v.track] = v;
+        setCompletionVideos(next);
+      })
+      .catch(() => {
+        if (!cancelled) setCompletionVideos({});
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     if (!authHint.ready || !authHint.signedIn) {
@@ -688,7 +720,7 @@ export function Chapter1LessonList() {
           mounted ? (
             <div className="flex flex-wrap items-center justify-end gap-2">
               <ProgressChip label="C++" done={trackProgress.cppDone} total={trackProgress.cppTotal} variant="blue" />
-              <ProgressChip label="Web" done={trackProgress.webDone} total={trackProgress.webTotal} variant="violet" />
+              <ProgressChip label="Web" done={trackProgress.webDone} total={trackProgress.webTotal} variant="teal" />
             </div>
           ) : undefined
         }
@@ -726,7 +758,7 @@ export function Chapter1LessonList() {
                 {(['cpp', 'web'] as const).map((track) => {
                   const summary = track === 'cpp' ? summaryCpp : summaryWeb;
                   const label = track === 'cpp' ? 'C++ track' : 'Web fundamentals';
-                  const variant = track === 'cpp' ? 'blue' : 'violet';
+                  const variant = track === 'cpp' ? 'blue' : 'teal';
                   return (
                     <div
                       key={track}
@@ -734,7 +766,7 @@ export function Chapter1LessonList() {
                         'rounded-lg border p-3 text-sm',
                         variant === 'blue'
                           ? 'border-blue-200/80 dark:border-blue-900/45 bg-blue-50/40 dark:bg-blue-950/15'
-                          : 'border-violet-200/80 dark:border-violet-900/45 bg-violet-50/40 dark:bg-violet-950/15'
+                          : 'border-teal-200/80 dark:border-teal-900/45 bg-teal-50/40 dark:bg-teal-950/15'
                       )}
                     >
                       <p className="font-semibold text-gray-900 dark:text-white">{label}</p>
@@ -773,7 +805,7 @@ export function Chapter1LessonList() {
                                 'mt-3',
                                 variant === 'blue'
                                   ? 'bg-blue-600 hover:bg-blue-500 text-white'
-                                  : 'bg-violet-600 hover:bg-violet-500 text-white'
+                                  : 'bg-teal-600 hover:bg-teal-500 text-white'
                               )}
                               disabled={genCertLoading === track}
                               onClick={() => void handleGenerateTrackCert(track)}
@@ -887,6 +919,11 @@ export function Chapter1LessonList() {
                   );
                   })}
                   <ModuleFinalCard track="cpp" done={done} accessibleLessonIds={accessibleLessonIds} />
+                  <TrackAdditionalResource
+                    track="cpp"
+                    unlocked={trackReadingsUnlocked('cpp', done, accessibleLessonIds)}
+                    video={completionVideos.cpp}
+                  />
                 </>
               )}
             </div>
@@ -895,7 +932,7 @@ export function Chapter1LessonList() {
               <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide px-0.5 flex flex-wrap items-center gap-2">
                 <span>Web fundamentals</span>
                 {user?.primary_track === 'web' && (
-                  <span className="rounded-full bg-violet-100 dark:bg-violet-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-violet-700 dark:text-violet-300">
+                  <span className="rounded-full bg-teal-100 dark:bg-teal-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-teal-800 dark:text-teal-300">
                     Your focus
                   </span>
                 )}
@@ -934,7 +971,7 @@ export function Chapter1LessonList() {
                                   'group flex items-start gap-4 rounded-xl border p-4 transition-all duration-200',
                                   isDone
                                     ? 'border-emerald-200/90 dark:border-emerald-900/45 bg-emerald-50/40 dark:bg-emerald-950/15'
-                                    : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/40 hover:border-violet-300 dark:hover:border-violet-700 hover:shadow-md'
+                                    : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/40 hover:border-teal-300 dark:hover:border-teal-700 hover:shadow-md'
                                 )}
                               >
                                 <span
@@ -942,14 +979,14 @@ export function Chapter1LessonList() {
                                     'flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-colors',
                                     isDone
                                       ? 'bg-emerald-500 text-white'
-                                      : 'bg-violet-100 dark:bg-violet-950/50 text-violet-700 dark:text-violet-300'
+                                      : 'bg-teal-100 dark:bg-teal-950/50 text-teal-800 dark:text-teal-300'
                                   )}
                                 >
                                   {i + 1}
                                 </span>
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-start justify-between gap-2">
-                                    <p className="font-semibold text-gray-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                                    <p className="font-semibold text-gray-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
                                       {lesson.titleEn}
                                     </p>
                                     {isDone ? (
@@ -976,6 +1013,11 @@ export function Chapter1LessonList() {
                   );
                   })}
                   <ModuleFinalCard track="web" done={done} accessibleLessonIds={accessibleLessonIds} />
+                  <TrackAdditionalResource
+                    track="web"
+                    unlocked={trackReadingsUnlocked('web', done, accessibleLessonIds)}
+                    video={completionVideos.web}
+                  />
                 </>
               )}
             </div>
