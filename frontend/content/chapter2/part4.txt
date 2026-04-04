@@ -1,0 +1,135 @@
+Chapter Two: Basics of C++ (continued)
+
+2.4. A Brief Look at Function
+
+In general, a function is a block of code that performs one or more actions.
+
+Most functions are called, or invoked, during the course of the program, which is after the program starts execution.
+
+Program commands are executed line by line, in the order in which they appear in the source code, until a function is reached. The program then branches off to execute the function. When the function finishes, it returns control to the line of code immediately following the call to the function.
+
+Functions consist of a header and a body. The header includes: 
+
+Return type
+
+Function name
+
+Parameters (if any)
+
+Parameters allow values to be passed into the function. A parameter is a declaration of the type of value that will be passed to the function; the actual value passed by the calling function is called an argument.
+
+
+
+🧪 Example :
+
+#include<iostream.h>
+
+#include<conio.h>
+
+
+
+void main() {
+
+    cout << "\n In main function";
+
+    demoFunction();
+
+    cout << "\n Back in main function";
+
+    getch();
+
+}
+
+
+
+void demoFunction() {
+
+    cout << "\n demoFunction";
+
+}
+
+
+
+Functions return either a value or void (i.e., they return nothing).
+
+A function that adds two integers might return the sum and would be defined to return an int.
+
+A function that just prints a message has nothing to return and would be declared to return void.
+
+A function may return a value using a return statement; this also causes the function to exit.
+
+If there is no return statement at the end of a function, the function will automatically return void.
+
+እንደተጠየቀ፣ እነዚህ ናቸው የTopic 2.4 – “A Brief Look at Function” የተማሩት ነጥቦች በአማርኛ በቀላሉ በተሰማሩ መልኩ፦
+
+
+
+📘 2.4 – አጭር እይታ በFunction ላይ
+
+🔹 Function ማለት ምንድነው?
+
+Function በፕሮግራም ውስጥ አንድ ስርዓተ ኮድ ነው፤ አንድ ልዩ ስራ ለመፈጸም የተዘጋጀ።
+
+ከፕሮግራሙ መጀመሪያ ጀምሮ main() ተብሎ የሚጠራ Function አለ። የፕሮግራሙ እንቅስቃሴ ከዚህ ይጀምራል።
+
+ፕሮግራሙ ኮዶችን በተከታታይ ይፈጽማል፤ ነገር ግን Function ካገኘ ወዲያ ወደ ዚያ ይዘምታል። ከFunction በኋላ ወደ ቀደም ያለው መስመር ይመለሳል።
+
+
+
+🔹 Function ላይ የሚካተቱ ነገሮች
+
+Header – የFunction መነሻ፣ የሚካተቱት፦
+
+Return Type (የሚመለስ አይነት)
+
+Function Name (ስም)
+
+Parameters (የሚወሰኑ እሴቶች)
+
+Body – የFunction ውስጣዊ ኮድ፣ የሚፈጽምበት ስራ።
+
+
+
+🔹 Parameter vs Argument
+
+Parameter – በFunction ውስጥ የሚታየው የእሴት አይነት እና ስም።
+
+Argument – በFunction ሲጠራ የሚሰጠው ትክክለኛ እሴት።
+
+
+
+🔹 ምሳሌ ኮድ
+
+#include<iostream.h>
+
+#include<conio.h>
+
+
+
+void main() {
+
+    cout << "\n In main function";
+
+    demoFunction(); // የFunction ጥራት
+
+    cout << "\n Back in main function";
+
+    getch();
+
+}
+
+
+
+void demoFunction() {
+
+    cout << "\n demoFunction";
+
+}
+
+
+
+Function የሆነ value ሊመለስ ይችላል (e.g. int) ወይም ደግሞ ምንም አይመለስም (void)።
+
+return በመጠቀም value ሊመለስ ይችላል፣ እንዲሁም የFunction መጨረሻን ያመለከታል።
+
+ከreturn የተነሳ Function ይወጣል።  return ካልተጻፈ  ግን void እንደመለሰ ይቆጠራል። ማለትም ምንም ነገር አይመልስም፡፡
