@@ -1,0 +1,391 @@
+Chapter 2 part 3
+
+Operators
+
+An operator is a symbol that makes the machine to take an action. 
+
+Operator በማትስ እንዳለው ሁሉ symbol ወይም ምልክት ናቸው። ለምሳሌ መደመር +, መቀነስ -, ወ.ዘ.ተ የምንላቸው 
+
+አይነት ማለት ነው። እናንተ ለምሳሌ 23+17 ብየ ብጽፍ 40 የሚል መልስ ትነግሩኛላችሁ። ለምን? ምክንያቱም ከቁጥሮቹ መካከል ያለችው ምልክት ሁለቱን ቁጥሮች እንድንደምራቸው ምልክት ሆና እየነገረችን ስለሆነ። እንደዚህም ሁሉ compiler-ኡ ወይም በቀላሉ computer-ኡ ይሄን ስንጽፍለት የመደመር ምልክቷ ሁለቱን ቁጥር እንዲደምር ታደርገዋለች። ለዚያም ነው ማሽኑ ወይም ኮምፒውተሩ ተግባር ኦንዲፈጽም ያደርገዋል የሚል። (makes the machine to take an action.)
+
+Different Operators act on one or more operands and can also have different kinds of operators. 
+
+እነዚህ ምልክቶች በተለያዩ variable-ኦች ወይም operands መካከል ሊቀመጡ ይችላሉ።  (operands - ማለት ከምልክቶቹ በግራና በቀኝ የሚገኙት ቁጥሮች ወይም ፊደሎች ናቸው። ለምሳሌ C=A+B ብንል ABC ሶስቱ operands ይባላሉ። 1/99 ብንልም 1 እና 99 operands ናቸው።) 
+
+C++ provides several categories of operators, including the following: Assignment operator Arithmetic operator Relational operator Logical operator Increment/decrement operator 
+
+Conditional operator 
+
+Comma operator 
+
+The size of operator Explicit type casting operators, etc 
+
+የoperators አይነቶች ብዙ ሲሆኑ ከላይ የተዘረዘሩትን አንድ በአንድ እንያቸው።
+
+Assignment operator (=). The assignment operator causes the operand on the left side of the 
+
+assignment statement to have its value changed to the value on the 
+
+right side of the statement. 
+
+Syntax: Operand1=Operand2; 
+
+ይህ በማትስ እኩል ይሆናል (=) የምንለው ምልክት ነው። ከምልክቱ በቀኝ ያሉት ውጤቶች ለግራዎቹ እንዲሰጡ ያደርጋል። ለምሳሌ x=3 ብንል x ሶስት ናት ወይም 3 የሚባለውን value ለ x ስጥልን እያልነው ነው።
+
+ስለዚህ syntax ወይም ህጉ operand1=operand2  ነው።
+
+የመጀመሪያው operand (operand1) ሁሌም variable ነው የሚሆን። ለምሳሌ age=21 ብንል age ለሚባለው variable 21 የሚባል ዋጋ እንዳለው እወቅልን እያልነው ነው computer-ኣችን ። ሌላው operand2 ከ አንድ በላይ ሊሆን ይችላል። እንደዚህ ማለት ነው። x=y+7
+
+Operand2 can be one or combination of: • A literal constant: Eg: x=12; (ቁጥር ብቻ)• A variable: Eg: x=y; (variable)• An expression: Eg: x=y+2; (የሁለቱም ጥምር) ሊሆን ይችላል። 
+
+Compound assignment operators (+=, -=, *=, /=, %=, >>=, <<=, &=, ^=). 
+
+Compound assignment operator is the combination of the assignment operator with other operators like arithmetic and bit wise operators. 
+
+ሁለተኞቹ compound assignment operators የምንላቸው ሲሆኑ የassignment operator ወይም እኩልይሆናል(=) operator😊 እና የbit wise operator ወይም arithmetic operators በጋራ የሚፈጥሯቸው operator-ኦች ናቸው። ለምሳሌ a-=5 ሲባል a=a-5 ማለት ነው። a*=7 ሲባል a=a*7 ማለት ነው። 
+
+Arithmetic operators (+, -, *, /, %). 
+
+Except for remainder or modulo (%), all other arithmetic operators can accept a mix of integers and real operands.
+
+arithmetic operators የማትሶቹ ወይም የምናውቃቸው ምልክቶች ናቸው። ከነሱ ለየት የሚለው modulo (%) ሲሆን ቀሪ እንደማለት ነው። ለምሳሌ 10/3=3ቀሪ 1 ነው። መልሱ ስለዚህ 1 ነው ማለት ነው። 
+
+Integer division always results in an integer outcome.  ሁለት integer-ኦችን ብናካፍል የምናገኘው መልስ integer ነው የሚሆነው። ለምሳሌ 9/2 መልሱ 4 ነው የሚሆን 4.5 አይሆንም። negative integer-ም ቢሆን በተመሳሳይ -4 ነው የሚሆን እንጂ real number አይደለም። 
+
+To obtain a real division when both operands are integers, you should cast one of the operands to be real. 
+
+real number ማግኘት ከፈለግን ግን አንዱን cast ማድረግ ወይም value -ን ወደ double ቀይረን ማስላት እንችላለን። የምንቀይርበት ደግሞ cast ማድረግ ይባላል። ምሳሌ፦ int cost = 100;  Int volume = 80;  Double unitPrice = cost/(double)volume; 
+
+Relational operator (==, !=, > , <, >=, <=). 
+
+In order to evaluate a comparison between two expressions, we can use the relational operator. 
+
+ይሄ ከስሙ እንደምንረዳው relational ወይም የዝምድና ምልክቶች ማለት እንችላለን። አንዱን operand ከሌላው ጋ ምን ያዛምደዋል፤ ያንሳል?፤ ይበልጣል?፤ እኩል ናቸው የሚሉትን ያጣራል። 
+
+The result of a relational operator is a bool value that can only be true or false
+
+ስለዚህ መልሱ  bool value ወይም እውነት እና ሀሰት ናቸው። ለምሳሌ 5==6 ብንል 5 ከ 6 ጋር እኩል ነው? የሚል ጥያቄ ነው የጻፍን ስለዚህ እኩል ስላልሆኑ መልሱ False ወይም 0 ይሆናል ማለት ነው። በተቃራኒው ግን  5!=6 ካልን 5 ከ 6 ጋር እኩል አይደለም የሚል ጥያቄ እያነሳን ነው። ስለዚህ መልሱ True ወይም 1 ይሆናል ማለት ነው።
+
+ሌላው ቁጥር ብቻ አይደለም ፊደልም ማወዳደር ይቻላል። ለምሳሌ 'A’ < ‘F’ መልሱ true ወይም 1 ነው። ከA እስከ Z በኮምፒዩተሩ የሚታወቅ ቁጥር አላቸው። ስለዚህ  'A’ < ‘F’ ማለት (65 < 70) ነው። 
+
+Logical Operators (!, &&, ||): 
+
+Logical negation (!) is a unary operator, which negates the logical value of its operand. 
+
+በማትስ እንደተማርነው "!" ማለት ተቃራኒ ማድረግ ነው። true ከሆነ ! ስናደርገው false ይሆናል ማለት ነው።
+
+non negative የሆነ ቁጥር ከሆነ ! ስናደርገው 0 ወይም false ነው። ለምሳሌ !20 ውጤቱ 0 ነው። ምክንያቱም 20 positive number ስለሆነ ነው።
+
+Logical AND (&&) produces 0 if one or both of its operands evaluate to 0 otherwise it produces 1. 
+
+AND የምንለው operator ከሁለት አንዱ ወይም ሁለቱ operand False ወይም 0 ከሆኑ መልሱ 0 ይሆናል። ካልሆነ ግን 1 ነው። 
+
+Logical OR (||) produces 0 if both of its operands evaluate to 0 otherwise, it produces 1. 
+
+"OR" የምንለው Operator ደግሞ በሁለቱ ጎን ያሉት ቁጥሮች ወይም ፊደሎች False ወይም 0 ከሆኑ ውጤቱ 0 ይሆናል። 
+
+አንዳቸው True ወይም 1 ከሆኑ ደግሞ ውጤቱ 1 ይሆናል።
+
+👉 እዚህ ላይ ትንሽ ግራ ከገባችሁ ስለ ሁለቱ(Logical OR (||) እና Logical AND (&&)) ወደፊት በተደጋጋሚ ስለምናወራ አትጨነቁ። መሠረታዊ ሀሳቡን ግን ለመያዝ ሞክሩ።
+
+ለምሳሌ 10 || 5.5     ውጤት👉 1 ምክንያቱም  10 = is a positive number.       5.5 is also positive true||true=true.
+
+             10 && 0     ውጤት👉0  ምክንያቱም  0= is neither positive nor negative.   true&&false =false.
+
+
+
+
+
+Increment/Decrement Operators: (++) and (--) 
+
+The auto increment (++) and auto decrement (--) operators provide a convenient way of, respectively, adding and subtracting 1 from a numeric variable. 
+
+ከስሙ እንደምንረዳው ከነበረው ቁጥር ላይ አንድ መጨመር ወይም መቀነስ የincrement እና Decrement operatorኦች ስራ ነው። 
+
+ለምሳሌ A=10 ቢሆን A++ ማለት ከ A ዋጋ ላይ አንድ ጨምር ነው። ስለዚህ A 11ትሆናለች ማለት ነው። ነገር ግን A=10 ሁኖ A-- ከሆነ የ A ዋጋ 9 ይሆናል ማለት ነው።
+
+Prefix and Postfix: 
+
+The prefix type is written before the variable. Eg (++ myAge), whereas the postfix type appears after the variable name (myAge ++). 
+
+ከስሙ እንደምንረዳው prefix ከvariable-ኡ በፊት የመጨመር ወይም የመቀነስ ምልክት ሲመጣ እንዲሁም postfix ደግሞ ከvariable-ኡ መጨረሻ ሲመጣ ማለት ነው። ለምሳሌ፦ ++ myAge prefix ነው ምክንያቱም ከvariable-ኡ በፊት የመጨመር ምልክት ስለመጣ። --myAge 👈 ይሄም prefix ነው።
+
+Prefix and postfix operators can not be used at once on a single variable: Eg: ++age-- or --age++ or ++age++ or - - age - - is invalid 
+
+ከላይ በምሳሌው እንደምታዩት ሁለቱንም ግን በአንደ ጊዜ በአንድ variable ላይ መጠቀም አይቻልም።
+
+The prefix operator is evaluated before the assignment, and the postfix operator is evaluated after the assignment. 
+
+ይሄ ምንማለት ነው፦ prefix operator ዋጋውን ለvariableኡ ከመስጠቱ በፊት ነው የሚሰላው። ለምሳሌ፦ int k = 5; 
+
+ለK 5ን assign ብናደርግ ወይም ብንሰጥ እና y= ++k + 10;  ብንል መጀመሪያ K በአንድ ትጨምራለች ከዛ ከ10 ጋር ተደምራ የY ዋጋ 16 ይሆናል ማለት ነው። ስለዚህ ለY value assign ከማድረጋችን በፊት K አንድ ትጨምራለች ማለት ነው። ሌላው y= k++ + 10; ብንፈልግ የK value አይጨምርም ምክንያቱም Postfix ስለሆነ የሚጨምረው መጀመሪያ calculation ከሰራን በኋላ ነው። ስለዚህ K=5 + 10 የY ዋጋ 15 ይሆናል። ነገር ግን ከዚህ በኋላ ድጋሜ የY value ብንጠየቅ K በአንድ ትጨምራለች። ምክንያቱም በውስጥ ታዋቂነት 1 ጨምራ ስለቆየች።
+
+ሁለተኛው የdecrement operator-ኦችም በተመሳሳይ ይሄዳሉ። ለምሳሌ y= --k + 10; //gives 14 for y
+
+y= k-- + 10; //gives 15 for y
+
+2.8.6. Conditional Operator (?:) 
+
+The conditional operator takes three operands. It has the general form: 
+
+Syntax: operand1 ? operand2 : operand3 
+
+Conditional operator ብዙ ሰዎች ከሚጠቀሙት የoperator አይነቶች አንዱ ሲሆን ሶስት operand-ኦችን ይጠቀማል።
+
+ለምሳሌ (X<Y? X : Y) ይሄ ሶስት operand አሉት። የመጀመሪያው X<Y ነው። ሁለተኛው ከ ጥያቄምልክቱ ጎን ያለው X ነው። ሶስተኛው ደግሞ Y ነው። so ምን ማለት ነው🤔 ካላችሁ የሄው👇 
+
+x ከ y የሚያንስ ከሆነ x ን አሳይ ካልሆነ ግን y ን አሳይ ማለት ነው። ወይም ለምሳሌ x=8 & y=13 ቢሆኑ መጀመሪያ compare ያደርጋል ከዛ ትክክል ከሆነ የመጀመሪያውን (x) ካልሆነ ደግሞ ሁለተኛው ላይ የተጻፉትን ይወስዳል ማለት ነው። 
+
+ወደ ጓደኛችሁ ቤት መሄድ ፈልጋችሁ ዛሬ የአፍሪካ መሪወች ስብሰባ መሆኑን ብታውቁ። ሁለት ነገር ታስባላችሁ መንገዱ ካልተዘጋ ሁልጊዜ በምትሄዱበት መንገድ መሄድ ከተዘጋ ግን በሌላ መንገድ መሄድ። conditional operator-ም እንደዚያ ነው። condition ወይም ሁኔታ አለ ያ ሁኔታ የሚሆን ከሆነ የመጀመሪያውን ካልሆነ ግን ከ ሁለት ነጥብ(:) በኋላ ያለውን ሁለተኛውን መውሰድ ማለት ነው።
+
+ለምሳሌ (7 = = 5 ? 4: 3) ቢባል መጀመሪያ ከጥያቄምልክቱ በፊት ያለውን condition ይሰራል። ስለዚህ 7 ከ 5 ጋር እኩል ነው ይላል። አዎ ከሆነ 4 ይወጣል። መልሱ ግን እኩል አይደሉም ስለሆነ 3 ይሆናል።
+
+Comma Operator (,). 
+
+Multiple expressions can be combined into one expression using the comma operator.
+
+comma operator የሚያገለግለው የተለያዩ variables ወይም expressions  ብቻ ማንኛውም ነገር ከአንድ በላይ መዘርዘር ስንፈልግ ነው። 
+
+The comma operator takes two operands. Operand1,Operand2 
+
+comma operator የሚይዘው ሁለት operand-ኦችን ነው። ነገር ግን በdeclaration ጊዜ ከአንድም በላይ ሊይዝ ይችላል። ለምሳሌ min = (m < n ? (mCount++ , m) : (nCount++ , n));  ብንል ሁለት operand ብቻ ነው የያዘ ነገር ግን declaration ላይ int m,n,min,avg,total; እያልን ከሁለት በላይ ሊይዝ ይችላል።
+
+በነገራችን ላይ ከላይ ያለውን ምሳሌ እንስራው😊 ሳያነብ ያለፈው አይኖርም መቼም🙈😂 min = (m < n ? (mCount++ , m) : (nCount++ , n));  እንበታትነው💪 min ማለት፦ መጀመሪያ m ከ n ያንሳል የሚለውን ስራ አለ። ከዛ ካነሰ mCount የሚባለው ላይ አንድ ጨምርና የmን ዋጋ ለ min ስጣት።  እምብዬው ካለች ግን nCountን አንድ ጨምርበትና የ nን ዋጋ ለmin ስጣት። እምብዬው ብትልስ?😂 አይ አትልም ከሁለት አንዱን መውሰድ ግዴታዋ ነው።😊
+
+ቁጥር ሰጥተን ማየት እንችላለን int min,n =6,m=7,nCount=0,mCount=1; ቢሆኑ መጀመሪያ condition check ያደርጋል m ከ n ታንሳለች? ይለናል። እኛም ጮክ ብለን  አታንስም እንላለን😂 ስለዚህ ከሁለትነጥብ (:) በኋላ ያለውን operand እንሰራለን። nCountን በአንድ እንጨምራታለን ስለዚሆ nCount 2 ትሆናለች ማለት ነው። ከዛ የn-ን ዋጋ ለ min መስጠት ነው። ስለዚህ min=6 ይሆናል መልሳችን።
+
+The sizeof() Operator. 
+
+
+
+This operator is used for calculating the size of any data item or type.It takes a single operand (e.g. 100) and returns the size of the specified entity in bytes.
+
+size of operator የማንኛውንም ዳታ መጠን ወይም size ለመለካት ያገለግላል።የሚወስደውም አንድ operand ብቻ ሲሆን የሚመልሰው ውጤት ደግሞ በbyte ነው።። ለምሳሌ፦ sizeof(int) ብንል የinteger size ምንያክል ነው። ወይም የኮምፒውተራችን memory ላይ የሚይዘው ቦታ ስንት ነው እያልን ነው። ስለዚህ መልሱ 8byte የሚል ይሆናል።
+
+Explicit type casting operators. 
+
+Type casting operators allows you to convert a datum of a given type to another data type. 
+
+ይሄ operator ደግሞ አንዱን data type ወይም የዳታ አይነት ወደ ሌላ የዳታ አይነት ለመቀየር የሚያገለግል ነው። 
+
+ለምሳሌ፦ int i; float f = 3.14;
+
+ i = (int)f;
+
+እነዚህ ቢሰጡን መጀመሪያ i integer ብለን declare ስላደረግን i ሊቀበል የሚችለው integer value ያላቸውን ቁጥሮች ብቻ ነው። ስለዚህ የf-ን ዋጋ ለ i ለመስጠት መጀመሪያ f-ን ከfloat የዳታ አይነት ወደ integer የዳታ አይነት መቀየር አለብን ስለዚህ casting operator እንጠቀማለን። i=(int)f ወይም i=int(f); በማለት እንቀይረዋለን። ስለዚህ የi ዋጋ  ወደ integer ስለተቀየረ 3.14 ሳይሆን 3 ይሆናል ማለት ነው።
+
+Operator Precedence. The order in which operators are evaluated in an expression is significant and is determined by precedence rules. 
+
+የoperator-ኦች ቅደምተከተላዊ አቀማመጥ operator precedence ይባላል። እንደ ማትሱ BODMAS እንደሚባለው ማለት ነው። ስለዚህ ብዙ operator-ኦች በአንድ ላይ በሚመጡበት ጊዜ የትኛውን መጀመሪያ እንደምንሰራ የመምረጥ ሂደት ነው።
+
+
+
+በሰንጠረዡ እንደሚታየው ከታች ወደ ላይ ስንሄድ ደረጃቸው ይጨምራል። ይህም ማለት ቀድመው ይሰራሉ። ለምሳሌ && እና * አንድ ላይ ቢመጡ መጀመሪያ የሚሰራው * ነው። ምክንያቱም የ * precedence ወደ ላይ ስለሆነ ከፍተኛ ነው። ሌላው በአንድ መስመር ላይ የሚገኙ ከሆኑ left to right እና right to left የሚለውን በማየት መስራት። ለምሳሌ / እና % በአንድ መስመር ላይ ናቸው። precedence-ኣየው ደግሞ left to right ነው። ስለዚህ ወደ left ላሉት ቅድሚያ እንሰጣለን። ስለዚሆ መጀመሪያ / ይሰራል ማለት ነው።
+
+ምሳሌ1,  a = = b + c * d  ቢሆን። መጀመሪያ የሚሰራው c*d የሚለው ነው። ምክንያቱም ከ + እና == የበለጠ ደረጃ ወይም ቅድሚያ የሚሰጠው ስለሆነ ነው።
+
+ምሳሌ 2, a = b += c እዚሆ ጋ የተጠቀምናቸው operator-ኦች እንደምታውቋቸው compound assignment operator-ኦች ናቸው። ከሰንጠረዡ ደግሞ right to left ይላል። ስለዚህ ወደ ቀኝ (to the right) ላሉት ቅድሚያ እንሰጣለን። ስለዚህ += መጀመሪያ ይሰራል። = ደግሞ ቀጣይ ይሰራል። ስለዚህ  b += c ከተሰራ ወይም ዋጋው ከተገኘ በኋላ ነው = የሚሰራው። በቁጥር ብናየው a=b+=c b 3 እና c ደግሞ 4 ቢሆኑ b+=c ማለት b=b+c እንደ ማለት ነው። ስለዚህ b = 7 ይሆንና የa ዋጋ a=b+=c የነበረው b+=c ስለተሰራ a=b ይቀራል። ስለዚህ መልሱ a=7 ይሆናል።
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Review Exercises🔖
+
+➋ እንደተለመደው የምንሰራበትን library እና namespace እንጽፋለን።
+
+ #include <iostream>
+
+using namespace std;
+
+
+
+int main() {
+
+    // ከዛ main function ውስጥ ገብተን ቁጥሮችን declare እናደርጋለን። እዚህ ላይ double የዳታ typeን የተጠቀምንበት ምክንያት በነጥብ የሚጻፉ ቁጥሮችንም ለማካተት ነው። ለምሳሌ 3.54
+
+    double num1, num2;
+
+
+
+    // user ወይም ተጠቃሚው ሰው የመጀመሪያውን ቁጥር እንዲያስገባ እናደርግና እንቀበለዋለን።
+
+    cout << "Enter the first number: ";
+
+    cin >> num1;
+
+
+
+    // ሁለተኛውን እንዲያስገባ እናደርገዋለን።
+
+    cout << "Enter the second number: ";
+
+    cin >> num2;
+
+
+
+    //የትኛው ቁጥር እንደሚበልጥ ወይም እኩል እንደሆኑ መለየት
+
+    if (num1 > num2) {   
+
+//የመጀመሪያው ከሁለተኛው ከበለጠ ይሄን ስራ👇
+
+        cout << "The larger number is: " << num1 << endl;
+
+    } else if (num2 > num1) {
+
+// ካነሰ ደግሞ ይሄን ስራ 👇
+
+        cout << "The larger number is: " << num2 << endl;
+
+    } else {
+
+// ካልሆነ ግን እኩል ናቸው የሚል message አውጣ።
+
+        cout << "Both numbers are equal." << endl;
+
+    }
+
+
+
+    return 0;
+
+}
+
+➌ Obtain two numbers from the keyboard, and determine and display which (if either) is the larger of the two numbers
+
+#include <iostream>
+
+using namespace std;
+
+
+
+int main() {
+
+    int num1, num2, num3; // ሶስት ቁጥሮችን declare ማድረግ
+
+
+
+    // ቁጥሮችን ከuser ወይም ተጠቃሚ ለመቀበል
+
+    cout << "Enter the first number: ";
+
+    cin >> num1;
+
+    cout << "Enter the second number: ";
+
+    cin >> num2;
+
+    cout << "Enter the third number: ";
+
+    cin >> num3;
+
+
+
+    // ቁጥሮችን ከትንሽ ወደ ትልቅ ለመደርደር
+
+    if (num1 >= num2 && num1 >= num3) {
+
+/* እዚህ ላይ👆 እናወዳድራቸዋለን። የመጀመሪያው ቁጥር ከሁለተኛው ከበለጠ እና የመጀመሪያው ቁጥር ከሶስተኛው ከበለጠ ማለት ነው። የመጀመሪያው ቁጥር ትልቅ እንደሆነ እናውቃለን። ነገር ግን ከሁለተኛውና ሶስተኛው የቱ እንደሚበልጥ አላወቅንም ስለዚህ ሌላ if statement እንጠቀማለን ማለት ነው። */
+
+        if (num2 >= num3) {
+
+/* ሁለተኛው ከሶስተኛው ከበለጠ። ሶስተኛው ከሁላቸውም ያንሳል ማለት ነው። ስለዚህ ከትንሽ ወደ ትልቅ እንዘረዝራቸዋለን። ከታች ያለውም በለመሳሳይ ይሰራል።*/
+
+       cout << num3 << ", " << num2 << ", " << num1 << endl;
+
+        } else {
+
+            cout << num2 << ", " << num3 << ", " << num1 << endl;
+
+        }
+
+    } else if (num2 >= num1 && num2 >= num3) {
+
+/* ይሄኛው else if ከመጀመሪያው የቀጠለ መሆኑን አስተውላችሁ ተመልከቱ። ከላይ num 1 ከሁሉም ከበለጠ ብለን ነበር አይደል ነገርግን እምብዬው እኔ ነኝ የምበልጥ ቢልስ num 2 😃። ስለዚህ ለሱ else if ሰራንለት ማለት ነው። 
+
+        if (num1 >= num3) {
+
+            cout << num3 << ", " << num1 << ", " << num2 << endl;
+
+        } else {
+
+            cout << num1 << ", " << num3 << ", " << num2 << endl;
+
+        }
+
+    } else {
+
+// ይህ ሁሉ ካልሆነ ግን የቀሩትን ቁጥሮች እናወዳድርና መልሱን እናስቀምጣለን።
+
+        if (num1 >= num2) {
+
+            cout << num2 << ", " << num1 << ", " << num3 << endl;
+
+        } else {
+
+            cout << num1 << ", " << num2 << ", " << num3 << endl;
+
+        }
+
+    }
+
+
+
+    return 0;
+
+}
+
+❹
+
+ #include <iostream>
+
+using namespace std;
+
+int main() {
+
+    int sum = 0; 
+
+// ድምርን ለማስቀመጥ sum የሚባል variable ወይም ሌላ ማለት ትችላላችሁ። declare ማድረግ።
+
+    for (int i = 1; i <= 100; i++) {
+
+   // በ for loop ከ 1 እስከ 100 ያሉትን ቁጥሮች ማግኘት
+
+        sum += i; 
+
+//ቁጥሮቹን ከድምር ላይ መጨመር።
+
+/* ለምሳሌ ቁጥሩ 1 ከሆነ sum ላይ 
+
+    }
+
+
+
+    // ድምሩን ማሳየት
+
+    cout << "የ 1 እስከ 100 ያሉት ቁጥሮች ድምር: " << sum << endl;
+
+
+
+    return 0;
+
+}
