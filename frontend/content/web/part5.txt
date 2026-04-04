@@ -2,22 +2,41 @@ JavaScript — Session 1: syntax, functions & modules
 
 JavaScript is a programming language that runs in browsers and in other environments (e.g. Node.js). These notes focus on browser-oriented basics: enough syntax to read and write small scripts before the DOM session.
 
+JavaScript በአሳሾች እና በሌሎች አካባቢዎች (ለምሳሌ Node.js) የሚሄድ ቋንቋ ነው። እነዚህ ማስታወሻዎች በአሳሽ ላይ ያተኩራሉ፦ ከ DOM ክፍል በፊት ትንሾች ስክሪፕቶችን ለማንበብ እና ለመጻፍ በቂ ስንትክስ።
+
 Strict mode
 'use strict'; at the top of a file or function catches common mistakes (accidental globals, duplicate parameter names in old forms). Modules are strict by default.
+
+ጠንካራ ሁኔታ
+'use strict'; በፋይል ወይም በተግባር መጀመሪያ ላይ የተለመዱ ስህተቶችን ይይዛል። ሞዱሎች ነባሪ በጠንካራ ሁኔታ ናቸው።
 
 Variables
 • let — block-scoped, can be reassigned.
 • const — block-scoped, binding cannot be reassigned (object contents can still change).
 • Avoid var in new code (function-scoped, hoisting quirks).
 
+ተለዋዋጮች
+• let — በብሎክ ውስጥ፣ እንደገና ሊመደብ ይችላል።
+• const — በብሎክ ውስጥ፣ መለያው አይቀየርም (የነገር ይዘት ግን ሊለወጥ ይችላል)።
+• በአዲስ ኮድ var ይወግዱ።
+
 Types (informal)
 Primitives: string, number, bigint, boolean, undefined, null, symbol. typeof helps inspect; remember typeof null === "object" is a long-standing quirk. Everything else is an object (including arrays and functions).
+
+ዓይነቶች
+መሰረታዊ ዓይነቶች፦ string፣ number፣ bigint፣ boolean፣ undefined፣ null፣ symbol። typeof ለመመርመር። typeof null === "object" የድሮ ችግር ነው። ሁሉም ሌላ ነገር object ነው (አረይ እና ተግባራት ጨምሮ)።
 
 Operators
 Arithmetic: + - * / % **. Comparison: === and !== (prefer over ==). Logical: && || !. Optional chaining: obj?.prop?.nested. Nullish coalescing: a ?? b when you only want to fall back for null/undefined.
 
+ኦፕሬተሮች
+ሂሳብ፣ መነጻጸር — === እና !== ከ == ይመርጡ። && || !። ?. እና ??።
+
 Strings
 Template literals: `Hello, ${name}!` — multiline and interpolation. Methods: slice, includes, split, trim.
+
+ሕብረቁምፊዎች
+Template literals በ ` ጭራሮች። slice፣ includes፣ split፣ trim።
 
 Functions
 function add(a, b) { return a + b; }
@@ -25,33 +44,55 @@ const add2 = (a, b) => a + b;
 
 Arrow functions have lexical this (inherit from surrounding scope) — important when passing callbacks. For methods that need their own this, a classic function or explicit binding may be better.
 
+ተግባራት
+function እና arrow function። Arrow functions lexical this ይወርሳሉ — ለcallback አስፈላጊ ነው። ለ this የሚፈልግ method በክላሲክ function ይጠቀሙ።
+
 Scope
 Block scope with let/const. Closures: inner functions remember variables from outer scopes — useful for factories and event handlers.
+
+Scope
+let/const ከብሎክ ጋር። Closures ውስጣዊ ተግባራት የውጭ ተለዋዋጮችን ያስታውሳሉ።
 
 Arrays and objects
 const items = [1, 2, 3]; items.map(x => x * 2); filter, reduce, find. Objects: shorthand { name }, computed keys, spread { ...obj }.
 
+አረይ እና ነገሮች
+map፣ filter፣ reduce፣ find። object shorthand እና spread { ...obj }።
+
 Control flow
 if / else, switch (use break), for, for...of (arrays), for...in (object keys — careful with inherited properties). try / catch / finally for errors.
+
+የመቆጣጠሪያ ፍሰት
+if/else፣ switch (break)፣ for...of ለአረይ። try/catch ለስህተት።
 
 Modules
 In browsers, use <script type="module" src="app.js">. import { x } from './utils.js'; export function helper() {}. Modules are deferred and run in strict mode. Keep files focused; re-export for public API surfaces.
 
+ሞዱሎች
+በአሳሽ <script type="module">። import እና export። ሞዱሎች deferred እና strict ናቸው።
+
 Loading scripts
 defer on classic scripts runs after HTML parse, in order. type="module" is deferred by default. Place scripts before </body> or use defer in <head> for performance.
+
+ስክሪፕት መጫን
+defer ከ HTML ንባብ በኋላ ይሄዳል። module ነባሪ deferred ነው።
 
 DevTools quick tip
 Console: log values, breakpoints in the Sources panel, watch expressions. Learn “step over” vs “step into” to trace logic.
 
-የ JavaScript — መሰረት (አጭር)
-
-• const እና let — ዘመናዊ ተለዋዋጮች።
-• === ለአነጻጽር።
-• ሞዱሎች — import / export።
+DevTools
+Console፣ Sources ላይ breakpoint፣ step over / step into።
 
 Practice ideas
 1. Write a function minutesToHHMM(n) returning a string like "1:05".
 2. Given an array of numbers, return the sum using reduce.
 3. Split app.js into math.js (exports) and main.js (imports) with type="module".
 
+ልምምድ ሃሳቦች
+1. minutesToHHMM(n) እንደ "1:05" ሕብረቁምፊ ይመልስ።
+2. በ reduce የቁጥሮች ድምር።
+3. math.js እና main.js በ type="module"።
+
 Key terms: let, const, template literal, arrow function, closure, module, defer.
+
+ዋና ቃላት፦ let፣ const፣ template literal፣ arrow function፣ closure፣ module፣ defer።

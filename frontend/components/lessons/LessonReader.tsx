@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
+import { Noto_Sans_Ethiopic } from 'next/font/google';
 import { ArrowRight, ArrowUp, BookMarked, Check, ChevronLeft, ChevronRight, Lock, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { CollapsibleSection } from '@/components/ui/CollapsibleSection';
@@ -21,6 +22,12 @@ import { authApi } from '@/lib/api';
 import { canAccessLessonTrack, isWebLessonId } from '@/lib/trackAccess';
 import type { User } from '@/types';
 import { cn } from '@/lib/cn';
+
+const notoEthiopic = Noto_Sans_Ethiopic({
+  subsets: ['ethiopic'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
 
 function estimateReadMinutes(text: string): number {
   const words = text.trim().split(/\s+/).filter(Boolean).length;
@@ -238,7 +245,12 @@ export function LessonReader({ lessonId, meta, body }: LessonReaderProps) {
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white tracking-tight text-balance">
                 {meta.titleEn}
               </h1>
-              <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed border-l-2 border-blue-200 dark:border-blue-800 pl-4">
+              <p
+                className={cn(
+                  'text-base text-gray-600 dark:text-gray-400 leading-relaxed border-l-2 border-blue-200 dark:border-blue-800 pl-4',
+                  chapter.track === 'web' && notoEthiopic.className
+                )}
+              >
                 {meta.titleAm}
               </p>
             </header>
@@ -250,9 +262,10 @@ export function LessonReader({ lessonId, meta, body }: LessonReaderProps) {
               <div className="px-4 sm:px-8 py-8 sm:py-11">
                 <div
                   className={cn(
-                    'whitespace-pre-wrap font-sans text-[16px] sm:text-[17px] leading-[1.75] sm:leading-[1.8]',
+                    'whitespace-pre-wrap text-[16px] sm:text-[17px] leading-[1.75] sm:leading-[1.8]',
                     'text-gray-800 dark:text-gray-200 break-words selection:bg-blue-200/80 dark:selection:bg-blue-900/50',
-                    'max-w-[65ch]'
+                    'max-w-[65ch]',
+                    chapter.track === 'web' ? notoEthiopic.className : 'font-sans'
                   )}
                 >
                   {body}

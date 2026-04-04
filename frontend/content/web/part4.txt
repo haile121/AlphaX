@@ -2,6 +2,8 @@ CSS — Session 2: box model, flex, grid & responsive
 
 Layout is how blocks and inline content flow and align. This session ties the box model to real page structure, then flexbox and grid for one- and two-dimensional layouts, and media queries for different viewports.
 
+አቀማመጥ የብሎኮች እና የመስመር ይዘት እንዴት እንደሚፈስ እና እንደሚመረኮዝ ይገልጻል። በዚህ ክፍል የሳጥን ሞዴል ከእውነተኛ ገጽ ጋር ይገናኛል፣ ከዚያ flexbox እና grid ለአንድ እና ለሁለት አቅጣጫ አቀማመጥ፣ እና media queries ለተለያዩ ስክሪኖች።
+
 Box model
 Every element is a box: content, padding, border, margin. box-sizing: border-box makes width include padding and border (recommended reset):
 
@@ -9,8 +11,14 @@ Every element is a box: content, padding, border, margin. box-sizing: border-box
 
 outline sits outside border and does not affect layout — useful for :focus-visible without shifting content.
 
+የሳጥን ሞዴል
+እያንዳንዱ ኤለመንት ሳጥን ነው፦ ይዘት፣ padding፣ border፣ margin። box-sizing: border-box ስፋቱን ከ padding እና border ጋር ያጠቃልል (የሚመከር reset)።
+
 Normal flow
 Block boxes stack vertically; inline boxes sit in line boxes inside blocks. display changes participation: block, inline, inline-block, none, contents. overflow: hidden | auto | scroll clips or scrolls overflowing children.
+
+መደበኛ ፍሰት
+ብሎኮች በአቁባይ፣ inline በመስመር። display ይሳተፋል። overflow የሚያልፍ ይቆርጣል ወይም ይሸብራል።
 
 Flexbox (one-dimensional)
 display: flex on a container; main axis and cross axis follow flex-direction (row or column). Key properties:
@@ -22,15 +30,28 @@ display: flex on a container; main axis and cross axis follow flex-direction (ro
 
 Common patterns: sticky footer (min-height: 100vh; flex column; main flex:1), horizontal nav with gap, centered hero.
 
+Flexbox (አንድ አቅጣጫ)
+በመያዣ ላይ display: flex። justify-content፣ align-items፣ gap፣ flex-wrap። ተለመዱ ንድፎች፦ sticky footer፣ አግድም ናቪጌሽን፣ መሃል hero።
+
 Grid (two-dimensional)
 display: grid; grid-template-columns: repeat(12, 1fr) or 1fr 1fr; gap. Use grid-template-areas for named regions. minmax(0, 1fr) helps prevent overflow in flexible tracks.
+
+Grid (ሁለት አቅጣጫ)
+display: grid፣ grid-template-columns፣ gap። grid-template-areas ለየስሞች ክፍሎች። minmax(0, 1fr) overflow ለመከላከል ይረዳል።
 
 When to use which
 • Flex: navigation bars, centering groups, one primary direction.
 • Grid: page shells, card galleries, aligning rows and columns together.
 
+መቼ ማንን
+• Flex፦ ናቪ፣ መሃል ማድረግ፣ አንድ ዋና አቅጣጫ።
+• Grid፦ የገጽ ክፍፍል፣ ካርድ መርቢያዎች።
+
 Positioning
 position: relative | absolute | fixed | sticky. Absolute positions relative to the nearest positioned ancestor (not static). z-index only works when position is not static (or flex/grid items). Use sticky headers with care for overflow parents.
+
+ቦታ ማስየም
+position አይነቶች። absolute ለቅርብ positioned አያት። z-index ከ position ጋር።
 
 Responsive design
 • Relative units: %, fr, rem, clamp() for fluid type: font-size: clamp(1rem, 2.5vw, 1.25rem);
@@ -42,18 +63,27 @@ Responsive design
 
 • Mobile-first: base styles for small screens, min-width queries to enhance for larger ones.
 
+ተጠቃሚ ስክሪን የሚስማሙ ዲዛይኖች
+• %፣ fr፣ rem፣ clamp() ለፈሳ ፊደል።
+• @media ለስፋት።
+• Mobile-first፦ ትንሽ ስክሪን መሰረት፣ ትልቅ ለማሻሻል min-width።
+
 Images and aspect-ratio
 img { max-width: 100%; height: auto; } prevents overflow. aspect-ratio: 16 / 9 on a container reserves space before images load.
 
-የ አቀማመጥ (አጭር)
-
-• Flexbox — አንድ አቅጣጫ። Grid — ሁለት።
-• gap — ክፍተት ለማስተካከል።
-• media queries — ለስክሪን ስፋት።
+ምስሎች
+max-width: 100% overflow ይከላከላል። aspect-ratio ቦታ ያስቀምጣል።
 
 Practice ideas
 1. Three-column grid on desktop that becomes one column under 768px.
 2. Card grid with equal-height cards using flex or grid and gap.
 3. A sticky top bar with a main area that scrolls — test on mobile.
 
+ልምምድ ሃሳቦች
+1. በዴስክቶፕ ሶስት ዓምድ፣ ከ768px በታች አንድ።
+2. እኩል ከፍታ ካርዶች በ flex ወይም grid።
+3. sticky ላይ ባር ከሚሸብር ዋና ክፍል — በሞባይል ይሞክሩ።
+
 Key terms: box-sizing, flex, grid, gap, media query, mobile-first, clamp.
+
+ዋና ቃላት፦ box-sizing፣ flex፣ grid፣ gap፣ media query፣ mobile-first፣ clamp።

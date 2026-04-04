@@ -38,7 +38,7 @@ const values = [
   {
     icon: Heart,
     title: 'Access for everyone',
-    body: 'Core lessons, the compiler, and the AI tutor stay free. No paywalls on the path to your first real program.',
+    body: 'Core lessons on the C++ or web fundamentals track, the compiler, and the AI tutor stay free. No paywalls on the path to your first real program.',
   },
   {
     icon: Users,
@@ -63,7 +63,7 @@ export default function AboutPageClient() {
             </FadeUp>
             <FadeUp delay={0.05}>
               <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-[-0.035em] leading-[1.08]">
-                <span className="text-gray-900 dark:text-white">Teaching C++ the way</span>
+                <span className="text-gray-900 dark:text-white">Teaching C++ &amp; web fundamentals the way</span>
                 <br />
                 <span className="text-blue-600 dark:text-blue-500">Ethiopia learns best</span>
               </h1>
@@ -88,7 +88,7 @@ export default function AboutPageClient() {
               <div className="lg:col-span-5">
                 <SectionLabel>Mission</SectionLabel>
                 <h2 className="mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">
-                  Make world-class C++ education feel local, immediate, and yours.
+                  Make world-class C++ and web fundamentals education feel local, immediate, and yours.
                 </h2>
               </div>
               <div className="lg:col-span-7 space-y-5 text-gray-600 dark:text-gray-400 leading-relaxed text-[15px] sm:text-base">
@@ -97,9 +97,9 @@ export default function AboutPageClient() {
                   millions of learners behind—not for lack of talent, but for lack of a bridge.
                 </p>
                 <p>
-                  Every screen is bilingual by design. The compiler runs in the cloud so a phone is enough to practice.
-                  When you are stuck, the AI tutor meets you in the language you prefer—without dumbing down the
-                  material.
+                  Every screen is bilingual by design. You can focus on C++ or web fundamentals (HTML, CSS, JavaScript)—the
+                  compiler runs in the cloud so a phone is enough to practice. When you are stuck, the AI tutor meets you
+                  in the language you prefer—without dumbing down the material.
                 </p>
               </div>
             </div>
@@ -177,7 +177,12 @@ export default function AboutPageClient() {
                   Ready to write your first line?
                 </h2>
                 <ul className="mt-5 space-y-2.5 text-sm text-gray-500 dark:text-gray-400">
-                  {['Bilingual lessons & quizzes', 'Live compiler in the browser', 'AI tutor when you need a nudge'].map((t) => (
+                  {[
+                    'C++ and web fundamentals tracks',
+                    'Bilingual lessons & quizzes',
+                    'Live compiler in the browser',
+                    'AI tutor when you need a nudge',
+                  ].map((t) => (
                     <li key={t} className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
                       {t}

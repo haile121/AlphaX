@@ -2,10 +2,16 @@ HTML — Session 1: document outline & semantic structure
 
 HTML (HyperText Markup Language) describes the structure and meaning of a web page. The browser parses your HTML and builds a tree of nodes — the Document Object Model (DOM). This session focuses on the document shell and semantic structure; CSS handles appearance and JavaScript handles behavior in later sessions.
 
+HTML (HyperText Markup Language) የድር ገጽ አቀራረብ እና ትርጉም ይገልጻል። አሳሹ (browser) የእርስዎን HTML ያነባል እና የኖዶች ዛፍ ይመሰርታል — Document Object Model (DOM) ይባላል። በዚህ ክፍል ላይ የሰነድ ክፍፍል እና ትርጉማዊ መዋቅር ይደረጋል፤ መልክን CSS፣ ባህሪን ደግሞ በኋላ በ JavaScript እንመለከታለን።
+
 What is an element?
 An element usually has a start tag, optional content, and an end tag: <p>Hello</p>. Void elements (no closing tag) include <img>, <br>, <input>, and <meta>. In HTML5, <br> is fine; <img /> is valid XML-style if you prefer consistency.
 
+ኤለመንት (element) ብዙውን ጊዜ የመጀመሪያ መለያ (start tag)፣ አማራጭ ይዘት፣ እና የመጨረሻ መለያ (end tag) አለው፦ <p>ሰላም</p>። የባዶ ኤለመንቶች (void) የመዝጊያ መለያ የሉም፦ <img>፣ <br>፣ <input>፣ <meta>። በ HTML5 <br> በቂ ነው፤ <img /> ደግሞ ከ XML ጋር ተስማሚ ነው።
+
 Attributes add information: <a href="https://example.com">Visit</a>. Use double quotes for attribute values in coursework unless your team style says otherwise. Boolean attributes can be written <input required> or required="required".
+
+አትሪቢዩቶች ተጨማሪ መረጃ ይጨምራሉ፦ <a href="...">። በትምህርቱ ውስጥ ለአትሪቢዩት ዋጋ ድርቅ ጥቅስ ("") ይጠቀሙ። ቡሊያን አትሪቢዩቶችን <input required> ወይም required="required" ማድረግ ይቻላል።
 
 Minimal valid HTML5 document
 
@@ -22,39 +28,64 @@ Minimal valid HTML5 document
 </body>
 </html>
 
+አነስተኛ ትክክለኛ የ HTML5 ሰነድ እንደላይ ይመስላል።
+
 • <!DOCTYPE html> selects the HTML5 mode.
 • <html lang="..."> sets the document language (screen readers, hyphenation, SEO).
 • <head> holds metadata; visible content lives in <body>.
 • viewport meta helps mobile browsers scale the layout correctly.
 
+• <!DOCTYPE html> የ HTML5 ሁኔታን ይመርጣል።
+• <html lang="..."> የሰነዱን ቋንቋ ያስቀምጣል (ለስክሪን አንባቢ፣ ለ SEO)።
+• <head> ሜታዳታ እና አገናኞችን ይይዛል፤ የሚታየው ይዘት በ <body> ውስጥ ነው።
+• viewport meta በሞባይል ላይ መስፋፋትን ይረዳል።
+
 Headings and sections
 Use <h1>…<h6> in order: typically one <h1> per page for the main topic. Do not skip levels just for styling — use CSS for size. Semantic sectioning: <header>, <nav>, <main>, <article>, <section>, <aside>, <footer>. They do not replace headings; combine landmarks with a clear heading outline.
+
+ርዕሶች እና ክፍሎች
+<h1> እስከ <h6> በቅደም ተከተል ይጠቀሙ፦ ብዙውን ጊዜ በገጽ አንድ <h1> ለዋናው ርዕስ። ለመጠን ብቻ ደረጃ አይዝለሉ — መጠኑን CSS ያስተካክላል። ትርጉማዊ ክፍሎች፦ <header>፣ <nav>፣ <main>፣ <article>፣ <section>፣ <aside>፣ <footer>። እነዚህ ርዕሶችን አይተካኩም፤ ከግልጽ የርዕስ አቀራረብ ጋር ያጣምሯቸው።
 
 Paragraphs and inline text
 <p> for paragraphs. <strong> importance (not “bold only”), <em> emphasis (not “italic only”). <code> for short code fragments; <pre><code> for blocks. Avoid <br> for layout; use block elements or CSS.
 
+የአንቀጽ እና የመስመር ጽሑፍ
+<p> ለአንቀጽ። <strong> ለአስፈላጊነት (ወይንም ብቻ ለማድመቅ አይደለም)፣ <em> ለአነጋገር ማጉላት። <code> ለአጭር ኮድ። <pre><code> ለአግድም። ለአቀማመጥ <br> አትጠቀሙ — የብሎክ ኤለመንቶችን ወይም CSS ይጠቀሙ።
+
 Lists
 <ul> unordered, <ol> ordered (start, reversed, type sparingly), <li> items. Nested lists go inside <li>. Definition lists: <dl>, <dt>, <dd> for term–definition pairs.
+
+ዝርዝሮች
+<ul> ያልተደራወሩ፣ <ol> ተደራዋሪዎች። የውስጥ ዝርዝሮች በ <li> ውስጥ። ትርጉም ዝርዝር፦ <dl>፣ <dt>፣ <dd>።
 
 Links
 <a href="..."> with descriptive text (avoid “click here”). Use href="#id" for same-page anchors. download attribute for suggesting downloads; rel="noopener noreferrer" when using target="_blank" for security.
 
+አገናኞች
+<a href="..."> ከግልጽ ጽሑፍ ጋር («እዚህ ክሊክ አድርግ» ይቅር።)። በተመሳሳይ ገጽ ውስጥ ለመዝለል href="#id"። target="_blank" ሲጠቀሙ ለደህንነት rel="noopener noreferrer" ያስቀምጡ።
+
 Images
 <img src="..." alt="..."> — alt describes the image for people who cannot see it. Meaningful content needs a real description; decorative images can use alt="". width and height reduce layout shift when the image loads.
+
+ምስሎች
+<img src="..." alt="..."> — alt ለማይመለከቱ ተጠቃሚዎች ምስሉን ያብራራል። ይዘት ካለ እውነተኛ መግለጫ ይስጡ፤ ለአጌጣጠም ብቻ ከሆነ alt="" ይጠቀሙ። width እና height ምስል ሲጫን መንቀጥቀጥ ይቀንሳል።
 
 Comments
 <!-- not visible in the page --> for notes to yourself; never put secrets in HTML sent to clients.
 
-የ HTML — አቀራረብ እና ትርጉም (አጭር)
-
-• HTML የገጹን ዛፍ (DOM) ይመሰርታል።
-• <h1>–<h6> ቅደም ተከተል ይከበሩ።
-• የትርጉም ክፍሎች (<main>፣ <nav> …) ለተደራሽነት ይጠቅማሉ።
-• ለምስሎች ትክክለኛ alt ይስጡ።
+አስተያየቶች
+<!-- ... --> ለእርስዎ ማስታወሻ፤ ሚስጥሮችን በደንበኛ ላይ በሚላክ HTML ውስጥ አትጻፉ።
 
 Practice ideas
 1. Build a page with <header>, <nav>, <main>, <footer>, one <h1>, two <h2> sections, two <p> each.
 2. Add a <nav> with three <a> links to placeholder URLs and a “back to top” anchor.
 3. Add one image with informative alt and width/height.
 
+ልምምድ ሃሳቦች
+1. ከ <header>፣ <nav>፣ <main>፣ <footer> ጋር ገጽ፣ አንድ <h1>፣ ሁለት <h2> ክፍሎች፣ በእያንዳንዱ ሁለት <p>።
+2. በ <nav> ሦስት <a> አገናኞች እና ወደ ላይ የመመለስ anchor።
+3. አንድ ምስል ከ informativ alt እና width/height ጋር።
+
 Key terms: element, attribute, semantic HTML, landmark, heading outline, void element, DOM (expanded in JavaScript sessions).
+
+ዋና ቃላት፦ element፣ attribute፣ semantic HTML፣ landmark፣ heading outline፣ void element፣ DOM (በ JavaScript ክፍሎች ይሰፋል)።

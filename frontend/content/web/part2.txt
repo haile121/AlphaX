@@ -2,8 +2,13 @@ HTML — Session 2: forms, tables & accessibility basics
 
 This session builds on document structure: collecting user input with forms, presenting tabular data, embedding media, and habits that make pages usable for everyone.
 
+ይህ ክፍል በሰነድ መዋቅር ላይ ይሰራል፦ የተጠቃሚ ግቤት በቅጾች ማሰባሰብ፣ ውሂብ በሰንጠረድ ማሳየት፣ ሚዲያ ማስገባት፣ እና ገጹ ለሁሉም ተጠቃሚዎች እንዲሆን የሚያደርጉ ልምዶች።
+
 Forms overview
 A <form> groups controls and can submit data to a server (action, method) or be handled entirely in JavaScript. For accessibility and clarity, every important control should have an associated <label>.
+
+የቅጾች አጠቃላይ እይታ
+<form> መቆጣጠሪያዎችን ይקבባል፣ ውሂብ ወደ ሰርቨር ሊላክ (action፣ method) ወይም ሙሉ በ JavaScript ሊያዘጋጅ ይችላል። ለተደራሽነት እና ግልጽነት፣ ከፍተኛ መቆጣጠሪያዎች ሁሉ ከ <label> ጋር መያያዝ አለባቸው።
 
 Labels and controls
 Match label for with input id:
@@ -13,17 +18,34 @@ Match label for with input id:
 
 Wrapping: <label>Email <input type="email" name="email" /></label> also works. Group related fields with <fieldset> and <legend>.
 
+መለያዎች እና መቆጣጠሪያዎች
+label ከ input id ጋር ይዛመዱ፦ for="email" እና id="email"።
+
+የመደበቅ ዘዴ፦ <label>Email <input ... /></label> ደግሞ ይሰራል። የተዛመዱ መስኮችን በ <fieldset> እና <legend> ይקבቡ።
+
 Common input types
 text, email, url, tel, number, date, checkbox, radio, file, hidden, password. Use the narrowest type that fits — mobile keyboards adapt (e.g. email shows @).
+
+የተለመዱ የግቤት ዓይነቶች
+text፣ email፣ url፣ tel፣ number፣ date፣ checkbox፣ radio፣ file፣ hidden፣ password። የሚስማማውን ትንሹን ዓይነት ይጠቀሙ — ሞባይል ኪቦርድ ይለያል (ለምሳሌ email ላይ @ ይታያል)።
 
 Buttons
 <button type="submit"> sends the form; type="button" does not; type="reset" is rarely needed. A single <button> inside a form defaults to submit in some browsers — be explicit with type.
 
+አዝራሮች
+<button type="submit"> ቅጹን ይልካል፤ type="button" አይልክም። በአንዳንድ አሳሾች ቅጽ ውስጥ አንድ <button> ነባሪ submit ሊሆን ይችላል — type በግልጽ ይስጡ።
+
 Select and textarea
 <select multiple> or size for lists; <option value=""> for placeholders. <textarea> for multi-line text; set rows/cols as hints, control size with CSS.
 
+<select> እና <textarea>
+<select multiple> ወይም size ለዝርዝሮች፤ <option value=""> ለ placeholder። <textarea> ለብዙ መስመር ጽሑፍ፤ rows/cols ማስተካከል እንደ ማስታወሻ፣ ትክክለኛ መጠን በ CSS።
+
 Tables for tabular data
 Use <table> when rows and columns have a relationship (not for general layout).
+
+ለሰንጠረድ ውሂብ
+<table> ረድፍ እና ዓምድ ሲያገናኙ ብቻ (ለአጠቃላይ አቀማመጥ አይደለም)።
 
 <table>
   <caption>Quarterly results</caption>
@@ -37,8 +59,13 @@ Use <table> when rows and columns have a relationship (not for general layout).
 
 scope="col" / scope="row" helps assistive tech. For complex tables, consider headers attributes or simpler layouts.
 
+scope="col" እና scope="row" ለ assistive technology ይረዳሉ። ውስብስብ ሰንጠረዶች ላይ የቀለለ አቀማመጥ ይመርጡ።
+
 Media
 <audio> and <video> with controls; <source src type> for multiple formats. <picture> with <source media> for art direction or format fallback. Always consider captions and transcripts for video when content matters.
+
+ሚዲያ
+<audio> እና <video> ከ controls ጋር። ብዙ ቅርጾች ለ <source>። ቪድዮ ሲያስፈልግ caption እና transcript ያስቡ።
 
 Accessibility checklist (practical)
 • Keyboard: every interactive element reachable with Tab; visible focus styles.
@@ -47,15 +74,23 @@ Accessibility checklist (practical)
 • Don’t remove outlines without replacing them.
 • Test with keyboard only and, when possible, a screen reader.
 
-የ ቅጾች እና ተደራሽነት (አጭር)
-
-• <label> ከ input ጋር በ id/for ይገናኙ።
-• የሰንጠረድ ውሂብ ለሰንጠረድ፣ ለ አቀማመጥ ብቻ አይደለም።
-• ቪድዮ — caption / transcript ሲያስፈልግ።
+የመዳረሻ ዝርዝር (ተግባራዊ)
+• ኪቦርድ፦ ከ Tab ጋር ሁሉም ተገናኝ የሆኑ ኤለመንቶች።
+• ኮንትራስት፦ ጽሑፍ በጀርባ ላይ ይነበባል።
+• የፎከስ ቅደም ከዓይን ማየት ጋር ይስማማል።
+• outline ሳያስተካክሉ አይወግዱ።
+• በኪቦርድ ብቻ እና በ screen reader ይሞክሩ።
 
 Practice ideas
 1. A contact form: name, email, message <textarea>, submit — all labeled and required where appropriate.
 2. A small table with <caption> and scope on headers.
 3. Add :focus-visible styles in CSS (next sessions) — plan which elements need clear rings.
 
+ልምምድ ሃሳቦች
+1. የግንኙነት ቅጽ፦ ስም፣ ኢሜይል፣ መልዕክት — ሁሉም ከ label ጋር።
+2. ከ <caption> እና scope ጋር ትንሽ ሰንጠረድ።
+3. በ CSS ላይ :focus-visible (በቀጣይ ክፍሎች)።
+
 Key terms: label, name vs id, fieldset, scope, WCAG, keyboard navigation.
+
+ዋና ቃላት፦ label፣ name እና id፣ fieldset፣ scope፣ WCAG፣ keyboard navigation።

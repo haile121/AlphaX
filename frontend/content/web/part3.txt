@@ -2,6 +2,8 @@ CSS — Session 1: selectors, cascade & visual design
 
 CSS (Cascading Style Sheets) describes how HTML elements look: color, type, spacing, and motion. This session covers how rules apply and how to style text and simple components; the next session goes deeper into layout systems.
 
+CSS (Cascading Style Sheets) የ HTML ኤለመንቶች እንዴት እንደሚታዩ ይገልጻል፦ ቀለም፣ ፊደል፣ ክፍተት፣ እና እንቅስቃሴ። በዚህ ክፍል ህጎች እንዴት እንደሚተገበሩ እና ጽሑፍን እንዴት እንደሚያስዋቡ ይደረጋል፤ የአቀማመጥ ስርዓቶች በቀጣዩ ክፍል ነው።
+
 Rule structure
 A rule has a selector and a declaration block:
 
@@ -10,6 +12,9 @@ p.intro {
   line-height: 1.6;
   margin-block: 0 1rem;
 }
+
+የህግ አወቃቀር
+አንድ ህግ ምርጫ (selector) እና የማስታወሻ ብሎክ (declaration block) አለው።
 
 Selectors (common)
 • Type: p { }
@@ -20,11 +25,23 @@ Selectors (common)
 • Pseudo-classes: :hover, :focus, :focus-visible, :first-child, :is(), :where()
 • Pseudo-elements: ::before, ::after (need content for generated boxes)
 
+ምርጫዎች (የተለመዱ)
+• አይነት፦ p { }
+• ክፍል፦ .card { }
+• መታወቂያ፦ #app { } — ከፍተኛ specificity፤ ለድግም ደግሞ class ይመርጡ።
+• አትሪቢዩት፣ combinator፣ pseudo-class እና pseudo-element።
+
 Specificity (simplified)
 Inline styles beat IDs beat classes/attributes/pseudo-classes beat elements/pseudo-elements. :where() has zero specificity. When two rules tie, later source order wins (same file or order of <link>). Use the cascade intentionally — avoid piling on !important.
 
+Specificity (በቀላሉ)
+በመስመር ውስጥ ያለ ቅጥ ከ ID፣ ከ ክፍል ይበልጣል። ሁለት ህጎች ሲጣሉ በፋይል ውስጥ የኋላው ይሰራል። cascadeን በቁምነገር ይጠቀሙ — !important በድንገት አይጨምሩ።
+
 Inheritance
 Many text properties inherit (color, font-family); box properties usually do not (margin, padding, border). inherit and unset keywords help when you need explicit behavior.
+
+ወረራ
+ብዙ የጽሑፍ ባህሪዎች ይወርሳሉ፤ የሳጥን ባህሪዎች ብዙውን አይወርሱም። inherit እና unset ሲያስፈልግ ይጠቀሙ።
 
 Custom properties (“CSS variables”)
 Define on :root or any selector:
@@ -37,27 +54,43 @@ body { color: var(--color-text); padding: var(--space); }
 
 Great for themes: change variables in one place or per [data-theme="dark"].
 
+ብጁ ባህሪዎች (CSS variables)
+በ :root ወይም በማንኛውም ምርጫ ይግለጹ። ለጭብጥ (theme) በአንድ ቦታ ቀለሞችን መቀየር ይቻላል።
+
 Typography
 font-family: stack fallbacks ("Inter", system-ui, sans-serif). font-size: rem for scalable text from the root; avoid shrinking body text below ~16px for main copy. font-weight, font-style, line-height (unitless multipliers work well for inheritance). letter-spacing and text-transform for fine control.
+
+ትይታ
+font-family ከ fallback ጋር። font-size በ rem። የአካል ጽሑፍ ከ ~16px በታች አይቀንሱ። line-height በአሃዝ አባዛም ለወረራ ጥሩ ነው።
 
 Colors and contrast
 Formats: named, hex #rrggbb, rgb()/rgba(), hsl()/hsla(), color-mix() (modern). Check contrast between text and background. Prefer hsl() when you want to adjust lightness for hover states systematically.
 
+ቀለሞች እና ኮንትራስት
+hex፣ rgb፣ hsl። በጽሑፍ እና በጀርባ መካከል ኮንትራስት ያረጋግጡ።
+
 Spacing and sizing
 margin (outside border), padding (inside). Shorthand: margin: 1rem 2rem (vertical horizontal). max-width on paragraphs improves readability (e.g. 65ch).
+
+ክፍተት እና መጠን
+margin በውጭ፣ padding በውስጥ። ለአንቀጽ max-width (ለምሳሌ 65ch) ማንበብን ያመቻቻል።
 
 Transitions (light intro)
 transition: color 0.2s ease, transform 0.2s ease; — animate cheap properties (opacity, transform) for smoother pages; avoid animating layout-heavy properties every frame.
 
-የ CSS — ምርጫ እና ዝግጁ (አጭር)
-
-• Specificity — የሚያሸንፍ ህግ እንዴት እንደሚመረጥ።
-• var(--token) — ጭብጥ እና ጨለማ ሞድ ለመቀያየር።
-• rem — ከ root ጋር የተመሳሰለ የፊደል መጠን።
+መሸጋገሪያዎች (ግቤት)
+በርካታ layout በየፍሬም ማንቀሳቀስ ይከብዳል፤ opacity እና transform ይመርጡ።
 
 Practice ideas
 1. Style an article: max-width in ch, comfortable line-height, distinct h2/h3 styles using variables.
 2. Build a primary button: default, :hover, :focus-visible states with sufficient contrast.
 3. Add a .card class with padding, border-radius, and a subtle box-shadow.
 
+ልምምድ ሃሳቦች
+1. መጣጥፍ በ ch max-width፣ line-height፣ በ variable የ h2/h3።
+2. ዋና አዝራር ከ :hover እና :focus-visible።
+3. .card ከ padding፣ border-radius፣ box-shadow።
+
 Key terms: selector, specificity, cascade, inheritance, rem, custom property, :focus-visible.
+
+ዋና ቃላት፦ selector፣ specificity፣ cascade፣ inheritance፣ rem፣ custom property፣ :focus-visible።

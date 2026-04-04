@@ -33,6 +33,12 @@ import {
   Trophy,
   CheckCircle2,
   ArrowRight,
+  Layout,
+  Image as ImageIcon,
+  LayoutDashboard,
+  FormInput,
+  ListTodo,
+  Cloud,
 } from 'lucide-react';
 import Image from 'next/image';
 import { Navbar } from '@/components/layout/Navbar';
@@ -40,6 +46,13 @@ import { PublicMarketingFooter } from '@/components/layout/PublicMarketingFooter
 import { SITE_LOGO_PATH } from '@/lib/siteAssets';
 import { MARKETING_FAQ_ITEMS } from '@/lib/marketingFaq';
 import { cn } from '@/lib/cn';
+import { Noto_Sans_Ethiopic } from 'next/font/google';
+
+const notoEthiopic = Noto_Sans_Ethiopic({
+  subsets: ['ethiopic'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
 
 // ── Animated counter hook ────────────────────────────────────────────────────
 function useCountUp(target: number, duration = 1800, start = false) {
@@ -85,11 +98,88 @@ const codeLines = [
   { tokens: [{ t: '}', c: 'text-gray-600 dark:text-gray-300' }] },
 ];
 
+/** Marketing curriculum chips — English + Amharic (aligned with course chapters). */
 const learningPath = [
-  { level: 'Beginner', color: 'bg-emerald-500', lessons: ['Variables & Types', 'Input / Output', 'Conditionals', 'Loops', 'Functions'], icon: Sprout },
-  { level: 'Intermediate', color: 'bg-blue-500', lessons: ['Arrays & Strings', 'Pointers', 'Structs', 'File I/O', 'OOP Basics'], icon: Zap },
-  { level: 'Advanced', color: 'bg-teal-600', lessons: ['Templates', 'STL', 'Memory Mgmt', 'Algorithms', 'Design Patterns'], icon: Flame },
-];
+  {
+    level: { en: 'Beginner', am: 'ጀማሪ' },
+    color: 'bg-emerald-500',
+    icon: Sprout,
+    cpp: [
+      { en: 'Variables & types', am: 'ተለዋዋጮች እና ዓይነቶች' },
+      { en: 'Input / output', am: 'ግቤት እና መውጫ (cin/cout)' },
+      { en: 'Conditionals', am: 'ምርጫ እና ኮንዲሽን' },
+      { en: 'Loops', am: 'ዙረቶች' },
+      { en: 'Functions', am: 'ተግባራት' },
+    ],
+    web: [
+      { en: 'HTML outline & semantics', am: 'የሰነድ አቀራረብ እና ትርጉማዊ መዋቅር' },
+      { en: 'Text, lists & links', am: 'ጽሑፍ፣ ዝርዝሮች እና አገናኞች' },
+      { en: 'Images & media', am: 'ምስሎች እና ሚዲያ' },
+      { en: 'Forms & inputs', am: 'ቅጾች እና ግብዣዎች' },
+      { en: 'Accessibility basics', am: 'የመዳረሻ መሰረቶች' },
+    ],
+  },
+  {
+    level: { en: 'Intermediate', am: 'መካከለኛ' },
+    color: 'bg-blue-500',
+    icon: Zap,
+    cpp: [
+      { en: 'Arrays & strings', am: 'አረይ እና ሕብረቁምፊዎች' },
+      { en: 'Pointers', am: 'ፖይንተሮች' },
+      { en: 'Structs', am: 'struct ስብስቦች' },
+      { en: 'File I/O', am: 'የፋይል ግቤት / መውጫ' },
+      { en: 'OOP basics', am: 'የነገር ተኮር ፕሮግራሚንግ መሰረቶች' },
+    ],
+    web: [
+      { en: 'CSS selectors & cascade', am: 'CSS selectors፣ cascade እና ውበት' },
+      { en: 'Typography & color', am: 'ትይታ፣ ቀለም እና ክፍለ መጠኖች' },
+      { en: 'Box model & spacing', am: 'Box model፣ ክፍተት እና አቀማመጥ' },
+      { en: 'Flexbox & grid', am: 'Flexbox፣ Grid እና ቦታ ማስየም' },
+      { en: 'Responsive layouts', am: 'ለስክሪን የሚስማሙ አቀማመጦች' },
+    ],
+  },
+  {
+    level: { en: 'Advanced', am: 'ከፍተኛ' },
+    color: 'bg-teal-600',
+    icon: Flame,
+    cpp: [
+      { en: 'Templates', am: 'ቴምፕሌቶች (Templates)' },
+      { en: 'STL', am: 'STL (መደበኛ ቤተ-መጽሐፍት)' },
+      { en: 'Memory mgmt', am: 'ማህደር አስተዳደር' },
+      { en: 'Algorithms', am: 'አልጎሪዝሞች' },
+      { en: 'Design patterns', am: 'ዲዛይን ፓተርኖች' },
+    ],
+    web: [
+      { en: 'JS syntax & modules', am: 'JavaScript ስንትክስ፣ ተግባራት እና ሞዱሎች' },
+      { en: 'Scope & functions', am: 'Scope፣ ተግባራት እና ሞዱሎች' },
+      { en: 'DOM & querySelector', am: 'DOM፣ querySelector እና አካላት' },
+      { en: 'Events & forms', am: 'ክስተቶች፣ ቅጾች እና ማስኬድ' },
+      { en: 'Safe updates & security', am: 'ደህንነት ያላቸው ማዘመኖች እና ጥበቃ' },
+    ],
+  },
+] as const;
+
+const curriculumSectionCopy = {
+  en: {
+    sectionLabel: 'Curriculum',
+    title: 'A structured path from zero to advanced',
+    intro:
+      'The diagnostic places you at the right level on the track you choose. Each card shows the same three levels—what you study in C++ vs HTML, CSS, and JavaScript lines up by difficulty so you always know what comes next.',
+    cta: 'Take the diagnostic test →',
+    webTrackLabel: 'Web fundamentals',
+    topicSummary: (cppLen: number, webLen: number) => `C++ · ${cppLen} topics · Web · ${webLen} topics`,
+  },
+  am: {
+    sectionLabel: 'የትምህርት አቅጣጫ',
+    title: 'ከ መሰረት እስከ ከፍተኛ በተደራጅ መንገድ',
+    intro:
+      'የመጀመሪያ ፈተና በመረጡት መንገድ ላይ (C++ ወይም ድር) ደረጃዎን ይወስናል። እያንዳንዱ ካርድ ሶስቱን ደረጃዎች ያሳያል—በ C++ እና በ HTML፣ CSS እና JavaScript የሚማሩት በደረጃ ይደራጃል።',
+    cta: 'የመጀመሪያ ፈተና ይውሰዱ →',
+    webTrackLabel: 'የድር መሰረቶች (HTML / CSS / JS)',
+    topicSummary: (cppLen: number, webLen: number) =>
+      `C++ · ${cppLen} ርዕሰ ጉዳዮች · ድር · ${webLen} ርዕሰ ጉዳዮች`,
+  },
+} as const;
 
 const features = [
   {
@@ -116,8 +206,8 @@ const features = [
     id: 'compiler',
     icon: Cpu,
     title: 'Live compiler',
-    headline: 'Write real C++. See real output.',
-    body: 'A full GCC compiler runs in the cloud. Write code, hit run, see output in milliseconds. No installs, no configuration, no excuses.',
+    headline: 'Write real C++ or front-end code. See real output.',
+    body: 'GCC runs C++ in the cloud; HTML, CSS, and JavaScript run in the browser sandbox. Hit run and see output in milliseconds. No installs, no configuration, no excuses.',
     visual: (
       <div className="rounded-xl bg-gray-900 dark:bg-black/60 border border-gray-700 dark:border-white/10 overflow-hidden font-mono text-sm">
         <div className="flex items-center gap-2 px-4 py-2.5 border-b border-gray-700 dark:border-white/10 bg-gray-800 dark:bg-white/[0.03]">
@@ -174,7 +264,7 @@ const testimonials = [
   { name: 'Dawit K.', role: 'High School Student', text: 'I earned my Beginner certificate in 3 weeks. The streak system made me open the app every single day.', avatar: 'DK', color: '#059669' },
   { name: 'Sara H.', role: 'University Lecturer', text: 'I recommend this to all my students. The bilingual approach removes the language barrier that blocks most Ethiopian learners.', avatar: 'SH', color: '#d97706' },
   { name: 'Yonas A.', role: 'Bootcamp Graduate', text: 'The AI tutor answered my questions better than Stack Overflow. And it speaks Amharic.', avatar: 'YA', color: '#dc2626' },
-  { name: 'Hana G.', role: 'Intermediate Learner', text: 'Went from not knowing what a variable is to writing OOP code. The learning path is perfectly structured.', avatar: 'HG', color: '#0891b2' },
+  { name: 'Hana G.', role: 'Intermediate Learner', text: 'Went from zero to confident projects—the beginner, intermediate, and advanced steps are clear whether you pick C++ or web.', avatar: 'HG', color: '#0891b2' },
 ];
 
 const faqs = MARKETING_FAQ_ITEMS.slice(0, 6);
@@ -456,7 +546,8 @@ function HeroSection({
               variants={heroItem}
               className="mt-6 text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg mx-auto lg:mx-0"
             >
-              Bilingual lessons, a live compiler, and an AI tutor. All in one platform. Free forever.
+              Bilingual lessons, C++ and web fundamentals tracks, a live compiler, and an AI tutor. All in one platform.
+              Free forever.
             </motion.p>
 
             <motion.div variants={heroItem} className="mt-10 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -612,7 +703,7 @@ function HeroSection({
                       animate={reduceMotion ? undefined : { opacity: [1, 0.75, 1] }}
                       transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                     >
-                      C++
+                      C++ · Web
                     </motion.span>
                   </div>
                   <div className="p-5 font-mono text-sm leading-7 min-h-[230px] bg-white dark:bg-transparent">
@@ -696,6 +787,7 @@ export default function LandingPage() {
   const [typedLines, setTypedLines] = useState(0);
   const [activeFeature, setActiveFeature] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [curriculumLocale, setCurriculumLocale] = useState<'en' | 'am'>('en');
   const { ref: statsRef, inView: statsInView } = useInView(0.3);
 
   useEffect(() => {
@@ -764,22 +856,76 @@ export default function LandingPage() {
         <div className="max-w-screen-xl mx-auto relative">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="flex-1 max-w-lg">
-              <SectionLabel>Curriculum</SectionLabel>
-              <h2 className="mt-4 text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight">
-                A structured path from zero to advanced
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-2">
+                <SectionLabel>{curriculumSectionCopy[curriculumLocale].sectionLabel}</SectionLabel>
+                <div
+                  className="inline-flex rounded-xl border border-gray-200/90 dark:border-white/10 p-1 bg-gray-50/90 dark:bg-white/[0.03] shadow-sm font-sans"
+                  role="group"
+                  aria-label="Curriculum language"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setCurriculumLocale('en')}
+                    className={cn(
+                      'px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-colors',
+                      curriculumLocale === 'en'
+                        ? 'bg-white dark:bg-white/10 text-gray-900 dark:text-white shadow-sm'
+                        : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                    )}
+                  >
+                    English
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCurriculumLocale('am')}
+                    className={cn(
+                      'px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-colors',
+                      curriculumLocale === 'am'
+                        ? 'bg-white dark:bg-white/10 text-gray-900 dark:text-white shadow-sm'
+                        : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300',
+                      notoEthiopic.className
+                    )}
+                  >
+                    አማርኛ
+                  </button>
+                </div>
+              </div>
+              <h2
+                className={cn(
+                  'mt-4 text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight',
+                  curriculumLocale === 'am' && notoEthiopic.className
+                )}
+              >
+                {curriculumSectionCopy[curriculumLocale].title}
               </h2>
-              <p className="mt-5 text-gray-500 dark:text-gray-400 leading-relaxed">
-                The diagnostic assessment places you at the right level. Then you follow a carefully sequenced curriculum. No jumping around, no confusion.
+              <p
+                className={cn(
+                  'mt-5 text-gray-500 dark:text-gray-400 leading-relaxed',
+                  curriculumLocale === 'am' && `${notoEthiopic.className} text-[15px] sm:text-base`
+                )}
+              >
+                {curriculumSectionCopy[curriculumLocale].intro}
               </p>
-              <Link href="/sign-up" className="mt-8 inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold text-sm hover:gap-3 transition-all duration-200">
-                Take the diagnostic test →
+              <Link
+                href="/sign-up"
+                className={cn(
+                  'mt-8 inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold text-sm hover:gap-3 transition-all duration-200',
+                  curriculumLocale === 'am' && notoEthiopic.className
+                )}
+              >
+                {curriculumSectionCopy[curriculumLocale].cta}
               </Link>
             </div>
 
-            <div className="flex-1 w-full space-y-4">
+            <div
+              className={cn(
+                'flex-1 w-full space-y-4',
+                curriculumLocale === 'am' && notoEthiopic.className
+              )}
+            >
               {learningPath.map((level, li) => (
                 <motion.div
-                  key={level.level}
+                  key={level.level.en}
                   initial={{ opacity: 0, x: reduceMotion ? 0 : 24 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
@@ -792,18 +938,55 @@ export default function LandingPage() {
                     <span className="w-9 h-9 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 flex items-center justify-center shadow-inner group-hover:border-blue-200/60 dark:group-hover:border-blue-500/25 transition-colors">
                       <level.icon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
                     </span>
-                    <div className="flex-1">
-                      <p className="font-semibold text-gray-900 dark:text-white">{level.level}</p>
-                      <p className="text-xs text-gray-400 dark:text-gray-500">{level.lessons.length} lessons</p>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold text-gray-900 dark:text-white">{level.level[curriculumLocale]}</p>
+                      <p className="text-xs text-gray-400 dark:text-gray-500">
+                        {curriculumSectionCopy[curriculumLocale].topicSummary(level.cpp.length, level.web.length)}
+                      </p>
                     </div>
-                    <div className={cn('w-2.5 h-2.5 rounded-full ring-2 ring-white dark:ring-[#080810]', level.color)} />
+                    <div className={cn('w-2.5 h-2.5 rounded-full ring-2 ring-white dark:ring-[#080810] flex-shrink-0', level.color)} />
                   </div>
-                  <div className="relative px-6 py-4 flex flex-wrap gap-2">
-                    {level.lessons.map((lesson) => (
-                      <span key={lesson} className="px-3 py-1 rounded-full bg-gray-50/90 dark:bg-white/[0.05] border border-gray-100/90 dark:border-white/[0.06] text-xs text-gray-600 dark:text-gray-400 font-medium group-hover:border-gray-200 dark:group-hover:border-white/10 transition-colors">
-                        {lesson}
-                      </span>
-                    ))}
+                  <div className="relative px-6 py-4 space-y-4">
+                    <div>
+                      <p
+                        className={cn(
+                          'text-[11px] font-semibold text-blue-600 dark:text-blue-400 mb-2',
+                          curriculumLocale === 'en' && 'uppercase tracking-wider'
+                        )}
+                      >
+                        C++
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {level.cpp.map((topic) => (
+                          <span
+                            key={topic.en}
+                            className="px-3 py-1 rounded-full text-xs font-medium border border-blue-100/90 dark:border-blue-500/20 bg-blue-50/80 dark:bg-blue-500/[0.07] text-gray-700 dark:text-gray-300 group-hover:border-blue-200 dark:group-hover:border-blue-500/30 transition-colors"
+                          >
+                            {topic[curriculumLocale]}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="pt-3 border-t border-gray-100 dark:border-white/5">
+                      <p
+                        className={cn(
+                          'text-[11px] font-semibold text-teal-600 dark:text-teal-400 mb-2',
+                          curriculumLocale === 'en' && 'uppercase tracking-wider'
+                        )}
+                      >
+                        {curriculumSectionCopy[curriculumLocale].webTrackLabel}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {level.web.map((topic) => (
+                          <span
+                            key={topic.en}
+                            className="px-3 py-1 rounded-full text-xs font-medium border border-teal-100/90 dark:border-teal-500/20 bg-teal-50/80 dark:bg-teal-500/[0.07] text-gray-700 dark:text-gray-300 group-hover:border-teal-200 dark:group-hover:border-teal-500/30 transition-colors"
+                          >
+                            {topic[curriculumLocale]}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -821,7 +1004,8 @@ export default function LandingPage() {
               What you'll build
             </h2>
             <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-lg">
-              Real programs, not toy examples. Every level ends with a project you can actually show.
+              Real projects at every level—scroll for C++ console apps and web pages side by side. Each track ends with
+              something you can run, share, or put in a portfolio.
             </p>
           </FadeUp>
         </div>
@@ -830,15 +1014,117 @@ export default function LandingPage() {
         <div className="flex gap-5 overflow-x-auto pb-6 px-6 sm:px-10 lg:px-16 snap-x snap-mandatory scrollbar-hide"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             {[
-              { level: 'Beginner', icon: Calculator, title: 'Calculator', desc: 'A command-line calculator that handles +, −, ×, ÷ with error handling for division by zero.', tags: ['Variables', 'Conditionals', 'Functions'], color: 'border-emerald-200 dark:border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-500/5' },
-              { level: 'Beginner', icon: Dice5, title: 'Number Guessing Game', desc: 'Random number generator with hints. Tracks attempts and shows a score at the end.', tags: ['Loops', 'Random', 'I/O'], color: 'border-emerald-200 dark:border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-500/5' },
-              { level: 'Intermediate', icon: ContactRound, title: 'Contact Book', desc: 'Store, search, and delete contacts using structs and file I/O. Data persists between runs.', tags: ['Structs', 'File I/O', 'Arrays'], color: 'border-blue-200 dark:border-blue-500/20 bg-blue-50/50 dark:bg-blue-500/5' },
-              { level: 'Intermediate', icon: Landmark, title: 'Bank Account System', desc: 'OOP-based bank system with deposit, withdraw, and balance tracking using classes.', tags: ['OOP', 'Classes', 'Encapsulation'], color: 'border-blue-200 dark:border-blue-500/20 bg-blue-50/50 dark:bg-blue-500/5' },
-              { level: 'Advanced', icon: Search, title: 'Search Engine (Mini)', desc: 'Index a set of text files and search them by keyword using STL maps and vectors.', tags: ['STL', 'Templates', 'Algorithms'], color: 'border-teal-200 dark:border-teal-500/25 bg-teal-50/60 dark:bg-teal-500/8' },
-              { level: 'Advanced', icon: Sigma, title: 'Matrix Library', desc: 'A templated matrix class with addition, multiplication, and determinant calculation.', tags: ['Templates', 'Memory', 'Operators'], color: 'border-teal-200 dark:border-teal-500/25 bg-teal-50/60 dark:bg-teal-500/8' },
+              {
+                track: 'cpp' as const,
+                level: 'Beginner',
+                icon: Calculator,
+                title: 'Calculator',
+                desc: 'A command-line calculator that handles +, −, ×, ÷ with error handling for division by zero.',
+                tags: ['Variables', 'Conditionals', 'Functions'],
+                color: 'border-emerald-200 dark:border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-500/5',
+              },
+              {
+                track: 'cpp' as const,
+                level: 'Beginner',
+                icon: Dice5,
+                title: 'Number guessing game',
+                desc: 'Random number generator with hints. Tracks attempts and shows a score at the end.',
+                tags: ['Loops', 'Random', 'I/O'],
+                color: 'border-emerald-200 dark:border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-500/5',
+              },
+              {
+                track: 'web' as const,
+                level: 'Beginner',
+                icon: Layout,
+                title: 'Personal homepage',
+                desc: 'A multi-section landing page with semantic HTML, a hero, and working internal links.',
+                tags: ['HTML', 'Semantics', 'Links'],
+                color: 'border-emerald-200 dark:border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-500/5',
+              },
+              {
+                track: 'web' as const,
+                level: 'Beginner',
+                icon: ImageIcon,
+                title: 'Gallery & contact',
+                desc: 'Image grid with alt text, a simple form, and accessible labels—ready to style next.',
+                tags: ['Forms', 'Media', 'A11y'],
+                color: 'border-emerald-200 dark:border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-500/5',
+              },
+              {
+                track: 'cpp' as const,
+                level: 'Intermediate',
+                icon: ContactRound,
+                title: 'Contact book',
+                desc: 'Store, search, and delete contacts using structs and file I/O. Data persists between runs.',
+                tags: ['Structs', 'File I/O', 'Arrays'],
+                color: 'border-blue-200 dark:border-blue-500/20 bg-blue-50/50 dark:bg-blue-500/5',
+              },
+              {
+                track: 'cpp' as const,
+                level: 'Intermediate',
+                icon: Landmark,
+                title: 'Bank account system',
+                desc: 'OOP-based bank system with deposit, withdraw, and balance tracking using classes.',
+                tags: ['OOP', 'Classes', 'Encapsulation'],
+                color: 'border-blue-200 dark:border-blue-500/20 bg-blue-50/50 dark:bg-blue-500/5',
+              },
+              {
+                track: 'web' as const,
+                level: 'Intermediate',
+                icon: LayoutDashboard,
+                title: 'Dashboard layout',
+                desc: 'Responsive admin-style layout with CSS Grid, Flexbox, and breakpoints for phone and desktop.',
+                tags: ['CSS Grid', 'Flexbox', 'Responsive'],
+                color: 'border-blue-200 dark:border-blue-500/20 bg-blue-50/50 dark:bg-blue-500/5',
+              },
+              {
+                track: 'web' as const,
+                level: 'Intermediate',
+                icon: FormInput,
+                title: 'Styled signup flow',
+                desc: 'Multi-field form with focus styles, validation feedback, and accessible error messages.',
+                tags: ['Forms', 'CSS', 'UX'],
+                color: 'border-blue-200 dark:border-blue-500/20 bg-blue-50/50 dark:bg-blue-500/5',
+              },
+              {
+                track: 'cpp' as const,
+                level: 'Advanced',
+                icon: Search,
+                title: 'Search engine (mini)',
+                desc: 'Index a set of text files and search them by keyword using STL maps and vectors.',
+                tags: ['STL', 'Templates', 'Algorithms'],
+                color: 'border-teal-200 dark:border-teal-500/25 bg-teal-50/60 dark:bg-teal-500/8',
+              },
+              {
+                track: 'cpp' as const,
+                level: 'Advanced',
+                icon: Sigma,
+                title: 'Matrix library',
+                desc: 'A templated matrix class with addition, multiplication, and determinant calculation.',
+                tags: ['Templates', 'Memory', 'Operators'],
+                color: 'border-teal-200 dark:border-teal-500/25 bg-teal-50/60 dark:bg-teal-500/8',
+              },
+              {
+                track: 'web' as const,
+                level: 'Advanced',
+                icon: ListTodo,
+                title: 'Interactive task board',
+                desc: 'Add, complete, and remove tasks with the DOM and events—structure from HTML, behavior from JavaScript.',
+                tags: ['DOM', 'Events', 'JS'],
+                color: 'border-teal-200 dark:border-teal-500/25 bg-teal-50/60 dark:bg-teal-500/8',
+              },
+              {
+                track: 'web' as const,
+                level: 'Advanced',
+                icon: Cloud,
+                title: 'Live data widget',
+                desc: 'Fetch JSON from an API, render cards, and handle loading and error states safely in the page.',
+                tags: ['fetch', 'Async', 'DOM'],
+                color: 'border-teal-200 dark:border-teal-500/25 bg-teal-50/60 dark:bg-teal-500/8',
+              },
             ].map((project, i) => (
             <motion.div
-              key={project.title}
+              key={`${project.track}-${project.title}`}
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-40px' }}
@@ -849,16 +1135,34 @@ export default function LandingPage() {
                 project.color
               )}
             >
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-2">
                 <span className="w-10 h-10 rounded-lg bg-white/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center">
                   <project.icon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
                 </span>
-                <span className={cn(
-                  'text-xs font-semibold px-2.5 py-1 rounded-full',
-                  project.level === 'Beginner' ? 'bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400' :
-                  project.level === 'Intermediate' ? 'bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-400' :
-                  'bg-teal-100 dark:bg-teal-500/15 text-teal-800 dark:text-teal-400'
-                )}>{project.level}</span>
+                <div className="flex flex-col items-end gap-1">
+                  <span
+                    className={cn(
+                      'text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-md',
+                      project.track === 'cpp'
+                        ? 'bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-400'
+                        : 'bg-teal-100 dark:bg-teal-500/15 text-teal-800 dark:text-teal-400'
+                    )}
+                  >
+                    {project.track === 'cpp' ? 'C++' : 'Web'}
+                  </span>
+                  <span
+                    className={cn(
+                      'text-xs font-semibold px-2.5 py-1 rounded-full',
+                      project.level === 'Beginner'
+                        ? 'bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400'
+                        : project.level === 'Intermediate'
+                          ? 'bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-400'
+                          : 'bg-teal-100 dark:bg-teal-500/15 text-teal-800 dark:text-teal-400'
+                    )}
+                  >
+                    {project.level}
+                  </span>
+                </div>
               </div>
               <div>
                 <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1.5">{project.title}</h3>
@@ -957,8 +1261,18 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
             <div className="hidden md:block absolute top-14 left-[calc(33.33%+1.5rem)] right-[calc(33.33%+1.5rem)] h-px border-t border-dashed border-gray-200 dark:border-white/10" />
             {[
-              { num: '01', icon: Target, title: 'Take the diagnostic', desc: 'Answer 15 programming questions. We place you at Beginner, Intermediate, or Advanced automatically.' },
-              { num: '02', icon: BookOpenCheck, title: 'Follow your path', desc: 'Work through bilingual lessons at your level. Run code in the browser. Ask the AI tutor when stuck.' },
+              {
+                num: '01',
+                icon: Target,
+                title: 'Take the diagnostic',
+                desc: 'Answer 15 questions on the track you pick (C++ or web). We place you at Beginner, Intermediate, or Advanced automatically.',
+              },
+              {
+                num: '02',
+                icon: BookOpenCheck,
+                title: 'Follow your path',
+                desc: 'Work through bilingual lessons at your level—console C++ or HTML/CSS/JS. Run code in the browser. Ask the AI tutor when stuck.',
+              },
               { num: '03', icon: Medal, title: 'Earn your certificate', desc: 'Pass quizzes, complete the level, and receive a verified certificate with a public verification link.' },
             ].map((s, si) => (
               <motion.div
@@ -1036,14 +1350,16 @@ export default function LandingPage() {
           >
             {/* Decorative large text behind */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-              <span className="text-[200px] font-black text-gray-100 dark:text-white/[0.03] leading-none">C++</span>
+              <span className="text-[clamp(72px,18vw,200px)] font-black text-gray-100 dark:text-white/[0.03] leading-none tracking-tighter">
+                C++ &amp; Web
+              </span>
             </div>
             <div className="relative">
               <p className="text-blue-600 dark:text-blue-400 text-sm font-semibold uppercase tracking-widest mb-6">The numbers speak</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-0 sm:divide-x divide-gray-200 dark:divide-white/8">
                 {[
                   { num: '500+', label: 'Students learning right now' },
-                  { num: '3', label: 'Levels from zero to advanced' },
+                  { num: '3', label: 'Levels per track (Beginner → Advanced)' },
                   { num: '100%', label: 'Free, no hidden costs' },
                 ].map((s) => (
                   <div key={s.label} className="px-8">
@@ -1101,8 +1417,8 @@ export default function LandingPage() {
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold">IL</div>
                     <div>
-                      <p className="text-sm font-semibold text-gray-900 dark:text-white">Intermediate Learner</p>
-                      <p className="text-xs text-gray-400">Level 12 · Intermediate</p>
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white">Intermediate learner</p>
+                      <p className="text-xs text-gray-400">Level 12 · Intermediate · C++ or Web track</p>
                     </div>
                   </div>
                   <div className="text-right">
@@ -1249,7 +1565,9 @@ export default function LandingPage() {
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">has successfully completed the</p>
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 mb-6">
                       <Sprout className="w-4.5 h-4.5 text-emerald-600 dark:text-emerald-400" />
-                      <span className="font-bold text-emerald-700 dark:text-emerald-400">Beginner Level: C++ Programming</span>
+                      <span className="font-bold text-emerald-700 dark:text-emerald-400">
+                        Beginner Level: C++ or Web fundamentals
+                      </span>
                     </div>
                     <div className="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-white/5">
                       <div>
