@@ -1,0 +1,433 @@
+Chapter Three 
+
+Program Control Constructs
+
+A running program spends all of its time executing instructions or statements 
+
+in that program. 
+
+The order in which statements in a program are executed is called flow of 
+
+that program. 
+
+Programmers can control which instruction to be executed in a program, 
+
+which is called flow control. 
+
+This term reflects the fact that the currently executing statement has the 
+
+control of the CPU, which when completed will be handed over (flow) to 
+
+another statement. 
+
+Flow control in a program is typically sequential, from one statement to the 
+
+next. 
+
+But we cal also have execution that might be divided to other paths by 
+
+branching statements. Or perform a block of statement repeatedly until a 
+
+condition fails by Repetition or looping. 
+
+Flow control is an important concept in programming because it will give all 
+
+the power to the programmer to decide what to do to execute during a run 
+
+and what is not, therefore, affecting the overall outcome of the program. 
+
+ይህ ሰነድ በዋናነት የሚያተኩረው በC++ ፕሮግራም መቆጣጠሪያ መንገዶች (Program Control Constructs) ላይ ሲሆን፣ ፕሮግራም እንዴት እንደሚሰራ፣ ትዕዛዞች በምን ቅደም ተከተል እንደሚፈጸሙ እና ተደጋጋሚ ስራዎችን እንዴት በቀላሉ ማከናወን እንደሚቻል ያብራራል ። በውስጡም ቅደም ተከተላዊ (Sequential) ፣ ምርጫዊ (Selection) እንደ if እና switch ያሉ ፣ እንዲሁም ተደጋጋሚ (Repetition) እንደ for፣ while እና do...while ያሉ የኮድ አይነቶችን በምሳሌዎችና በልምምድ ጥያቄዎች ያሳያል ።
+
+
+
+1. Sequential Statements 
+
+Such kind of statements are instruction in a program which will executed 
+
+one after the other in the order scripted in the program. In sequential 
+
+statements, the order will be determined during program development 
+
+and can not be changed. 
+
+አሁን ደግሞ በደስታ እና በፈገግታ ነገሩን እንየው! 😊✨
+
+1. Sequential Statements (ቅደም ተከተላዊ) 🚶‍♂️
+
+ይሄ በጣም ቅን ነው! ልክ እንደ ሰልፍ አንዱ ሲያልቅ ሌላኛው ይቀጥላል ። መሃል ላይ ማቋረጥ ወይም መዝለል አይቻልም፤ ከላይ ወደ ታች በቅደም ተከተል ይፈጸማል ።
+
+2. Selection Statements 
+
+Selection statements are statements in a program where there are points at 
+
+which the program will decide at runtime whether some part of the code 
+
+should or should not be executed. 
+
+
+
+ There are two types of selection statements in C++, which are the “if 
+
+statement” and the “switch statement” 
+
+2. Selection Statements (ምርጫዎች) 🤔🚦
+
+እዚህ ጋር ፕሮግራሙ "ምን ላድርግ?" ብሎ ይቆማል ።
+
+The if statement: "ይሄ ከሆነ ይሄን አድርግ" ባይ ነው ። ለምሳሌ ውጤትህ ከ70 በላይ ከሆነ "ጎበዝ!" ይልሃል ።
+
+The switch statement: ይሄ ደግሞ እንደ ኪቦርድ ⌨️ ነው ። ብዙ ምርጫዎች (cases) አሉት፤ የነካኸውን ቁጥር ወይም ፊደል አይቶ ተገቢውን ምላሽ ይሰጥሃል ። break ካልተጠቀምክ ግን ሁሉንም አሳፍሶ ሊያነብብብህ ይችላል! 😂 
+
+
+
+4.1. The if Statement 
+
+It is sometimes desirable to make the execution of a statement dependent upon a condition being satisfied. 
+
+ The different forms of the ‘If” statement will be used to decide 
+
+whether to execute part of the program based on a condition which 
+
+will be tested either for TRUE or FALSE result
+
+
+
+
+
+The different forms of the “If” statement are: 
+
+The simple if statement will decide only one part of the program to 
+
+be executed if the condition is satisfied or ignored if the condition 
+
+fails. 
+
+
+
+The General Syntax is: 
+
+
+
+In any “if” statement, first the “expression” will be evaluated and if 
+
+the outcome is non zero (which means TRUE), then the “statements”
+
+is executed. Otherwise, nothing happens (the statement will not be 
+
+executed) and execution resumes to the line immediately after the 
+
+“if” block. 
+
+if (expression) 
+
+ statements; 
+
+
+
+To make multiple statements dependent on the same condition we 
+
+can use a compound statement, which will be implemented by 
+
+embracing the group of instructions within the left “{“ and right “}” 
+
+French bracket. 
+
+
+
+3
+
+
+
+
+
+E.g.: 
+
+ if(age>18) 
+
+ cout<<”you are an adult”; 
+
+E.g.: 
+
+if(balance > 0) 
+
+ { 
+
+ interest = balance * creditRate; 
+
+ balance += interest; 
+
+ } 
+
+
+
+Most of the time “expression” will have relational expressions 
+
+testing whether something is equal, greater, less, or different from 
+
+something else. 
+
+
+
+It should be noted that the output of a relational expression is 
+
+either True (represented by anything different from zero) or False 
+
+(represented by Zero). 
+
+
+
+Thus any expression, whose final result is either zero or none zero 
+
+can be used in ”expression” 
+
+E.g.: 
+
+ int x; 
+
+cin>>x; 
+
+if(x) 
+
+ cout<<”you are an adult”; 
+
+
+
+In the above example, the value of variable x will be an input from 
+
+the user. The “if” statement will be true if the user gives anything 
+
+different from zero, which means the message “you are an adult” 
+
+will be displayed on the screen. If the user gives zero value for x, 
+
+which will be interpreted as False, nothing will be done as the if 
+
+statement is not satisfied. 
+
+Thus, expression and be: 
+
+Relational expression, 
+
+A variable, 
+
+A literal constant, or 
+
+Assignment operation, as the final result is whatever we 
+
+have at the right hand side and the one at the left hand side 
+
+is a variable. 
+
+The If else statement 
+
+Another form of the “if” is the “if …else” statement. 
+
+The “if else if” statement allows us to specify two alternative 
+
+statements: 
+
+One which will be executed if a condition is satisfied and 
+
+Another which will be executed if the condition is not 
+
+satisfied. 
+
+The General Syntax is: 
+
+
+
+If (expression)
+
+     Statement1;
+
+else 
+
+     Statements2;
+
+   
+
+
+
+
+
+
+
+
+
+First “expression” is evaluated and if the outcome is none zero 
+
+(true), then “statements1” will be executed. Otherwise, which means 
+
+the “expression” is false “statements2” will be executed. 
+
+E.g.: 
+
+ if(balance > 0) 
+
+{ 
+
+ interest = balance * creditRate; 
+
+ balance += interest; 
+
+} 
+
+else 
+
+{ 
+
+ interest = balance * debitRate; 
+
+ balance += interest; 
+
+}
+
+E.g.1:
+
+
+
+if(age > 18)
+
+    cout << "you are an adult";
+
+else
+
+    cout << "You are a kid";
+
+
+
+E.g.2:
+
+
+
+int x;
+
+cout << "Enter a number: ";
+
+cin >> x;
+
+if(x % 2 == 0)
+
+    cout << "The Number is Even";
+
+else
+
+    cout << "The Number is Odd";
+
+
+
+E.g.3:
+
+
+
+int x;
+
+cout << "Enter a number: ";
+
+cin >> x;
+
+if(x % 2)
+
+    cout << "The Number is Odd";
+
+else
+
+    cout << "The Number is Even";
+
+
+
+The above three examples illustrate the “if else” statement.
+
+
+
+The last two examples will do the same thing except that the expression in the Eg3 is changed from relational to arithmetic. We know that the result from the modulus operator is either 0 or one if the divider is 2. Thus the final result of the expression in Eg3 will either be 1 for odd numbers or be 0 for even numbers.
+
+
+
+if statements may be nested by having an if statement appear inside another if statement. For instance:
+
+
+
+
+
+if(callHour > 3)
+
+{
+
+    if(callDuration <= 5)
+
+        charge = callDuration * tarif1;
+
+    else
+
+        charge = 5 * tarif1 + (callDuration - 5) * tarif2;
+
+}
+
+else
+
+    charge = flatFee;
+
+}
+
+
+
+lets have an example on nested if statements 
+
+እስኪ አሁን ደግሞ በnested if አንድ ምሳሌ እንስራ
+
+በመጀመሪያ እንደተለመደው የምንሰራበትን library እና namespace እንጽፋለን። 
+
+#include<iostream>
+
+using namespace std;
+
+//ከዛ main function ውስጥ ስራችን እንጀምራለን።
+
+int main()
+
+{
+
+int testScore,age;
+
+/* እዚህ ጋ variable declare አደረግን። (የምጠቀማቸው ቃላት እነዚህ ናቸው ስለዚህ ታች ስጠራቸው አላውቅም እንዳትል አሁን ላስተዋውቅህ እያልነው ነው computer-ኣችን። */
+
+cout<<"\n enter your test score: ";
+
+cin>>testScore;
+
+cout<<"\ enter your age:";
+
+cin>>age;
+
+የ/* ያገኘነውን ውጤት እንዲጠይቀንና እንድናስገባ አደረግነው።
+
+እንግዲህ nested if statement-ኣችን ጀመርን*/
+
+
+
+if (testScore>=70) // በደንብ አስተውሉ የዚህ if curly brace ውስጥ ሌላ if አለ 
+
+         {
+
+          if(age<10) //ይሄኛው if የሚገኘው በመጀመሪያው ወይም በትልቁ if ውስጥ ነው።
+
+          cout<<"\n you did a great job";
+
+          else
+
+          cout<<"\n you did pass";
+
+          }
+
+else //የመጀመሪያው የትልቁ if የሆነው else የሚጀምረው እዚህ ነው።
+
+  cout<<"\n you didn't pass";
+
+return 0;
+
+}
+
+ባጭሩ ከላይ ያለውን code ስንገልጸው ያመጣው ውጤት ከ70 በላይ ከሆነ (ትልቁ if😊)  እንዲሁም እድሜው ከ10 በታች ከሆነ (ትንሹ if😊) በጣም ገራሚ ስራ ሰርተሃል በለው። ነገር ግን ከ70 በላይ አምጥቶ እድሜው ከ10 በታች ካልሆነ አልፈሃል በለው። (የትንሹ if አሊያም(else) ዓረፍተነገር ነው።) ይህ ሁሉ ካልሆነስ ማለት ልጁ እድሜውን አረጋግጠን ጎበዝ ከማለታችን በፊት ያመጣው ውጤት ከ70 የሚያንሶ ከሆነስ ምን እንበለው ስንል፣ አይዠዟችሁ እኔ አለሁ ይላል 😂 የትልቁ if አሊያም (else) ዓረፍተ ነገር) ስለዚህ የትልቁን else statement(ዓረፍተ ነገር) cout ብለን አላለፍክም ብለን እናሳውቀዋለን። ስለዚህ መጀመሪያ condition ወይም ሁኔታ check ያደርጋል። በዚህ ምሳሌ condition-ኣችን (testScore>=70) የሚሀው ነው። እሱን ያረጋግጥና እውነት ከሆነ ሁለተኛውን if ይሰራል እውነት ካልሆነ ግን እሱን ይተውና የራሱን else ወይም አላለፍክም የሚለውን ይሰራል ማለት ነው።
+
+ይሄን ታች በflow chart ማየት ይቻላል። ለብቻ በትንሽ dot dot ሳጥን ውስጥ ያለችው ትንሿ if ናት😊
