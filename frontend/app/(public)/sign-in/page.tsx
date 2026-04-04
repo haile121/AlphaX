@@ -33,13 +33,14 @@ export default function SignInPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const errs = validate(email, password);
+    const emailTrimmed = email.trim();
+    const errs = validate(emailTrimmed, password);
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
 
     setLoading(true);
     try {
-      const res = await authApi.login(email, password);
+      const res = await authApi.login(emailTrimmed, password);
       const user = res.data.user;
       if (!user.assessment_completed) {
         if (!user.primary_track) {

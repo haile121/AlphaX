@@ -43,13 +43,15 @@ export default function SignUpPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const errs = validate(email, displayName, password, confirmPassword);
+    const emailTrimmed = email.trim();
+    const displayTrimmed = displayName.trim();
+    const errs = validate(emailTrimmed, displayTrimmed, password, confirmPassword);
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
 
     setLoading(true);
     try {
-      await authApi.register(email, displayName, password);
+      await authApi.register(emailTrimmed, displayTrimmed, password);
       router.push('/assessment/track');
     } catch (err: unknown) {
       const message =
