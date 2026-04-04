@@ -2,7 +2,7 @@ import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import PDFDocument from 'pdfkit';
 import { authenticate } from '../../middleware/authenticate';
-import { requireRole } from '../../middleware/authorize';
+import { requireAdminDb } from '../../middleware/requireAdminDb';
 import {
   getLessonsForUser,
   getLessonById,
@@ -110,7 +110,7 @@ router.get('/:id/download', authenticate, async (req: Request, res: Response): P
 });
 
 // POST /api/lessons (admin)
-router.post('/', authenticate, requireRole('admin'), async (req: Request, res: Response): Promise<void> => {
+router.post('/', authenticate, requireAdminDb, async (req: Request, res: Response): Promise<void> => {
   const parsed = lessonSchema.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ error: 'Invalid request body', details: parsed.error.flatten() });
@@ -126,7 +126,7 @@ router.post('/', authenticate, requireRole('admin'), async (req: Request, res: R
 });
 
 // PUT /api/lessons/:id (admin)
-router.put('/:id', authenticate, requireRole('admin'), async (req: Request, res: Response): Promise<void> => {
+router.put('/:id', authenticate, requireAdminDb, async (req: Request, res: Response): Promise<void> => {
   const parsed = lessonSchema.partial().safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ error: 'Invalid request body', details: parsed.error.flatten() });
@@ -147,7 +147,7 @@ router.put('/:id', authenticate, requireRole('admin'), async (req: Request, res:
 });
 
 // DELETE /api/lessons/:id (admin)
-router.delete('/:id', authenticate, requireRole('admin'), async (req: Request, res: Response): Promise<void> => {
+router.delete('/:id', authenticate, requireAdminDb, async (req: Request, res: Response): Promise<void> => {
   const force = req.query.force === 'true';
 
   try {

@@ -24,6 +24,7 @@ import courseTrackQuizzesRouter from '../modules/course-track-quizzes/course-tra
 import chatRouter from '../modules/chat/chat.router';
 import friendsRouter from '../modules/chat/friends.router';
 import adminRouter from '../modules/admin/admin.router';
+import trackCompletionVideosRouter from '../modules/track-completion-videos/track-completion-videos.router';
 
 // WebSocket
 import { attachWebSocketServer } from '../modules/chat/chat.ws';
@@ -97,6 +98,7 @@ app.use('/api/course-track-quizzes', courseTrackQuizzesRouter);
 app.use('/api/chat', chatRouter);
 app.use('/api/friends', friendsRouter);
 app.use('/api/admin', adminRouter);
+app.use('/api/track-completion-videos', trackCompletionVideosRouter);
 
 // Global error handler (must be last)
 app.use(errorHandler);

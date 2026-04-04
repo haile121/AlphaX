@@ -1,13 +1,13 @@
 import { Router, Request, Response } from 'express';
 import { authenticate } from '../../middleware/authenticate';
-import { requireRole } from '../../middleware/authorize';
+import { requireAdminDb } from '../../middleware/requireAdminDb';
 import { query } from '../../db/connection';
 
 const router = Router();
 
 const CURRICULUM_LESSON_COUNT = 18; // ch1:4 + ch2:4 + ch3:4 + ch4:6 — keep in sync with frontend courseCurriculum
 
-const adminChain = [authenticate, requireRole('admin')];
+const adminChain = [authenticate, requireAdminDb];
 
 /** Dashboard stats + chart series for admin UI */
 router.get('/stats', ...adminChain, async (_req: Request, res: Response): Promise<void> => {

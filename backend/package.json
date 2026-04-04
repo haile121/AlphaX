@@ -15,6 +15,7 @@
     "seed:cpp-placement": "tsx scripts/run-seed-cpp-placement.ts",
     "migrate:004": "tsx scripts/run-migration-004.ts",
     "migrate:005": "tsx scripts/run-migration-005.ts",
+    "migrate:006": "tsx scripts/run-migration-006.ts",
     "migrate:course-track": "npm run migrate:001 && npm run migrate:005 && npm run seed:course-track-quizzes",
     "seed:course-track-quizzes": "tsx scripts/seed-course-track-quizzes.ts",
     "check:course-db": "tsx scripts/verify-course-track-db.ts",
