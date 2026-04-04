@@ -1,0 +1,141 @@
+4.1.1. The Switch Statement 
+
+Another C++ statement that implements a selection control flow is the 
+
+switch statement (multiple-choice statement).  The switch statement provides a way of choosing between a set of 
+
+alternatives based on the value of an expression. 
+
+ሌላው ምርጫን የምንቆጣጠርበት ዓረፍተ ነገር switch statement ይባላል። ባለ ብዙ ምርጫውም በመባል ይታወቃል። እኛ ደግሞ keyboard-ኡ ⌨️ ብለነዋል።😂 ምክንያቱም keyboard ብዙ button-ኦች አሉት። ለምሳሌ computer-ኡን የሚጠቀመው ሰው (user-ኡ) የሆነ መጻፊያ app ከፍቶ Aን ቢጫን A ተብላ screen-ኡ ጋ ትታያለች። control+c ቢጫን copy ማድረግ ይችላል ማለት ነው። እንደዚሁ ሁሉ switch statement ብዙ የተዘረዘሩ ዓረፍተ ነገሮች አሉ፣። ለእነሱ መለያ እንሰጣቸዋለን። የምንሰጣቸው መለያ ለምሳሌ ቁጥር ከሆነ ወይም 1,2,3 እያልን ከሰጠናቸው። 1ን ስንጫን እንዴት ነህ እንዲል። 2ን ስጫን እንኳን ደህና መጣህ የሚል ጽሑፍ እንዲያወጣ ባስገባ። 1 ካልኩ እንዴት ነህ ይላል ማለት ነው። 
+
+The general form of the  switch statement is: 
+
+The switch statement has four components: 
+
+Switch
+
+Case 
+
+Break
+
+Default 
+
+Where Default and Break are Optional 
+
+የswitch statement አጠቃላይ ቅርጽ ይሄን ይመስላል።👇
+
+switch, switch statement - ይሄ ለማስመረጥ የምንጠቀምበትን አይነት ያመለክታል። ለምሳሌ በቁጥር እንዲመረጥ ከፈለግን ወይም በletters(A,BC,D...) ወይም ሌላ የራሳችን መለያ መፍጠር እንችላለን። ዋናው ከአላማው ሰው ይሄን ከተጫነ እንደዚህ አድርግ ይሄን ከተጫነ ደግሞ ይሄኛውን አድርግ እያልን የምናስመርጥበት ነው።
+
+case - ማለት ተጠቃሚው ሰው እንዲነካቸው የምንፈልጋቸው ነገሮቾ ናቸው። ከswitch ጋ እናዳትወዛገቡ እንበታትነው💪 ዛሬ የተኛ የለም ሁላችሁም ነቃ እ..💪 ስለዚህ switch የሚለው ማንን ነው የማቀያይር ለሚለው ቁጥሮችን ነው ብለን እንመልስለታለን። case ግን እሺ ቁጥሮች የሚባሉት እነማን ናቸው ሲለን 1,2,3,4 ... ናቸው የምንልበት ቦታ ነው። እሺ ስለዚህ እኛ 1 ብለን ስናስገባ እና 2 እና 3 የመሳሰሉትን ስናስገባ የተለያየ ውጤት እንዲሰጠን case እንጠቀማለን። አሁን simple ኣ?😊
+
+break - ማለት ስበረው ማለት ነው😂 እንዴት መሰላችሁ የመጀመሪያው case የሆነ ነገር ይጻፍበታል።
+
+ ለምሳሌ case 1:cout<<"welcome";
+
+case 2: cout<<"sorry, we are busy now!";
+
+ብንል computer-ኣችን ምርጫውን ሲያመጣ እኛ 1ን ወይም 2ን ብንጫን እዚህ ላይ break የሚባል ቃል ስለሌለ። code-ኡ run ማድረጉን አያቆምም ስለዚህ መጨረሻ ያገኘውን  sorry, we are busy now! የሚለውን ጽሑፍ ያሳያል። ነገር ግን case 1:cout<<"welcome"; Break;
+
+case 2: cout<<"sorry, we are busy now!";
+
+
+
+ብንል እና 1ን ብንጫን የመጀመሪያውን ብቻ ወይም welcome የሚለውን ብቻ ያወጣል። ለምን ካልን break የሚል keyword (ቃል) ስለተጠቀምን ነው። 
+
+ተጨማሪ ምሳሌ በቁጥር እንይ እስኪ፦
+
+switch (N) {
+
+Case 1: x=10;
+
+Case 1: x=20;
+
+Case 1: x=30;
+
+}
+
+እና 
+
+switch (N) {
+
+Case 1: x=10; break;
+
+Case 1: x=20; break;
+
+Case 1: x=30; break;
+
+}
+
+አሁን የመጀመሪያው ላይ break የሚል keyword ስላልተጠቀምን 1ን ወይም 2ን ብንጫን መልሱ 30 ነው የሚሆነው። ለምን ካልን ከላይ ባልነው መሰረት code-ኡ run ማድረጉን ስለማያቆም ነው። ነገር ግን የሁለተኛው ላይ break የሚል keyword ስላለ ተጠቃሚው 1ን ሲጫን 10ን፣ 2ን ሲጫን 20፣ 3ን ሲጫን 30ን እንደያዙት ዋጋ ያወጣል።
+
+Default - ማለት በcase የተዘረዘሩትን ባይጫንስ ለምሳሌ ከ1-5 ተዘርዝረው እኛ 6 ን ብንጫን ወይም ሌላዐቁጥር ከ1-5 ያልሆነ ብንጫን እንዲያሳየን የምንፈልገውን ነገር የምንጽፍበት ነው። ለምሳሌ የላይኛው ምሳሌ ላይ:
+
+case 1:cout<<"welcome"; Break;
+
+case 2: cout<<"sorry, we are busy now!";    break;
+
+default: cout<<"you have entered an incorrect number";
+
+አሁን እኔ 3ን ከkeybord ላይ ብጫን ወይም ሌላ ቁጥር ከ1 እና 2 ውጭ ብነካ you have entered an incorrect number የሚለው message ይወጣል። ምክንያቱም default የሚል keyword(ቃል) ስለተጠቀምን ማለት ነው።
+
+The General Syntax might be:
+
+አጠቃላይ የአጻጻፍ ህጉ ይሄን ይመስላል።
+
+switch(expression) //እዚህ ጋ expression የሚለው declar የምናደርገው variable ነው። 
+
+{
+
+ case constant1: 
+
+ statements; . 
+
+. 
+
+. 
+
+ case constant n:  statements; default: 
+
+ statements; 
+
+ } 
+
+Expression is called the switch tag and the constants preceding each case are called the case labels. The out put of “expression” should always be a constant value. 
+
+የswitch expression በሌላ ስሙ switch tag ሲባል case የሚለውን keyword ተከትለው የሚመጡ ቃላትን ወይም ቁጥሮችን ወይም ምልክቶችን ደግሞ case labels እንላቸዋለን። ምንጊዜም ቢሆን የexpression ወጤት constant ዋጋ ሊኖረው ይገባል።
+
+➠ ሌላው ከላይ እንደተነጋገርነው case label የተለያዩ ነገሮች መሆን ይችላሉ ።(ቁጥሮች፣ ፊደሎች፣ ምልክቶች...) ነገር ግን በquotation mark ወይም( "" ወይም '' )ማስገባት አለብን።
+
+ለምሳሌ እስኪ በምልክቶች ይሄን ምሳሌ እንይ።
+
+switch(operator)
+
+{
+
+case '+': result=a+b;
+
+break;
+
+case '-': result=a-b;
+
+break;
+
+case '×': 
+
+case '*': result=a*b;
+
+break;
+
+case '/': result=a/b;
+
+break;
+
+default: cout<<"unknown operator: " <<operator <<"\n";
+
+}
+
+Because case x has no break statement (in fact no statement at all), when this case satisfied, execution proceeds to the statements of the next case and the manipulation is performed.
+
+እዚህ ላይ ምን አስተዋላችሁ case × (ወይም ከcase "-" በታች ያለው) break የሚል keyword የለውም ስለዚህ እናንተ የ× ምልክት ብትጫኑ የሚሰራው ቀጣዩን ወይም case *ን ነው። እዚህ ላይ አንድ ጥያቄ ልታነሱ ትችላላችሁ። break ካልተጠቀምን እንዴት ሁሉንም አልፎ የመጨረሻውን አይሰራም? ይህ ያልሆነበት ምክንያት ከcase × ውጭ ሌሎቹ break ስላላቸው ነው።
+
+እሺ ከነዚህ ከተዘረዘሩት ውጭ ብነካስ? ለምሳሌ @ ወይም & ብጫን ምን ይፈጠራል ካልን? ቀላል ነው አይደል። ያስገባናቸው ምልክቶች ከላይ ከተዘረዘሩት ውስጥ አይደሉም ስለዚህ የdefault value ይወጣል ማለት ነው። በዚህ example እንደዚህ የሚል ጽሑፍ ይወጣል unknown operator: @ ወይም unknown operator: &።
