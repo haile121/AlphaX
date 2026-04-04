@@ -1,0 +1,229 @@
+Chapter One 
+
+Functions 
+
+1. What is a function? 
+
+􀂾 A function provides a convenient way of packaging a computational recipe, so that it can be used as often as required. 
+
+􀂾 Therefore, a function is a block of code designed to tackle a specific problem. 
+
+1.1. Function Basics 
+
+􀂾 One of the best ways to tackle a problem is to start with the overall goal, then divide this goal into several smaller tasks. You should never lose sight of the overall goal, but think also of how individual pieces can fit together to accomplish such a goal. 
+
+􀂾 If your program does a lot, break it into several functions. Each function should do only one primary task. 
+
+1.2. Summarized function basics. 
+
+􀂾 C++ functions generally adhere to the following rules. 
+
+1. Every function must have a name. 
+
+2. Function names are made up and assigned by the programmer following the same rules that apply to naming variables. They can contain up to 32 characters, they must begin with a letter, and they can consist of letters, numbers, and the underscore (_) character. 
+
+3. All function names have one set of parenthesis immediately following them. This helps you (and C++ compiler) differentiate them from variables. 
+
+4. The body of each function, starting immediately after parenthesis of the function name, must be enclosed by braces. 
+
+1.3. Declaring, defining and calling functions 
+
+1.3.1. Declaring function: 
+
+o The interface of a function (also called its prototype) specifies how it may be used. It consists of three entities: 
+
+o The function return type. This specifies the type of value the function returns. A function which returns nothing should have a return type void. 
+
+o The function name. this is simply a unique identifier 
+
+o The function parameters (also called its signature). This is a set of zero or more typed identifiers used for passing values to and from the function. 
+
+o Function parameters are the names listed in the function's definition. Function arguments are the real values passed to the function. Parameters are initialized to the values of the arguments supplied.
+
+1.3.2. Defining a function: 
+
+o A function definition consists of two parts: interface (prototype) & body. The brace of a function contains the computational steps (statements) that computerize the function. The definition consists of a line called the decelerator. 
+
+o If function definition is done before the main function, then there is no need to put the prototype, otherwise the prototype should be scripted before the main function starts. 
+
+
+
+1.3.3. Calling the function: 
+
+o Using a function involves calling it. 
+
+o Calling a function means making the instruction of the function to be executed. 
+
+o A function call consists of the function name followed by the call operator brackets (), inside which zero or more comma-separated arguments appear. The number and type of arguments should match the number of function parameters. Each argument is an expression whose type should match the type of the corresponding parameter in the function interface. 
+
+o When a function call is executed, the arguments are first evaluated and their resulting values are assigned to the corresponding parameters. The function body is then executed. Finally the return value (if any) is passed to the caller. 
+
+􀂾 A function call in C++ is like a detour on a highway. Imagine that you are traveling along the “road” of the primary function called main(). When you run into a function-calling statement, you must temporarily leave the main() function and execute the function that was called. After that function finishes (its return statement is reached), program control returns to main(). In other words, when you finish a detour, you return to the main route and continue the trip. Control continues as main() calls other functions. 
+
+􀂾 Lets have a simple example: 
+
+void func1(); prototype of function definition 
+
+void main() 
+
+{ no return type as it is void in the definition. 
+
+--------------- 
+
+func1(); function call (notice the semicolon) 
+
+--------------- 
+
+} 
+
+Return type is void 
+
+void func1() no semicolon. Decelerator 
+
+{ 
+
+-------------- function body definition 
+
+} no semicolon. 
+
+
+
+
+
+ C++ Function
+
+በ C++ ውስጥ ተግባራት (functions) እንዴት እንደሚሰሩ በቀላል አማርኛ እንመልከት።
+
+ለመሆኑ፤
+
+1 ተግባር (Function) ማለት ምን ማለት ነው?
+
+Function ማለት አንድ የተወሰነ ስራ ለመስራት ተብሎ የተጻፈ የኮድ ክፍል (block of code) ነው። ልክ እንደ ምግብ አሰራር አይነት ማለት ነው፤ አንድ ምግብ ለማዘጋጀት የተለያዩ ንጥረ ነገሮችን እንደምንጠቀም ሁሉ፣ አንድን ተግባር ለመስራት ደግሞ የተለያዩ ትዕዛዞችን (instructions) እንጠቀማለን።
+
+ 1.1 ለምን ተግባራትን እንጠቀማለን?
+
+1.ኮዳችንን በንጽህና ለመያዝ: አንድ ትልቅ ፕሮግራም (program) ወደ ትናንሽ ክፍሎች ከፍለን ብንሰራው ለማንበብ እና ለመረዳት ቀላል ይሆናል።
+
+2.ጊዜ ለመቆጠብ:አንድን ተግባር ብዙ ጊዜ መጠቀም ስንፈልግ አንድ ጊዜ ብቻ እንጽፈዋለን፣ ከዚያም በፈለግንበት ቦታ እየጠራን (calling) እንጠቀመዋለን። ይህም ድጋሚ ድጋሚ ከመጻፍ ያድነናል።
+
+3.ስህተቶችን በቀላሉ ለማግኘት:ፕሮግራማችንን ወደ ትናንሽ ክፍሎች ስንከፍለው፣ ስህተት ቢፈጠር የት እንደተፈጠረ በቀላሉ ማወቅ እንችላለን።
+
+1.2 Parts of Funtion (የተግባር ክፍሎች)
+
+እያንዳንዱ Function የሚከተሉት ክፍሎች አሉት፡
+
+
+
+1.  ስም (Name):እያንዳንዱ ተግባር የራሱ የሆነ ስም ሊኖረው ይገባል። በፕሮግራሙ ውስጥ ያሉትን ተግባራት ለመለየት ስሙን እንጠቀማለን።
+
+2.  ቅንፍ (Parenthesis): ከእያንዳንዱ የተግባር ስም በኋላ ቅንፍ ይኖራል። ለምሳሌ `func1()`
+
+3.  ማካተቻ (Braces):የተግባሩ ኮድ የሚጻፈው በሁለት ማካተቻዎች ውስጥ ነው። ለምሳሌ `{ }`
+
+1.3 How Function Works?
+
+የ Function አጠቃቀም
+
+Functionንን ለመጠቀም ሶስት ነገሮችን ማድረግ አለብን፡
+
+1.  ማወጅ (Declaring):ተግባሩ ምን እንደሚሰራ እና እንዴት እንደሚጠራ እንገልጻለን።
+
+2.  መግለጽ (Defining): ተግባሩ ምን አይነት ስራ እንደሚሰራ ኮዱን እንጽፋለን።
+
+3.  መጥራት (Calling):ተግባሩን ስራውን እንዲሰራ እንጠራዋለን።
+
+1.3.1 ማወጅ (Declaring)
+
+functionንን declare ስናደርግ(ተግባርን ስናውጅ) የሚከተሉትን ነገሮች እንገልጻለን፡
+
+i.የተግባሩ መመለሻ አይነት (Return Type): ተግባሩ ስራውን ከጨረሰ በኋላ የሚመልሰው የውሂብ አይነት (data type) ምን እንደሆነ እንገልጻለን። ለምሳሌ `int`, `float`, `string` ወዘተ. ምንም ነገር የማይመልስ ከሆነ `void` እንጠቀማለን።
+
+ii.የተግባሩ ስም (Function Name):ተግባሩን የምንጠራበት ስም ነው።
+
+         iii.መለኪያዎች (Parameters):ተግባሩ ከውጪ የሚቀበላቸው መረጃዎች ካሉ እንገልጻለን።
+
+    ለምሳሌ:
+
+    ```c++
+
+    int add(int x, int y); //ተግባሩ ሁለት ኢንቲጀር ይቀበላል፤ ኢንቲጀር ይመልሳል
+
+    ```
+
+ 1.3.2 መግለጽ (Defining)
+
+ተግባርን ስንገልጽ የተግባሩን ስራ የሚገልጽ ኮድ እንጽፋለን።
+
+ለምሳሌ:
+
+```c++
+
+int add(int x, int y) {
+
+  int sum = x + y;
+
+  return sum;
+
+}
+
+```
+
+       1.3.3 መጥራት (Calling)
+
+ተግባርን ስንጠራ ስሙን ከቅንፍ ጋር እንጽፋለን። አስፈላጊ ከሆነ ደግሞ መለኪያዎችን (arguments)
+
+እንሰጣለን።
+
+ለምሳሌ:
+
+```c++
+
+int result = add(5, 3); //ተግባሩን ጠራን፤ 5 እና 3ን ሰጠን
+
+```
+
+## ምሳሌ
+
+```c++
+
+#include <iostream>
+
+//ተግባሩን ማወጅ
+
+          int add(int x, int y);
+
+int main() {
+
+  int result = add(5, 3); //ተግባሩን መጥራት
+
+  std::cout << "The sum is: " << result << std::endl;
+
+  return 0;
+
+}
+
+//ተግባሩን መግለጽ
+
+int add(int x, int y) {
+
+  int sum = x + y;
+
+  return sum;
+
+}
+
+```
+
+በዚህ ምሳሌ፡-
+
+
+
+*   `add` የተባለ ተግባር አውጀናል። ይህ ተግባር ሁለት ኢንቲጀር ተቀብሎ ኢንቲጀር ይመልሳል።
+
+*   በ `main` ተግባር ውስጥ `add(5, 3)` ብለን ጠርተነዋል። ይህም `add` ተግባር 5 እና 3ን እንዲደምር ያደርገዋል።
+
+*   `add` ተግባር ስራውን ከጨረሰ በኋላ ድምሩን ይመልሳል፣ ይህም `result` በተባለ ተለዋዋጭ (variable) ውስጥ ይቀመጣል።
+
+ስናጠቃልለው፤
+
+ተግባራት በ C++ ውስጥ ትልቅ ቦታ የሚሰጣቸው ሲሆን ኮዳችንን በንጽህና ለመያዝ፣ ጊዜ ለመቆጠብ እና ስህተቶችን በቀላሉ ለማግኘት ይረዳሉ።
