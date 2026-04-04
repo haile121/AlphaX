@@ -1,0 +1,279 @@
+4.2.4. Pitfalls in writing repetition statements
+
+
+
+There are some pitfalls worth mentioning in repetition statements. These pit falls are the most common programming errors committed by programmers
+
+
+
+ Infinite loop: no matter what you do with the while loop (and other repetition statements), make sure that the loop will eventually terminates.
+
+
+
+E.g.1:
+
+//Do you know why the following is an infinite loop?
+
+int product = 0;
+
+while(product < 50)
+
+    product *= 5;
+
+
+
+
+
+E.g.2:
+
+
+
+//Do you know why the following is an infinite loop?
+
+int counter = 1;
+
+while(counter != 10)
+
+    counter += 2;
+
+
+
+
+
+In the first example, since product is initialized with zero, the expression "product*=5" will always give us zero which will always be less than 50.
+
+
+
+In the second example, the variable counter is initialized to 1 and increment is 2, counter will never be equal to 10 as the counter only assumes odd values. In theory, this while loop is an infinite loop, but in practice, this loop eventually terminates because of an overflow error as counter is an integer it will have a maximum limit.
+
+
+
+Off-By-One Bugs (OBOB): another thing for which you have to watch out in writing a loop is the so called Off-By-One Bugs or errors. Suppose we want to execute the loop body 10 times. Does the following code work?
+
+
+
+E.g.:1
+
+
+
+count = 1;
+
+while(count < 10) {
+
+    
+
+    count++;
+
+}
+
+
+
+
+
+No, the loop body is executed nine times. How about the following?
+
+
+
+E.g.:2
+
+
+
+count = 0;
+
+while(count <= 10) {
+
+    ...
+
+    count++;
+
+}
+
+
+
+
+
+No this time the loop body is executed eleven times. The correct is
+
+
+
+E.g.:3
+
+count = 0;
+
+while(count < 10) {
+
+    
+
+    count++;
+
+}
+
+OR
+
+count = 1;
+
+while(count <= 10) {
+
+    
+
+    count++;
+
+}
+
+
+
+
+
+ይህ ክፍል በ loop ሲጽፉ የሚፈጸሙ የተለመዱ ስህተዎችን (pitfalls) ያሳያል። በተለይ infinite loop (የማያበቃ loop) እና Off-By-One Bugs (አንድ ቁጥር ተሳስቶ መቁጠር) በጣም የተለመዱ ናቸው።
+
+
+
+👉 አናሎጂ:
+
+Infinite loop ልክ እንደ "የማያበቃ የትምህርት ቀን" ነው። ተማሪው ትምህርቱን ሲጨርስ የማይቆም ከሆነ (ሁኔታው ሁልጊዜ እውነት) ህይወቱ ያልቃል!  
+
+Off-By-One ደግሞ ልክ እንደ "10 ቀን ብሎ መቁጠር ግን 9 ቀን መቆጠር" ነው። አንድ ቀን ተሳስተህ ብትቆጥር ሁሉም ነገር ተበላሽቶ ይወጣል።
+
+
+
+4.2.5. Types of Loops
+
+
+
+4.2.5.1. Count controlled loops
+
+Repeat a statement or block a specified number of times. Count-controlled loops contain:
+
+- An initialization of the loop control variable  
+
+- An expression to test if the proper number of repetitions has been completed  
+
+- An update of the loop control variable to be executed with each iteration of the body
+
+
+
+4.2.5.2. Event-controlled loops
+
+Repeat a statement or block until a condition within the loop body changes that causes the repetition to stop
+
+
+
+Types of Event-Controlled Loops
+
+1. Sentinel controlled: Keep processing data until a special value that is not a possible data value is entered to indicate that processing should stop  
+
+2. End-of-file controlled: Keep processing data as long as there is more data in the file  
+
+3. Flag controlled: Keep processing data until the value of a flag changes in the loop body
+
+
+
+ይህ ክፍል የ loop አይነቶችን ይዘረዝራል። Count controlled ማለት በተወሰነ ብዛት (እንደ 10 ጊዜ) መድገም ነው። Event-controlled ደግሞ እስከ ልዩ ሁኔታ (እንደ sentinel ወይም EOF) ድረስ መድገም ነው።
+
+
+
+👉 አናሎጂ:
+
+Count controlled ልክ እንደ "10 ጊዜ ጭማሪ ማድረግ" ነው።  
+
+Event-controlled ደግሞ ልክ እንደ "የትራፊክ መብራት አረንጓዴ እስከሆነ መሄድ" ነው (ቀይ ሲሆን ይቆማል)።
+
+
+
+4.3. The continue and break statements
+
+
+
+4.3.1. The continue statement
+
+The continue statement terminates the current iteration of a loop and instead jumps to the next iteration.
+
+
+
+It is an error to use the continue statement outside a loop.
+
+
+
+In while and do while loops, the next iteration commences from the loop condition.
+
+In a "for" loop, the next iteration commences from the loop's third expression.
+
+
+
+E.g.:
+
+
+
+for(int n=10;n>0;n--) {
+
+    if(n==5) continue;
+
+    cout<<n<<" ";
+
+}
+
+
+
+When the continue statement appears inside nested loops, it applies to the loop immediately enclosing it, and not to the outer loops. For example, in the following set of nested loops, the continue statement applies to the "for" loop, and not to the "while" loop.
+
+
+
+E.g.:
+
+
+
+while(more) {
+
+    for(j=0;j<n;j++) {
+
+        cin>>num;
+
+        if(num<0) continue; //causes a jump to : i++
+
+    }
+
+}
+
+
+
+
+
+4.3.2. The break statement
+
+A break statement may appear inside a loop (while, do, or for) or a switch statement. It causes a jump out of these constructs, and hence terminates them.
+
+
+
+Like the continue statement, a break statement only applies to the "loop" or "switch" immediately enclosing it. It is an error to use the break statement outside a loop or a switch statement.
+
+
+
+E.g.:
+
+for(n=10;n>0;n--) {
+
+    cout<<n<<" ";
+
+    if(n == 3) {
+
+        cout<<"count down aborted!!";
+
+        break;
+
+    }
+
+}
+
+
+
+
+
+ይህ ክፍል continue እና break የሚባሉትን ትዕዛዞች ያብራራል። Continue የአሁኑን iteration ያቆማል እና ወደ ቀጣይ iteration ይገባል። Break ደግሞ መላውን loop ወይም switch ያቆማል። ሁለቱም በ loop ውስጥ ብቻ ይሰራሉ።
+
+
+
+👉 አናሎጂ:
+
+Continue ልክ እንደ "በትምህርት ላይ እያለ ስልክ መጣ ግን ትምህርቱን ቀጥል" (ይህ iteration ብቻ ተቋርጦ ቀጣይ ይጀምራል)።  
+
+Break ደግሞ ልክ እንደ "በትምህርት ላይ እያለ ድንገት የእረፍት ደወል ደወለ እና ሁሉም ተቋርጦ ወጣ" (መላው loop ያበቃል)።
