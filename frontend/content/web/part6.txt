@@ -1,0 +1,58 @@
+JavaScript — Session 2: DOM, events & safe updates
+
+The browser exposes the parsed page as the Document Object Model (DOM): a tree of nodes you can query and change with JavaScript. This session connects HTML and CSS to behavior — and how to avoid common security mistakes.
+
+Selecting elements
+document.querySelector('.card') returns the first match; querySelectorAll returns a static NodeList. getElementById is fast when you have an id. Prefer selectors that match your HTML structure; cache references if you reuse them in hot paths.
+
+Reading and writing text
+element.textContent = 'Hello' — treats content as plain text (safe for user-derived strings when you only need text). element.innerHTML = '<b>Hi</b>' parses HTML — never assign untrusted strings to innerHTML (XSS risk).
+
+Attributes and classes
+getAttribute / setAttribute, or element.classList.add('active'), toggle, contains. data-* attributes appear on element.dataset in camelCase (data-user-id → dataset.userId).
+
+Creating nodes
+document.createElement('li'); parent.appendChild(node); DocumentFragment for batch inserts. Prefer textContent + createElement over raw HTML strings when content is dynamic.
+
+Events
+Users and the browser generate events: click, input, change, submit, keydown, resize, scroll.
+
+element.addEventListener('click', (event) => {
+  console.log(event.target);
+});
+
+Use addEventListener instead of onevent HTML attributes for separation of concerns. event.preventDefault() stops default actions (e.g. form submit). event.stopPropagation() stops bubbling — use sparingly.
+
+Event flow
+Capturing (rarely) and bubbling: clicks bubble from target up to document. Delegation: listen on a parent and check event.target — good for lists that grow.
+
+Forms
+Listen for 'submit' on the form; call preventDefault() when handling with fetch/XHR. Read values from form.elements or input.value. Validate before sending; server must validate too.
+
+Async basics (orientation)
+Promises and async/await let you wait for network or timers without blocking the UI thread. fetch(url) returns a Promise; always check response.ok and handle errors in UI.
+
+Security essentials
+• XSS: never interpolate untrusted data into HTML strings. Use textContent or trusted sanitization libraries if HTML is required.
+• Opening links: rel="noopener noreferrer" with target="_blank" on user-provided URLs where relevant.
+• Content Security Policy (CSP) is configured server-side — reduces inline script risks.
+
+Connecting the stack
+• HTML: structure and meaning.
+• CSS: presentation.
+• JavaScript: behavior, validation, and dynamic updates.
+
+You can practice HTML, CSS, and JavaScript in the on-site compiler and use the AI tutor for questions about these concepts.
+
+የ DOM እና ደህንነት (አጭር)
+
+• textContent — ለተጠቃሚ ጽሑፍ ደህንነት።
+• addEventListener — ክስተቶችን ለመስማት።
+• innerHTML — ከተጠቃሚ ውሂብ ጋር በጥንቃቄ።
+
+Practice ideas
+1. Button that increments a counter in a <span> — use textContent for the number.
+2. Theme class on document.documentElement or body; persist choice in localStorage.
+3. Form that preventDefault, reads inputs, shows a summary in a <p> with textContent only.
+
+Key terms: DOM, querySelector, textContent, innerHTML, addEventListener, preventDefault, XSS, fetch.
