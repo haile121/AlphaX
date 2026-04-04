@@ -1,0 +1,60 @@
+HTML — Session 1: document outline & semantic structure
+
+HTML (HyperText Markup Language) describes the structure and meaning of a web page. The browser parses your HTML and builds a tree of nodes — the Document Object Model (DOM). This session focuses on the document shell and semantic structure; CSS handles appearance and JavaScript handles behavior in later sessions.
+
+What is an element?
+An element usually has a start tag, optional content, and an end tag: <p>Hello</p>. Void elements (no closing tag) include <img>, <br>, <input>, and <meta>. In HTML5, <br> is fine; <img /> is valid XML-style if you prefer consistency.
+
+Attributes add information: <a href="https://example.com">Visit</a>. Use double quotes for attribute values in coursework unless your team style says otherwise. Boolean attributes can be written <input required> or required="required".
+
+Minimal valid HTML5 document
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page title</title>
+</head>
+<body>
+  <h1>Main heading</h1>
+  <p>One paragraph.</p>
+</body>
+</html>
+
+• <!DOCTYPE html> selects the HTML5 mode.
+• <html lang="..."> sets the document language (screen readers, hyphenation, SEO).
+• <head> holds metadata; visible content lives in <body>.
+• viewport meta helps mobile browsers scale the layout correctly.
+
+Headings and sections
+Use <h1>…<h6> in order: typically one <h1> per page for the main topic. Do not skip levels just for styling — use CSS for size. Semantic sectioning: <header>, <nav>, <main>, <article>, <section>, <aside>, <footer>. They do not replace headings; combine landmarks with a clear heading outline.
+
+Paragraphs and inline text
+<p> for paragraphs. <strong> importance (not “bold only”), <em> emphasis (not “italic only”). <code> for short code fragments; <pre><code> for blocks. Avoid <br> for layout; use block elements or CSS.
+
+Lists
+<ul> unordered, <ol> ordered (start, reversed, type sparingly), <li> items. Nested lists go inside <li>. Definition lists: <dl>, <dt>, <dd> for term–definition pairs.
+
+Links
+<a href="..."> with descriptive text (avoid “click here”). Use href="#id" for same-page anchors. download attribute for suggesting downloads; rel="noopener noreferrer" when using target="_blank" for security.
+
+Images
+<img src="..." alt="..."> — alt describes the image for people who cannot see it. Meaningful content needs a real description; decorative images can use alt="". width and height reduce layout shift when the image loads.
+
+Comments
+<!-- not visible in the page --> for notes to yourself; never put secrets in HTML sent to clients.
+
+የ HTML — አቀራረብ እና ትርጉም (አጭር)
+
+• HTML የገጹን ዛፍ (DOM) ይመሰርታል።
+• <h1>–<h6> ቅደም ተከተል ይከበሩ።
+• የትርጉም ክፍሎች (<main>፣ <nav> …) ለተደራሽነት ይጠቅማሉ።
+• ለምስሎች ትክክለኛ alt ይስጡ።
+
+Practice ideas
+1. Build a page with <header>, <nav>, <main>, <footer>, one <h1>, two <h2> sections, two <p> each.
+2. Add a <nav> with three <a> links to placeholder URLs and a “back to top” anchor.
+3. Add one image with informative alt and width/height.
+
+Key terms: element, attribute, semantic HTML, landmark, heading outline, void element, DOM (expanded in JavaScript sessions).
