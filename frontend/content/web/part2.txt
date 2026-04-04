@@ -1,0 +1,61 @@
+HTML — Session 2: forms, tables & accessibility basics
+
+This session builds on document structure: collecting user input with forms, presenting tabular data, embedding media, and habits that make pages usable for everyone.
+
+Forms overview
+A <form> groups controls and can submit data to a server (action, method) or be handled entirely in JavaScript. For accessibility and clarity, every important control should have an associated <label>.
+
+Labels and controls
+Match label for with input id:
+
+<label for="email">Email</label>
+<input id="email" name="email" type="email" autocomplete="email" required />
+
+Wrapping: <label>Email <input type="email" name="email" /></label> also works. Group related fields with <fieldset> and <legend>.
+
+Common input types
+text, email, url, tel, number, date, checkbox, radio, file, hidden, password. Use the narrowest type that fits — mobile keyboards adapt (e.g. email shows @).
+
+Buttons
+<button type="submit"> sends the form; type="button" does not; type="reset" is rarely needed. A single <button> inside a form defaults to submit in some browsers — be explicit with type.
+
+Select and textarea
+<select multiple> or size for lists; <option value=""> for placeholders. <textarea> for multi-line text; set rows/cols as hints, control size with CSS.
+
+Tables for tabular data
+Use <table> when rows and columns have a relationship (not for general layout).
+
+<table>
+  <caption>Quarterly results</caption>
+  <thead>
+    <tr><th scope="col">Q</th><th scope="col">Sales</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Q1</th><td>120</td></tr>
+  </tbody>
+</table>
+
+scope="col" / scope="row" helps assistive tech. For complex tables, consider headers attributes or simpler layouts.
+
+Media
+<audio> and <video> with controls; <source src type> for multiple formats. <picture> with <source media> for art direction or format fallback. Always consider captions and transcripts for video when content matters.
+
+Accessibility checklist (practical)
+• Keyboard: every interactive element reachable with Tab; visible focus styles.
+• Contrast: text readable against background (WCAG ratios as a guide).
+• Focus order matches visual order where possible.
+• Don’t remove outlines without replacing them.
+• Test with keyboard only and, when possible, a screen reader.
+
+የ ቅጾች እና ተደራሽነት (አጭር)
+
+• <label> ከ input ጋር በ id/for ይገናኙ።
+• የሰንጠረድ ውሂብ ለሰንጠረድ፣ ለ አቀማመጥ ብቻ አይደለም።
+• ቪድዮ — caption / transcript ሲያስፈልግ።
+
+Practice ideas
+1. A contact form: name, email, message <textarea>, submit — all labeled and required where appropriate.
+2. A small table with <caption> and scope on headers.
+3. Add :focus-visible styles in CSS (next sessions) — plan which elements need clear rings.
+
+Key terms: label, name vs id, fieldset, scope, WCAG, keyboard navigation.
