@@ -97,8 +97,9 @@ export default function CourseTrackQuizPage() {
         )}
         {data && !data.quiz.is_final ? (
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto leading-relaxed">
-            For the track certificate, open Lessons and use <strong>Take final exam</strong> at the bottom of this
-            track (separate from chapter quizzes).
+            For your PDF certificate, please take the <strong>module final exam</strong> from Lessons—use{' '}
+            <strong>Take final exam</strong> at the bottom of this track. Chapter quizzes do not count toward the
+            certificate.
           </p>
         ) : null}
         <div className="flex flex-wrap justify-center gap-3">
@@ -131,9 +132,9 @@ export default function CourseTrackQuizPage() {
         >
           <p className="font-semibold">This is a chapter quiz, not the module final exam.</p>
           <p className="mt-1.5 text-amber-900/90 dark:text-amber-100/85">
-            The PDF track certificate uses your <strong>best score on the module final</strong> only (the large
-            &quot;Take final exam&quot; card at the bottom of each track on the Lessons page). Chapter quiz scores
-            (HTML / CSS / JavaScript) do not appear on that line.
+            <strong>To get a certificate,</strong> take the <strong>module final</strong> using the &quot;Take final
+            exam&quot; card at the bottom of this track on the Lessons page—we use your best score on that exam only.
+            Chapter quiz scores (HTML / CSS / JavaScript) do not count toward the certificate.
           </p>
         </div>
       ) : null}

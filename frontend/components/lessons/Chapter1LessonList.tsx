@@ -749,8 +749,9 @@ export function Chapter1LessonList() {
                           </p>
                           {(summary.finalExamAttemptsCount ?? 0) === 0 ? (
                             <p className="text-xs text-amber-700/90 dark:text-amber-400/90 mt-1.5 leading-snug">
-                              No <strong>module final</strong> score stored yet. Chapter quizzes (after each chapter) do
-                              not count here—open <strong>Take final exam</strong> below, complete it, and submit.
+                              <strong>To earn your certificate,</strong> please take the <strong>module final exam</strong>:
+                              use <strong>Take final exam</strong> below, complete the test, and submit. Only that exam
+                              counts toward the PDF certificate—chapter quizzes do not.
                             </p>
                           ) : null}
                           {summary.certificateIssued && summary.certificatePdfUrl ? (
