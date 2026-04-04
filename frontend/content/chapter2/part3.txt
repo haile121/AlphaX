@@ -1,0 +1,82 @@
+Chapter Two: Basics of C++ (continued)
+
+2.3. Putting Comments on C++ Programs
+
+A comment is a piece of descriptive text which explains some aspect of a program.
+
+Program comments are text totally ignored by the compiler and are only intended to inform the reader how the source code is working at any particular point in the program.
+
+C++ provides two types of comment delimiters:
+
+1. Single Line Comment
+
+Anything after // (double forward slash) until the end of the line is considered a comment.
+
+Example:cout << var1; // this line prints the value of var1
+
+2. Multiple Line Comment
+
+Anything enclosed by the pair /* and */ is considered a comment.
+
+Example:/* this is a kind of comment where multiple lines can be enclosed in one C++ program */
+
+Guidelines for Writing Comments:
+
+Comments should enhance (not hinder) the readability of a program.
+
+A comment should be easier to read and understand than the code it tries to explain.
+
+A confusing or unnecessarily complex comment is worse than no comment at all.
+
+Overuse of comments can reduce readability. A program with too many comments can be hard to follow.
+
+Using descriptive names for variables and proper indentation can reduce the need for excessive comments.
+
+
+
+
+
+ 2.3 – በC++ ፕሮግራሞች ላይ አስተያየት (Comment) መጨመር
+
+💡 Comment ማለት ምንድነው?
+
+Comment በፕሮግራም ውስጥ የሚገኝ ማብራሪያ ጽሑፍ ነው።
+
+ኮምፓይለሩ (compiler) አይተነትም፤ ለሚነበብ ሰው ብቻ ነው የሚታየው።
+
+የፕሮግራሙ አንድ ክፍል እንዴት እንደሚሰራ ለማብራራት ይጠቅማል።
+
+
+
+✍️ በC++ ውስጥ የሚጠቀሙ የComment አይነቶች
+
+1. አንድ መስመር Comment (//)
+
+// በሚከተለው መስመር መጨረሻ ድረስ ያለው ሁሉ አስተያየት ነው።
+
+ምሳሌ፦ 
+
+cout << var1; // ይህ መስመር var1 እንደሚታተም ያሳያል
+
+2. በአንድ መስመር በላይ የሚሰራ Comment (/* ... */)
+
+/* እና */ መካከል ያለው ሁሉ አስተያየት ነው።
+
+ምሳሌ፦ 
+
+/* ይህ አስተያየት በብዙ መስመሮች ላይ ሊደረግ ይችላል */
+
+
+
+✅ አስተያየት ሲጻፍ የሚከተሉትን መመሪያዎች ይከተሉ
+
+አስተያየት ፕሮግራሙን እንዲቀረበ ያደርግ።
+
+ኮድ ከሚሰራው በቀላሉ የሚታየው አስተያየት ይሆን።
+
+የሚያስቸግር አስተያየት ከሌለው አስተያየት ይልቅ አይሻልም።
+
+ብዙ አስተያየት መጨመር እንደሚያሳብስ ይታወቃል።
+
+መለያ ስሞችን በግልጽ ስም መስጠትና ትክክለኛ ኢንደንተሽን (indentation) መጠቀም አስተያየትን ያነሳል።
+
