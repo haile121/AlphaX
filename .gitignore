@@ -25,3 +25,7 @@ Thumbs.db
 # Logs / debug
 npm-debug.log*
 coverage/
+
+# One-off commit helper scripts (optional)
+commit-each.ps1
+commit-frontend.ps1
