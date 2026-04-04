@@ -1,0 +1,59 @@
+CSS — Session 2: box model, flex, grid & responsive
+
+Layout is how blocks and inline content flow and align. This session ties the box model to real page structure, then flexbox and grid for one- and two-dimensional layouts, and media queries for different viewports.
+
+Box model
+Every element is a box: content, padding, border, margin. box-sizing: border-box makes width include padding and border (recommended reset):
+
+*, *::before, *::after { box-sizing: border-box; }
+
+outline sits outside border and does not affect layout — useful for :focus-visible without shifting content.
+
+Normal flow
+Block boxes stack vertically; inline boxes sit in line boxes inside blocks. display changes participation: block, inline, inline-block, none, contents. overflow: hidden | auto | scroll clips or scrolls overflowing children.
+
+Flexbox (one-dimensional)
+display: flex on a container; main axis and cross axis follow flex-direction (row or column). Key properties:
+• justify-content — distribute along main axis
+• align-items — align on cross axis
+• gap — spacing between items (prefer over margin hacks)
+• flex-wrap — allow wrapping
+• flex: 1 on children — grow to fill space
+
+Common patterns: sticky footer (min-height: 100vh; flex column; main flex:1), horizontal nav with gap, centered hero.
+
+Grid (two-dimensional)
+display: grid; grid-template-columns: repeat(12, 1fr) or 1fr 1fr; gap. Use grid-template-areas for named regions. minmax(0, 1fr) helps prevent overflow in flexible tracks.
+
+When to use which
+• Flex: navigation bars, centering groups, one primary direction.
+• Grid: page shells, card galleries, aligning rows and columns together.
+
+Positioning
+position: relative | absolute | fixed | sticky. Absolute positions relative to the nearest positioned ancestor (not static). z-index only works when position is not static (or flex/grid items). Use sticky headers with care for overflow parents.
+
+Responsive design
+• Relative units: %, fr, rem, clamp() for fluid type: font-size: clamp(1rem, 2.5vw, 1.25rem);
+• Media queries:
+
+@media (max-width: 640px) {
+  .layout { flex-direction: column; }
+}
+
+• Mobile-first: base styles for small screens, min-width queries to enhance for larger ones.
+
+Images and aspect-ratio
+img { max-width: 100%; height: auto; } prevents overflow. aspect-ratio: 16 / 9 on a container reserves space before images load.
+
+የ አቀማመጥ (አጭር)
+
+• Flexbox — አንድ አቅጣጫ። Grid — ሁለት።
+• gap — ክፍተት ለማስተካከል።
+• media queries — ለስክሪን ስፋት።
+
+Practice ideas
+1. Three-column grid on desktop that becomes one column under 768px.
+2. Card grid with equal-height cards using flex or grid and gap.
+3. A sticky top bar with a main area that scrolls — test on mobile.
+
+Key terms: box-sizing, flex, grid, gap, media query, mobile-first, clamp.
