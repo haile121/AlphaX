@@ -1,0 +1,103 @@
+Chapter Two: Basics of C++ (continued)
+
+2.2. A Brief Look at cout and cin
+
+cout is an object used for printing data to the screen.
+
+To print a value to the screen, write the word cout, followed by the insertion operator << (also called output redirection), and then the object to be printed.
+
+Syntax: cout << Object;
+
+The object on the right-hand side can be:
+
+A literal string: "Hello World"
+
+A variable: a placeholder in memory
+
+cin is an object used for taking input from the keyboard.
+
+To take input from the keyboard, write the word cin, followed by the input redirection operator >>, and the object name to hold the input value.
+
+Syntax: cin >> Object;
+
+cin will take a value from the keyboard and store it in memory. Thus, the cin statement needs a variable, which is a reserved memory placeholder.
+
+Both << and >> return their right operand as their result, enabling multiple input or multiple output operations to be combined into one statement.
+
+Example:
+
+cin >> var1 >> var2 >> var3;
+
+Here, three different values will be entered for the three variables. The input should be separated by a space, tab, or newline for each variable.
+
+cout << var1 << ", " << var2 << " and " << var3;
+
+Here, the values of the three variables will be printed, with a comma between the first and second variables and the word “and” between the second and third.
+
+
+
+
+
+🔸 2.2 – cout እና cin በቀላሉ ለመረዳት
+
+🖨️ cout – መረጃ ወደ ስክሪን ማሳየት
+
+cout በስክሪን ላይ መረጃ ለማሳየት የሚጠቀምበት ነው።
+
+በመጠቀም ለምሳሌ፡cout << "Hello World"; ይህ ቃል በስክሪን ላይ ይታያል።
+
+<< የሚባል ነገር መረጃ ወደ ውጤት መላኪያ መላክ ነው።
+
+በቀኝ ያለው ነገር ሊሆን ይችላል፦ 
+
+ቃል፣ ምሳሌ፡ "Hello"
+
+ተለዋዋጭ፣ ምሳሌ፡ name
+
+
+
+⌨️ cin – መረጃ ከኪቦርድ መቀበል
+
+cin ከተጠቃሚው መረጃ ለመቀበል የሚጠቀምበት ነው።
+
+ምሳሌ፡cin >> age; ይህ ትእዛዝ ከኪቦርድ የተገባውን ዕድሜ በage ውስጥ ያከማቻል።
+
+>> ማለት መረጃ ከኪቦርድ ወደ ተለዋዋጭ መላክ ነው።
+
+cin ከተጠቃሚው የሚቀበለውን መረጃ በመስተዋት ውስጥ ያከማቻል።
+
+
+
+🔁 ብዙ መረጃ በአንድ መስመር
+
+cout << name << ", " << age << " years old"; 👉 የስምን እና የዕድሜን መረጃ በአንድ መስመር ያሳያል።
+
+cin >> x >> y >> z; 👉 ተጠቃሚው በአንድ መስመር ላይ በተነጣጠለ መልኩ እሴቶችን ያስገባል።
+
+
+
+
+
+✅ አጠቃላይ ምሳሌ
+
+int age;
+
+string name;
+
+
+
+cout << "Enter your name: ";
+
+cin >> name;
+
+
+
+cout << "Enter your age: ";
+
+cin >> age;
+
+
+
+cout << "Hello " << name << ", you are " << age << " years old.";
+
+👉 ይህ ፕሮግራም ስምን እና ዕድሜን ከተጠቃሚው ይቀበላል፣ ከዚያም በስክሪን ላይ ያሳያል።
