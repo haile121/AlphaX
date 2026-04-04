@@ -86,6 +86,17 @@ router.post('/logout', (_req: Request, res: Response): void => {
   res.json({ message: 'Logged out' });
 });
 
+// GET /session — always 200; use instead of /me for “is anyone logged in?” checks (avoids 401 in DevTools).
+router.get('/session', async (req: Request, res: Response): Promise<void> => {
+  const token = req.cookies?.token as string | undefined;
+  const session = await authService.getSessionFromToken(token);
+  if (!session.authenticated) {
+    res.json({ authenticated: false });
+    return;
+  }
+  res.json({ authenticated: true, user: session.user });
+});
+
 // GET /ws-token — returns a readable cookie for WebSocket auth
 router.get('/ws-token', authenticate, (req: Request, res: Response): void => {
   // Re-issue the same token as a non-httpOnly cookie so the WS client can read it

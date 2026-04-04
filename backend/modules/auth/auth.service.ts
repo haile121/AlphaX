@@ -6,14 +6,20 @@ import { User } from '../../db/types';
 
 type SafeUser = Omit<User, 'password_hash'>;
 
+/** Trim + lowercase so sign-in matches regardless of casing or accidental spaces. */
+export function normalizeEmail(email: string): string {
+  return email.trim().toLowerCase();
+}
+
 export async function register(
   email: string,
   displayName: string,
   password: string
 ): Promise<SafeUser> {
+  const emailNorm = normalizeEmail(email);
   const existing = await query<User[]>(
-    'SELECT id FROM users WHERE email = ?',
-    [email]
+    'SELECT id FROM users WHERE LOWER(TRIM(email)) = ?',
+    [emailNorm]
   );
   if (existing.length > 0) {
     throw { code: 'EMAIL_EXISTS', message: 'Email already in use' };
@@ -25,7 +31,7 @@ export async function register(
   await query(
     `INSERT INTO users (id, email, display_name, password_hash, role, assessment_completed)
      VALUES (?, ?, ?, ?, 'student', false)`,
-    [id, email, displayName, password_hash]
+    [id, emailNorm, displayName.trim(), password_hash]
   );
 
   const rows = await query<SafeUser[]>(
@@ -44,13 +50,14 @@ export async function login(
   email: string,
   password: string
 ): Promise<{ user: SafeUser; token: string }> {
+  const emailNorm = normalizeEmail(email);
   const rows = await query<User[]>(
     `SELECT id, email, display_name, password_hash, role, level, assessment_completed,
             primary_track, cpp_level, web_level, cpp_assessment_completed, web_assessment_completed,
             language_pref, theme_pref, xp, coins, streak, last_active_date,
             is_active, created_at, updated_at
-     FROM users WHERE email = ?`,
-    [email]
+     FROM users WHERE LOWER(TRIM(email)) = ?`,
+    [emailNorm]
   );
 
   if (rows.length === 0) {
@@ -79,6 +86,28 @@ export async function login(
 
   const { password_hash, ...safeUser } = user;
   return { user: safeUser as SafeUser, token };
+}
+
+/**
+ * Validate the JWT from the httpOnly cookie without returning 401.
+ * Used by the marketing shell to show signed-in UI without noisy failed /me requests.
+ */
+export async function getSessionFromToken(
+  token: string | undefined
+): Promise<{ authenticated: true; user: SafeUser } | { authenticated: false }> {
+  if (!token || typeof token !== 'string') {
+    return { authenticated: false };
+  }
+  try {
+    const secret = process.env.JWT_SECRET ?? 'dev-secret';
+    const decoded = jwt.verify(token, secret) as jwt.JwtPayload;
+    const sub = typeof decoded.sub === 'string' ? decoded.sub : null;
+    if (!sub) return { authenticated: false };
+    const user = await getMe(sub);
+    return { authenticated: true, user };
+  } catch {
+    return { authenticated: false };
+  }
 }
 
 export async function getMe(userId: string): Promise<SafeUser> {
