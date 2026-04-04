@@ -1,0 +1,112 @@
+Chapter Two
+
+Basics of C++
+
+2.1. The Parts of a C++ Program
+
+To understand the basic parts of a simple program in C++, let’s have a look at the following code:
+
+#include<iostream.h>
+
+#include<conio.h>
+
+
+
+void main() {
+
+    cout << "\n Hello World!";
+
+    getch();
+
+}
+
+Any C++ program file should be saved with file name extension “.CPP”.
+
+Type the program directly into the editor, and save the file as hello.cpp, compile it and then run it. It will print the words “Hello World!” on the computer screen.
+
+The first character is the #. This character is a signal to the preprocessor. Each time you start your compiler, the preprocessor runs through the program and looks for the pound (#) symbols and acts on those lines before the compiler runs.
+
+The include instruction is a preprocessor instruction that directs the compiler to include a copy of the file specified in the angle brackets in the source code.
+
+If the path of the file is not specified, the preprocessor looks for the file under c:\tc\include\ folder or in the include folder of the location where the editor is stored.
+
+The effect of line 1, i.e. #include<iostream.h> is to include the file iostream.h into the program as if the programmer had actually typed it.
+
+When the program starts, main() is called automatically.
+
+Every C++ program has a main() function.
+
+The return value type for main() here is void, which means the main function will not return a value to the caller (which is the operating system).
+
+The main function can be made to return a value to the operating system.
+
+The Left French brace { signals the beginning of the main function body and the corresponding Right French Brace } signals the end of the main function body. Every Left French Brace needs to have a corresponding Right French Brace.
+
+The lines we find between the braces are statements or said to be the body of the function.
+
+A statement is a computation step which may produce a value or interact with input and output streams.
+
+The end of a single statement ends with semicolon (;).
+
+The statement in the above example causes the string “Hello World!” to be sent to the cout stream which will display it on the computer screen.
+
+
+
+
+
+ 2.1 የC++ ፕሮግራም አካላት 
+
+አንድ ፕሮግራም እንደ ሰውነት አካላት አለው። በC++ ውስጥ የሚጻፉ ፕሮግራሞች በተለያዩ ክፍሎች ይተካሉ፣ እያንዳንዱ ክፍል የሚያደርገው ስራ የተለየ ነው። እኛ ከመጀመሪያ የሚናደርገው ስራ እነዚህን ክፍሎች መረዳት ነው።
+
+#include<iostream.h>
+
+#include<conio.h>
+
+
+
+void main() {
+
+    cout << "\n Hello World!";
+
+    getch();
+
+}
+
+
+
+🔹 እያንዳንዱ መስመር በቀላሉ ትርጉም፡
+
+#include<iostream.h>
+
+👉 ይህ መስመር ፕሮግራሙ በስክሪን ላይ መረጃ እንዲያሳይ የሚያስችለውን iostream.h ፋይል እንዲጨምር ያደርጋል።ምሳሌ፡ cout እንዲሰራ ይህ ፋይል አስፈላጊ ነው።
+
+#include<conio.h>
+
+👉 ይህ የconsole input/output ፋይል ነው። በመጨረሻ የሚጠቀመው getch() እንዲሰራ ይህ ፋይል ያስፈልጋል።
+
+void main()
+
+👉 ዋና ፋንክሽኑ ነው። ፕሮግራሙ ከዚህ ይጀምራል። void ማለት የሚመልስ ነገር የለውም።
+
+{ ... }
+
+👉 { የፋንክሽኑ መጀመሪያን እና } መጨረሻን ያመለክታሉ። በውስጡ ያሉት ትእዛዞች የፋንክሽኑ አካል ናቸው።
+
+cout << "\n Hello World!";
+
+👉 ይህ ትእዛዝ “Hello World!” የሚል መልዕክትን በስክሪን ላይ ያሳያል።cout ማለት መረጃ ወደ ስክሪን መላክ ነው።"\n" ማለት አዲስ መስመር ማስጀመር ነው።; የትእዛዝ መጨረሻን ያመለክታል።
+
+getch();
+
+👉 ይህ ትእዛዝ ፕሮግራሙ ከተጨረሰ በኋላ አንድ ቁልፍ እስኪጫን ድረስ ይጠብቃል።ይህ በፕሮግራሙ መዝጋት በፍጥነት እንዳይሆን ይረዳል።
+
+
+
+✅ ተጨማሪ መረጃ
+
+ፋይሉ .CPP file extension አለው። ምሳሌ፡ hello.cpp
+
+ፕሮግራሙን በኤዲተሩ ውስጥ በመጻፍ ከዚያ በመኮምፒል እና በመነሳት የሚታየው ውጤት ነው።
+
+ሁሉም C++ ፕሮግራሞች main() ያላቸው መሆን አስፈላጊ ነው።
+
