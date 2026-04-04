@@ -1,0 +1,325 @@
+Chapter one
+
+Introduction
+
+ Programming is a skill that can be acquired by a computer professional that gives him/her the knowledge of making the computer perform the required operation or task.
+
+መጀመሪያ እንደ ሊማሊሞ መንገድ የተጠማዘዘውን ይህን definition ወደ ቀላል እና ግልጽ ወደሆነ እንግሊዝኛ እንቀይረውና ትርጉሙን እናብራራ።😊
+
+Programming is a skill of a computer professional making the computer perform the required operation.
+
+➣ ቤት የሚሰራ ሰው አናጺ ሲባል ሙያው ወይም ስራው ደግሞ ማነጽ ነው፤ የሚነግድ ሰው ነጋዴ ሲባል ስራው ደግሞ መነገድ ነው፤ እንደዚሁ ሁሉ ኮምፒውተርን ተጠቅሞ ወይም ኮምፒውተርን እያዘዘ ስራወቹን የሚሰራ ሰው የኮምፒውተር ባለሞያ ወይም ፕሮግራመር ሲባል ሙያው ደግሞ ፕሮግራሚንግ ይባላል።  ‘ፕሮግራሚንግ’ ምን እንደሆነ ወደፊት በደንብ ስለምናይ አያሳስባችሁ☺️
+
+🔴 Why do we need to learn computer programming?
+
+ግን ለምን የመጣንበትን እነ ማትስ፣ አንትሮ የመሳሰሉ ትምህርቶች ተምረን አንወጣም፤ ለምን computer programming እንማራለን የሚል አይጠፋም😁 ይሄው👇
+
+Why do we need to learn computer programming? 
+
+Computer programming is critical if one wants to know how to make the computer perform a task. 
+
+አንድ ሰው computer በትክክል እንዴት እንደሚሰራ ማወቅ ከፈለገ Computer programming-ን መማር አለበት። አብዛኞቻችን ደግሞ በስልካችን ዘይም pc ላይ ያሉትን application-ኦች መጠቀም ብቻ ነው እንጂ እንዴት እንደሚሰሩ አናውቅም። እነዚህን application-ኦች የሚሰሩትን ሰዎች ግን ምን ብለናቸዋል computer programmes ወይም የኮምፒውተር አበልጻጊዎቹ።
+
+ እስኪ አንድ ጥያቄ መልሱልን?
+
+➢ which one of the following is a computer programmer?
+
+A, a person who makes mobile & pc applications
+
+B, a person who makes(builds) websites
+
+C, a person who solves problems by writing codes
+
+D, all
+
+አብዛኛወቻችሁ A-ን መልሳችኋል ብለን እናስባለን። መልሱ ግን D ነው። ምክንያቱም computer programmer ማለት ኮምፒውተርን እያዘዘ ስራዎችን የሚሰራ ማለት ነው ብለናል። ስለዚህ mobile or pc application መስራት ሲፈልግ ይሰራል፣ website-ም፣ ችግሮችን በመፍታት ህይወታችን ቀለል የሚያደርጉ ነገሮችን በtechnology በመጠቀም ለምሳሌ ride ስንት ችግሮችን እንደቀረፈ ታውቁታላችሁ እሱ application ወይም website የሚሰራው በprogramming language እውቀት ነው። ሌላው ባንኮችን ውሰዱ አሁን mobile banking እንጠቀማለን እሱም የሚሰራው በcomputer programmerኦች ነው።
+
+What is programming language? Programming Language: is a set different category of written symbols that instruct computer hardware to perform specified operations required by the designer. 
+
+❤️ Programming Language ምንድን ነው?
+
+በመጀመሪያ program ማለት ምን ማለት ነው። ይሄ ቀጠሮ መያዝ እንዳይመስላችሁ😊 program ማለት developer-ኡ ወይም እናንተ ስራውን የምትሰሩት ሰዎች የምትጽፏቸው code-ኦች ናቸው። ስለዚህ እነዚህን code-ኦች በመጠቀም computer-ኣችሁ የተለያዩ ስራዎች እንዲሰራ ማዘዝ ማለት ነው።
+
+ለምሳሌ movie 📽️ ማየት ብትፈልጉ computer-ኣችሁ ላይ ሄዳችሁ የplay ▶ ምልክት ትነካላችሁ አይደል፤ ያ ማለት movie-ውን ጀምርልኝ እያላችሁ እያዘዛችሁት ነው።
+
+ቀጣይ Language ማለትስ? መቼም Language ቋንቋ መሆኑ ይጠፋችኋል ብለን አይደለም የጠየቅናችሁ😊
+
+እንስሳቶች እና የሰው ልጆች የሚግባቡበት የራሳቸው ቋንቋ እንዳላቸው ሁሉ፤ developer-ኦች ወይም እናንተ ከcomputer-ኣችሁ ጋር የምትነጋገሩበት ቋንቋ አላችሁ።
+
+ይህ ቋንቋ ነው እንግዲህ programming language የሚባለው።
+
+የሰው ልጆች የተለያዩ ቋንቋዎች እንዳሏቸው ሁሉ (English,Amharic,Arabic, Spanish,Swahili...)
+
+ለcomputer-ኦችም የተለያዩ ቋንቋዎችን መጠቀም ይቻላል። ለዛ ነው programming languag"es" የሚባል። 
+
+ከprogramming languages መካከል Python, Java, JavaScript, C++, C#, Ruby, Swift, Dart የመሳሰሉትን መጥቀስ ይቻላል።
+
+✨ ስለዚህ Programming Language ማለት ከcomputer-ኣችሁ ጋ የምታወሩበት፣ የምታዙበት፣ የምትግባቡበት ቋንቋ ነው።
+
+What skills do we need to be a programmer? 
+
+ስለዚህ programmer ወይም አበልጻጊ ለመሆን ምን አይነት እውቀቶች ወይም ችሎታዎች ያስፈልጉናል ስንል። ሦስት ዋና ዋና ችሎታዎችን መመልከት እንችላለን።
+
+Programming Language Skill: knowing one or more programming language to talk to the computer and instruct the machine to perform a task. 
+
+የመጀመሪያው የcomputer ቋንቋዎችን (programming languages) መማር ነው። ልክ እናንተ አሁን c++ን እንደምትማሩት ማለት ነው። ስለዚህ በቀላሉ computer-ኣችን ማዘዝና የፈለግነውን ስራ እንዲሰራ ማድረግ እንችላለን።• Problem Solving Skill: skills on how to solve real world problem and represent the solution in understandable format. 
+
+ሁለተኛው ደግሞ ዓለም ላይ ያሉ ችግሮችን የመፍታት ችሎታ (problem solving skill) ነው።  ችግሮቹን ከፈቱ በኋላ ደግሞ መፍትሄዎችን ለሰው በሚገባው መልኩ ማቅረብ ነው። ችግር ስንል ለምሳሌ ሰው taxi እየተሰለፈ እየተቸገረ ስለሆነ ride የሚባል platform እንደ መፍትሄ እንደመጣው ማለት ነው።
+
+• Algorithm Development: skill of coming up with sequence of simple and human understandable set of instructions showing the step of solving the problem. Those set of steps should not be dependent on any programming language or machine. 
+
+Algorithm ማለት ዘዴ እንደማለት ነው። ስለዚህ Algoritm Development ማለት መፍትሔ ለማግኘት የምንከተላቸው ቅደም ተከተሎችን የመፍጠር ሂደት ነው። ለምሳሌ እናንተ ወደ ጊቢ ለመምጣት መኪና ልትጠቀሙ ትችላላችሁ፣ አንዳንዶች ደግሞ plane ሌሎች ደግሞ በtaxi እነዚህ የተለያዩ ዘዴዎች algorithm ይባላሉ። መዳረሻችሁ ግን ተመሳሳይ ነው። 
+
+ወይም ቀለል ያለ ምሳሌ ስንወስድ 5 የምትባለዋን ቁጥር ለማግኘት 1,4,7,2,20,4 የሚባሉ ቁጥሮች ቢሰጡን 1+4=5 ብለን 5-ን ማግኘት እንችላለን። ወይም 7-2 ወይም 20÷4 ብቻ እነዚህ ሁሉ 5-ን ይሰጡናል።  እነዚህ የተለያዩ መንገዶች ወይም ዘዴዎች algorithm ይባላሉ። እነዚህን ዘዴዎች መፍጠር ደግሞ algorithm development ይባላል። 
+
+algorithm ላይ የምንከተላቸው ቅደም ተከተሎች(steps) ከማንኛውም programming languages ጥገኝነት ነጻ መሆን አለባቸው። ማለት በየትኛውም programming language ቢጻፉ መልሱ ወይም የሚያስገኙት ውጤት ተመሳሳይ መሆን አለበት።
+
+In every programming Language there are sets of rules that govern the symbols used in a programming language. These set of rules determine how the programmer can make the 
+
+computer hardware to perform a specific operation. These sets of rules are called syntax. 
+
+ይሄ በተደጋጋሚ ፈተና ላይ የማይቀር ሃሳብ ነው። Syntax ማለት በማንኛውም programming language ውስጥ የሚገኙ ህጎች ናቸው በአጭሩ። እነዚህ ህጎች በprogramming languages የምንጠቀማቸውን ምልክቶች(symbols) የሚቆጣጠሩልን ናቸው። ልክ አንድ ሀገር የሚመራበት  ህገመንግስት እንዳለው ሁሉ እነዚህም የprogramming languages ህገመንግስት ናቸው።😊
+
+1.1 Generations of programming language. Programming languages are categorized into five generations: (1st, 2nd, 3rd, 4th and 5th generation languages) 
+
+እኛ የትውልድ ሀረግ እንዳለን ሁሉ programming language-ኦችም የትውልድ ሀረግ አለን ይላሉ😊 አሁን የምንጠቀምባቸው programming  language-ኦች በጣም ከፍተኛ ደረጃ የደረሱ ሲሆኑ የመጀመሪያወቹ ግን እንደዚህ አልነበሩም። እነሱን በማሻሻል ነው ከዚህ መድረስ የተቻለው። ለምሳሌ computer የመጀመሪያዎቹ በጣም ግዙፍ ነበሩ በጊዜ ሂደት ግን እየተሻሻሉ መጥተዋል። 
+
+አምስት የprogramming language Generation ወይም የእድገት ደረጃዎች አሉ። እነሱም 1st, 2nd, 3rd, 4th and 5th ይባላሉ። 
+
+ Low level languages are machine specific or dependent. o High level languages like COBOL, BASIC are machine independent and can run on variety of computers. 
+
+➣ Programming languages በአጠቃላይ በሁለት ይከፈላሉ። እነሱም low level እና High level languages ተብለው ነው።
+
+➺ Low level languages are machine specific or dependent. ➺ High level languages like COBOL, BASIC are machine independent and can run on variety of computers. 
+
+Low level የምንላቸው የኮምፒውተር ወይም ማሽን ጥገኛ ናቸው። ይህም ማለት ለአንዱ computer የጻፋችሁት code ለሌላው computer አይሆንም ወይም ሁሉም የየራሳቸው የሚጻፉባቸው computer-ኦች አሏቸው ማለት ነው።
+
+High level የምንላቸው ግን በአንዱ computer ተጽፈው በሌላኛውም መጠቀም የምንችላቸው አይነት languages ናቸው። ለዚያም ነው machine independent ወይም በኮምፒውተር ጥገኛ ያልሆኑ።
+
+➛ From the five categories of programming languages, first and second generation languages are low level languages and the rest are high level programminglanguages. ➛ The higher the level of a language, the easier it is to understand and use by programmers. ➛ Languages after the fourth generation are referred to as a very high level language. 
+
+➣ ከprogramming language Generation ውስጥ የመጀመሪያወቹ (1st Generation) እና ሁሀተኛወቹ (2nd Generation) Low level Language ውስጥ ሲመደቡ ሌላዎቹ(3rd, 4th, 5th) ደግሞ High level ናቸው።
+
+➣ ቋንቋው High level እየሆነ ሲመጣ ለprogrammer-ኦች ወይም ለእናንተ ለመጠቀም እየቀለለ ይመጣል።
+
+➣ ከ4th Generation በኋላ ያሉት programming languages Very High Level Programming languages ይባላሉ።
+
+እስኪ ሁሉንም Generation-ኦች አንድ በአንድ እንያቸው። እዚህ ላይ ግን ሁሉንም ነገር በቃላችሁ ለመያዝ አትሞክሩ በአጭሩ አንድ 3 point ከዪዛችሁ ይበቃል ሌላውን concept-ን በመረዳት መመለስ ትችላላችሁ።
+
+1.1.1. First Generation (Machine languages, 1940’s): 
+
+የመጀመሪያወቹ ትውልዶች😊(1st Generation) በሌላ ስማቸው Machine Languages ይባላሉ።Difficult to write applications with. 
+
+እነዚህን ቋንቋዎች ተጠቅመን ተግባሮችን ለመጻፍ አስቸጋሪ ናቸው።Dependent on machine languages of the specific computer being used. 
+
+ከላይ እንዳልነው low level ስለሆኑ ለኮምፒዩተሩ ወይም ለmachine-ኡ ጥገኛ ናቸው።Is more powerful in utilizing resources of the computer. 
+
+የኮምፒውተሩን አቅም አሟጠው ነው የሚጠቀሙት። አንበጣ በሏቸው😊
+
+1.1.2. Second Generation (Assembly languages, early 1950’s): 
+
+ሁለተኛዎቹ ትውልዶች Assembly Languages ይባላሉ። ይሄውም Assembler የሚባለውን ስለሚጠቀሙ ነው። (ምንድን ነው ደግሞ እሱ እንዳትሉ ወደ ታች በሰፊው እናየዋለን😊)Uses symbolic names for operations and storage locations. 
+
+እነዚህ ቋንቋዎች የውክልና ስሞችን ለሚሰሩ ስራዎች እና ማህደር ላይ ለማስቀመጥ ይጠቀማሉ።A system program called an assembler translates a program written in assembly language to machine language. 
+
+ይሄ ፈተና ላይ በተደጋጋሚ ይመጣል። Assembler ማለት በአይን የማይታይ ግን በcomputer program ውስጥ ያለ Software ሲሆን assembly language-ን ወደ Machine Language ይቀይርልናል። Programs written in assembly language are not portable. i.e., different computer architectures have their own machine and assembly languages. They are highly used in system software development. 
+
+በassembly language የተጻፉ programm-ኦች ከቦታ ቦታ ወይም ከአንድ computer ወደ ሌላ computer ወስደን መጠቀም አይቻልም። ምክንያቱም እነዚህም low level language ስለሆኑ ነው።
+
+1.1.3. Third Generation (High level languages, 1950’s to 1970’s): 
+
+እስካሁን ያሉት Generation-ኦች (1st, 2nd) low level ሲሆኑ ከዚህ ጀምሮ ያሉት ደግሞ high level languages ይባላሉ።Uses English like instructions and mathematicians were able to define variables with statements such as Z = A + B 
+
+እንግሊዝኛና maths የሚመስሉ ቋንቋዎችን የቀላቀሉ ናቸው። እንግሊዝኛው part ኮምፒውተሩን የምናዝበት ነው። ለምሳሌ Add ብንል ደምርልን እያልነው ነው።Such languages are much easier to use than assembly language. 
+
+ከሁለተኛው Generation (assembly language) ቀለል ይላሉ። ምክንያቱም የlanguage-ኦች generation እያደገ ሲሄድ ቋንቋዎች ይቀላሉ ብለናልና።Programs written in high level languages need to be translated into machine language in order to be executed. 
+
+ወደ ስራ ለመዋል ወደ machine language (1st generation) መቀየር አለባቸው።
+
+The use of common words (reserved words) within instructions makes them easier to learn. 
+
+እነዚህን እንግሊዘኛ ቃላት መጠቀሙ የበለጠ ለመማር ቀላል ያደርጋቸዋል።All third generation programming languages are procedural languages. 
+
+ሁሉም 3rd generation ቋንቋዎች procedural languages ናቸው። ስለዚህ what & how ላይ ትኩረት ያደርጋሉ። (ደግሞ procedural ምንድን ነው እንዳትሉ ወደ ታች በሰፊው እናየዋለን😊) 
+
+Have a simple, English like syntax rules; commonly used to access databases. 
+
+አጫጭር ቀላል እንግሊዝኛ ቃላቶችን ይጠቀማል። በተለይ database (የመረጃ ማጠራቀሚያ) ከሱ ጋር በተያያዘ ኮምፒውተራችን ስናዘው የምንጠቀማቸው ቋንቋዎች ናቸው።
+
+1.1.4. Fourth Generation (since late 1970’s): 
+
+Forth generation languages are non-procedural languages. The non-procedural method is easier to write
+
+እነዚህ ከ3rd Generation የሚለዩበት ሌላው non-procedural መሆናቸው ነው። ይሄውም ለመጻፍ ቀላል ሲሆኑ የበለጠ የሚያተኩሩት what ላይ ነው። የ3rd generation-ኦች ግን what እና how ላይ እንደነበር ታስታውሳላችሁ አይደል?።
+
+Forth generation languages have a minimum number of syntax rules. 
+
+code-ኦቹን የምንጽፍበት ህግ (syntax) በጣም ትንሽ ወይም ቀላል ናቸው።
+
+የ 4GL(4th Generation Languages) ምሳሌዎች structured query languages (SQL), report generators, application generators and graphics languages የመሳሰሉት ናቸው።
+
+1.1.5. Fifth Generation (1990’s): 
+
+These are used in artificial intelligence (AI) and expert systems; also used for accessing databases. 
+
+እነዚህ የመጨረሻዎቹ ደረጃ ትውልዶች ሲሆኑ (ሌላ እስከሚፈጠር ድረስ ማለት ነው😊)  AI ወይም Artificial Intelligence  የሚባለው ጨምሮ አሁን አለማችን ላይ ትላልቅ ስራዎች የሚሰሩባቸው የprogramming language  አይነቶች ናቸው። እንደ 4th Generation-ኦች database-ን ለማንበብ እና ለመጠቀምም ያገለግላሉ።5GLs are “natural” languages whose instruction closely resembles human speech. E.g. “get me Jone Brown’s sales figure for the 1997 financial year”. 
+
+እነዚህ ቋንቋዎች እኛ የምንጠቀማቸው አይነት ቋንቋዎች ናቸው። ለምሳሌ ChatGpt ወይም DeepSeek ወይም ሌላ AI እየተጠቀማችሁ Explain about C++ ብትሉት በቀላሉ ይመልስላችኋል አይደል። ይሄ የሆነው የቱ?😄 "እናንተና ኮምፒውተሩ በቀላሉ ልትግባቡ የቻላችሁ" programming language-ኦች 5th Generation ስለደረሱ ነው። 
+
+መጽሐፋችሁ ላይ ያለው ምሳሌም Jhon የሚባለውን ሰውየ በ1997 የሸጠውን አጠቃላይ ዝርዝር እንዲሰጠው እየጠየቀው ነው። ይሄውም ቀጥታ እንግሊዝኛ ተጠቅሞ ነው። 1at generation ቢሆን ግን 0 እና 1 -ን ብቻ ነበር የሚረዳው ስለዚያ 11110000 እየተባለ ይጻፋል ማለት ነው።5GLs require very powerful hardware and software because of the complexity involved in interpreting commands in human language. 
+
+እነዚህ ቋንቋዎች ለመጠቀም ኮምፒውተራችሁ በጣም አስተማማኝ የሆነ የhardware (የኮምፒውተሩ ውጫዊ ክፍል፣ ልንነካው ልንዳስሰው የምንችለው part) እና ነsoftware (የኮምፒውተሩ ውስጣዊ የማይታየው ክፍል) አካላት ሊኖሩት ይገባል።
+
+
+
+
+
+
+
+1.2. Overview of Computers and Computer Organization. 
+
+ስለ ኮምፒውተር ምንነት ወይም ኮምፒውተር በውስጡ የሚይዛቸውን ነገሮች የሚያጠና topic ነው። 
+
+Regardless of differences in physical appearance, virtually every computer may be envisioned as being divided into six logical units or sections: 
+
+ኮምፒውተሮች በአካል ስናያቸው የተለያየ ቅርጽ ነው ያላቸው። ለምሳሌ dell computer እና asus የተለያየ ቅርጽ አላቸው። ነገር ግን እንዳጠቃላይ ማንኛውም computer እነዚህ 6 ክፍሎች ይኖሩታል።➊ Input Unit: it obtains information from various input devices and places this information at the disposal of the other units so that the information may be processed or stored. 
+
+መረጃ ወደ computer-ሩ የምናስገባበት ነው። መረጃ ስንል ድምጽ ሊሆን ይችላል፣ ጽሑፍ የመሳሰሉትን።  ከinput unit መካከል እንደ keyboard⌨️, camera📷, የመሳሰሉትን መጥቀስ እንችላለን።
+
+➋ Output Unit: it takes information that has been processed by the computer and places it on various output devices to make the information available for use outside the computer. 
+
+ይሄ ደግሞ በተቃራኒው መረጃ ከኮምፒውተሩ ወደ እኛ የሚመጣባቸው ክፍሎች ናቸው። ለምሳሌ monitor💻(የኮምፒውተሩ screen ማለት ነው።), speaker የመሳሰሉትን መጥቀስ ይቻላል።
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+➒ Question: 🙋 Swap the contents of two variables using a third variable. 
+
+
+
+Solution: ጥያቄው ሁለት Variable-ኦች የያዙትን Value(ዋጋ) ሌላ ሶስተኛ Variable በመጠቀም መቀያየር ነው። 
+
+ኸረ አይዞን ገና እንበታትነዋለን😊
+
+ለምሳሌ ሁለት ብርጭቆ አንዱ ውስጡ Trident አንደኛው ደግሞ Mastika የያዙ ቢኖሩ። (በነገራችን ላይ ምን እያሉ ነው Trident ማስቲካ እንደሆነ አያውቁም ያለ ሰው አለ መሰል ከመካከላችሁ🫣 እና ደግሞ Mastika ማስቲካ እንደሆነስ ታውቁ ይሆን?😃 Mastika የአለማችን ውዱ Gum ወይም በተለምዶ ማስቲካ የምንለው ነው። እኔምላችሁ ማስቲካ Mastika ከሚለው ተወርሶ ይሆን🤔😂በሉ ብዙ ሳንመሳሰጥ ወደ ክላሳችን)
+
+እና ሁለቱ ብርጭቆወች የያዙትን ማስቲካ😃 ወደ አንድ ትልቅ ብርጭቆ ካደረግን በኋላ፤ በፊት ካልነበሩበት ማለትም Trident ይዞ ከሆነ አሁን Mastika-ውን እንዲይዝ ማድረግ ማለት ነው።
+
+ሃሳቡን ከተረዳነው flow chart-ን እንስራ። ስለዚህ መጀመሪያ start ብለን እንጀምራለን። ከዛ በprocess symbol declare variable or declare a,b,c እንላለን። ከዛ ቁጥሮቹን ወይም variable-ኦቹን በinput/output operator ተጠቅመን እንቀበላቸዋለሐን ስለዚህ read a and b ወይም input a and b እንላለን። ቀጣይ ሃሳቡን ወይም ዋና ስራውን መጻፍ ነው። አንድ በአንድ እንየው።  c የሚባለውን ትልቁን ብርጭቆ በa የተያዘውን ነገር እንዲይዝ እናደርጋለን። አሁን a ባዶ ስለሆነ የb-ን ዋጋ እንዲይዝ እናደርጋለን። ከዛ b ደግሞ የc-ን ዋጋ እንሰጠዋለን። ስለዚህ በተዘዋዋሪ b የ a-ን ዋጋ ሊይዝ ችሏል ማለት ነው።ስለዚህ cን በመጠቀም የaን እና የbን ዋጋ አቀያይረነዋል ማለት ነው። ስለዚህ በ process symbol ይሄን እንጽፋለን c=a; a=b; b=c; እንላለን።
+
+ከዚህ በኋላ የinput/output symbol በመጠቀም ያገኘነውን ዋጋ እናወጣለን። ስለዚህ በinput/output symbol ውስጥ print a and b ወይም display a and b እንላለን።አሁን ሁሉንም ስራችን ስለጨረስን end symbol በመጠቀም እንዘጋዋለን።
+
+የመጨረሻ ውጤታችን እንደዚህ ይመስላል👇
+
+
+
+10) Question 🙋:  Swap the content of two variables without using a third variable. 
+
+Answer ✅ የሁለት variable-ኦችን ዋጋ ሶስተኛ variable ሳንጠቀም እንድናቀያይር ነው የተጠየቅነው። ሁለት ብርጭቆወች የያዙትን ነገር ሶስተኛ ብርጭቆ ሳንጠቀም ማቀያየር ማለት ነው። ስለዚህ ሁለተኛው ብርጭቆ የያዘውን ነገር ወደ አንደኛው ከገለበጥነው በኋላ አሁን የገለበጥነውን ትተን የመጀመሪያውን ለሁለተኛው እንደገና በመስጠት እናቀያይረዋለን።
+
+ስለዚህ step by step ስንሰራው። 
+
+➊ Terminal Point symbol-ን በመጠቀም start እናደርጋለን። 
+
+➋ process symbol-ን በመጠቀም declare እናደርጋለን። int a,b;
+
+➌ Input/output symbol በመጠቀም variable-ኦችን እናስገባለን። insert a,b; ወይም input a,b; እንላለን።
+
+❹ ከዛ process symbol-ን በመጠቀም ዋነውን part እንሰራለን። ስለዚህ ከላይ ሃሳቡን በተረዳነው መሰረት። a=a+b; b=a-b; a=a-b; እንጽፋለን። 
+
+❺ Input/output symbol-ን በመጠቀም መልሱን print እናደርጋለን። print a,b; ወይም out a and b እንላለን።
+
+❻ በመጨረሻ Terminal point symbol-ን በመጠቀም end እንላለን።
+
+የመጨረሻ መልሳችን ይሄን ይመስላል።👇
+
+
+
+
+
+Question 🙋:Read 10 integers from the keyboard in the range 0 - 100, and count how many of them are larger than 50, and display this result. 
+
+Answer ✅: ጥያቄው በ0 እና በ100 መካከል 10 ቁጥሮች ከuser ተቀብለን ስንቶቹ ከ50 በላይ እንደሆኑ የሚያሳውቅ flow chart ስሩ ነው። ይሄን ጥያቄ በትክክለኛው step ለመስራት ወደፊት የምትማሩት የprogramming language 2 (C++ advanced) ላይ array የሚባል concept አለ እሱን መጠቀም ይኖርብናል። ለአሁኑ ግን በቀላሉ እንደዚህ አድርገን እንሰራዋለን።
+
+1. Start 👉 Terminal Point symbol-ን በመጠቀም start እናደርጋለን። ኦቫል ቅርጽ በመጠቀም "ጀምር"
+
+2. Set `count = 0`, `i = 0`  👉 variable-ችን አስጀምር   
+
+   - `countን ከ0` እና `i ን ከ 0` አስጀምር።  
+
+3. Is `i < 10`?  👉`i` ከ 10 ያነሰ ነው?
+
+   - Yes:  👉 አዎ
+
+     4. Read `num` (0 - 100)  👉`num`ን አንብብ (ከ 0 እስከ 100 ያለው ቁጥር)
+
+     5. Is `num > 50`?  👉 `num` ከ 50 የሚበልጥ ነው? 👉  
+
+        - Yes: Increment `count` by 1  👉   - አዎ: `count`ን በ 1 ጨምር (`count = count + 1`) 
+
+     6. Increment `i` by 1  👉  `i`ን በ 1 ጨምር (`i = i + 1`) 
+
+     7. Go to step 3  👉  ወደ step 3 ተመለስ
+
+   - No:  👉  አይደለም: 
+
+     8. Display `count`  👉   ካልሆነማ በቃ `count`ን አሳይ 😊
+
+9. End  👉 ጨርስ
+
+
+
+
+
+Question 🙋: Take an integer from the user and display the factorial of that number 
+
+Answer ✅:
+
+1. Start  ፕሮግራሙን ጀምር።
+
+2. Input integer `n`  ቁጥር አስገባ
+
+3. Is `n >= 0`?  ቁጥሩ ትክክል ነው ወይ? ማለትም አሉታዊ ወይም negative ያልሆነ
+
+   - ቁጥሩ አሉታዊ ያልሆነ ከሆነ (positive number ከሆነ) (`n >= 0`): 
+
+   - Yes:  አዎ
+
+     4. Set `factorial = 1`, `i = 1`  `factorial = 1` እና `i = 1` አስጀምር።  
+
+     5. Is `i <= n`?  `i` ከ `n` ያነሰ ወይም እኩል ነው ወይ? (`i <= n`):  
+
+        - Yes:  አዎ
+
+          6. Multiply `factorial` by `i` (`factorial = factorial * i`)  `factorial`ን በ `i` ማባዛት (`factorial = factorial * i`)።  
+
+          7. Increment `i` by 1 (`i = i + 1`)  `i`ን በ 1 ጨምር (`i = i + 1`)።  
+
+          8. Go to step 5  ወደ ደረጃ 5 ተመለስ።  
+
+        - No:  አይደለም
+
+          9. Display `factorial`   `factorial`ን አሳይ።  
+
+   - No:  አይደለም
+
+     10. Display "Invalid input. Please enter a non-negative integer." 
+
+    - ቁጥሩ አሉታዊ ከሆነ:  
+
+    "ትክክል ያልሆነ ቁጥር አስገብተሀል። አሉታዊ ያልሆነ ቁጥር እባክህ አስገባ።" ብለህ አሳውቅ።  
+
+     11. Go to step 2  ወደ step 2 ሂድ
+
+12. End  ፕሮግራሙን ጨርስ።
