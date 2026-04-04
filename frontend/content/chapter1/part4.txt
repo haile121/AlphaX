@@ -1,0 +1,209 @@
+1.8. Compilers and Interpreters Any program written in a language other than machine language needs to be translated to machine language. The set of instructions that do this task are known as translators.There are different kinds of translator software, among which compilers and interpreters are of interest for most programmers.
+
+Compilers: A compiler is a computer program that translates a series of statements written in source code (a collection of statements in a specific programming language) into a resulting object code (translated instructions of the statements in a programming language). A compiler changes or translates the whole source code into executable machine code (also called object code) which is output to a file for later execution.E.g. C++, Pascal, FORTRAN, etc.
+
+Interpreters: An interpreter is a computer program that translates a single high-level statement and executes it and then goes to the next high-level language line etc.E.g. QBASIC, Lisp etc.
+
+
+
+ 1.8. Compilers and Interpreters 
+
+ፕሮግራም በmachine language ያልተጻፈ ከሆነ፣ ኮምፒውተሩ እንዲረዳው ወደ machine code መተርጎም ያስፈልጋል። ይህን ስራ የሚያከናውኑ መሳሪያዎች translators ተብለው ይጠራሉ። ከእነዚህ ውስጥ compiler እና interpreter በተለይ የተለመዱ እና ፕሮግራመሮች የሚጠቀሟቸው  ናቸው።
+
+
+
+🖥️ Compiler – ኮምፓይለር
+
+ፕሮግራሙን በሙሉ ከsource code ወደ machine code የሚተረጉም  መሳሪያ ነው።
+
+Source code ማለት፣ ማንኛውም ከmachine code ውጭ የሆነ ፕሮግራሚንግ ቋንቋ የተጻፈ ኮድ ነው፡፡የሰው በቀላሉ የሚነበብ ነገር ግን ለ ኮምፒውተሩ ለመረዳት አስቸጋሪ የሆነ ቋንቋ ነው።
+
+ Machine code ማለትደግሞ ፣ ኮምፒውተሩ በቀጥታ የሚሰራበት ኮድ  ነው፣ የሚገለፀውም በbinary ኮድ (0 እና 1) ነው።
+
+Machine code ሌላኛ መጠሪያው object code ተብሎ ይጠራል፡፡
+
+የተቀየረው ኮድ እንደ executable file ይቀርባል።
+
+ምሳሌዎች፡ C++, Pascal, FORTRAN
+
+✅ Feature:
+
+ፈጣን ነው፣ እና ፕሮግራሙን በኋላ በቀጣይ መስመር ያስከናውናል።
+
+ስህተቶችን RUN ከመደረጉ በፊት ለማየት ይስችላል።
+
+🧾 Interpreter – ኢንተርፕሬተር                 
+
+በhigh level የተጻፈንፕሮግራም(አንድን source code)  መስመር በመስመር የሚተረጉም  መሳሪያ(translator software) ነው።
+
+እያንዳንዱን መስመር ይተረጎማል፣ እና በአንድ ጊዜ ይፈጥራል።
+
+ምሳሌዎች፡ QBASIC, Lisp
+
+✅ Feature:
+
+ቀላል ነው ለማረዳት፣ ነገር ግን አንድ ፕሮግራም ብዙ ጊዜ ሊፈጥር ይችላል።
+
+የፈጠራ ፍጥነት ዝቅተኛ ነው።
+
+🔍 Main difference
+
+Feature
+
+Compiler
+
+Interpreter
+
+Translation Method
+
+Whole program at once  
+
+     Line-by-line
+
+Execution Speed
+
+Fast (after compilation)
+
+     Slower
+
+Error Detection
+
+Before execution
+
+     During execution
+
+Output
+
+Creates executable file
+
+     No separate executable
+
+Examples
+
+C++, Pascal, FORTRAN
+
+     QBASIC, Lisp
+
+
+
+ዋና ልዩነቶች
+
+
+
+ባህሪ
+
+Compiler
+
+Interpreter
+
+ትርጉም
+
+ፕሮግራሙን በሙሉ በአንድ ጊዜ
+
+        መስመር በመስመር
+
+ፍጥነት
+
+ፈጣን (ከተተረጎመ በኋላ)
+
+        ዝቅተኛ
+
+የስህተት መረጃ
+
+በፈጠራ በፊት(before run time)
+
+        በፈጠራ ሂደት ውስጥ(at run time or          execution)
+
+ውጤት
+
+Executable file ይፈጠራል
+
+        በቀጥታ ይፈጥራል፣ ፋይል አይፈጠርም
+
+ምሳሌዎች
+
+C++, Pascal, FORTRAN
+
+QBASIC, Lisp
+
+
+
+ኮምፓይለር እና ኢንተርፕሬተር በፕሮግራሚንግ ሂደት ውስጥ በተለያዩ አገልግሎቶች ይጠቀማሉ። Compiler ለትክክለኛ execution እና error checking ይረዳል፣
+
+ Interpreter ደግሞ ለቀላል ሙ ከራ እና መረዳት ይረዳል።
+
+
+
+ 1.9 Mechanics of Creating a Program (C++)
+
+C++ programs typically go through five phases to be executed: these are edit, preprocess, compile, link, load:
+
+Edit: this is accomplished with an editor program. The programmer types C++ statements with the editor and makes corrections if necessary. The program’s source file is then stored on secondary storage device such as a disk with a ".cpp" file name.
+
+Preprocess: In a C++ system, a preprocessor program executes automatically before the compiler's translation phase begins. The C++ preprocessor obeys commands called preprocessor directives (e.g., #include), which indicate that certain manipulations are to be performed on the program before compilation.
+
+Compile: Then, the C++ compiler translates the program code. The compiler may be a true C++ compiler which generates native (assembly or machine) code. The outcome may be incomplete due to the program referring to library routines which are not defined as a part of the program. For example, the << operator is defined in a separate IO library.
+
+Link: C++ programs typically contain references to functions and data defined elsewhere, such as in the standard libraries. The object code produced by the C++ compiler typically contains "holes" due to these missing parts. A linker links the object code with the code for the missing functions to produce an executable image.
+
+Load: The loader takes the executable file from disk and transfers it to memory. Additional components from shared libraries that support the program are also loaded. Finally, the computer, under the control of its CPU, executes the program.
+
+In practice, all these steps are usually invoked by a single command and the user will not even see the intermediate files generated.
+
+
+
+1.9 Mechanics of Creating a C++ Program
+
+ (የC++ ፕሮግራም መፍጠሪያ እርምጃዎች)
+
+በC++ ፕሮግራም መፍጠር ሂደት ውስጥ አምስት ዋና እርምጃዎች አሉ። እያንዳንዱ እርምጃ የሚያደርጉት ተግባር የተለየ ነው። እነዚህ እርምጃዎች በተከታታይ ይከናወናሉ።
+
+1️⃣ Edit – ፕሮግራሙ ን መጻፍ
+
+የC++ ኮድ በText Editor (ምሳሌ፡ Notepad++ ወይም Visual Studio Code) ውስጥ ይጻፋል።
+
+የተጻፈው ፋይል .cpp እንደ file extension ይይዛል።
+
+የተጻፈው ፋይል በsecondary storage (ምሳሌ፡ hard disk) ላይ ይቀመጣል።
+
+2️⃣ Preprocess – ኮድን ከመተርጎም በፊት ማዘጋጀት
+
+Preprocessor የሚባሉት #include, #define እና ከመጀመሪያ የሚገባው ኮድ ነው።
+
+እነዚህ ትእዛዞች ኮድ ውስጥ የሚካተቱት ፋይሎችን እና ተወላጅ ነገሮችን አንድ ላይ ማዋሃድ ያስችላሉ።
+
+ይህ እርምጃ ኮድ ንጹሕ እና ዝግጁ እንዲሆን ያደርገዋል።
+
+3️⃣ Compile – ኮድን ወደ machine code መተርጎም
+
+Compiler የተጻፈውን ኮድ ወደ object code ያቀናብራል።
+
+ይህ object code በኮምፒውተሩ ሊተረጎም የሚችል ቅርጸ ኮድ ነው።
+
+አንዳንድ ኮድ ክፍሎች (ምሳሌ፡ <<) በlibrary ውስጥ ናቸው፣ ስለዚህ በዚህ ደረጃ አይተርጎሙም።
+
+
+
+4️⃣ Link – ኮድን ከlibrary ጋር ማያያዝ
+
+Linker የcompiled object code ክፍሎችን ከexternal libraries ጋር ያያዛል።
+
+ይህ እርምጃ ፕሮግራሙን አንድ አካል እንዲሆን ያደርገዋል።
+
+የመጨረሻ executable file ይፈጠራል።
+
+5️⃣ Load – ፕሮግራሙን ወደ memory መጫን
+
+የተዘጋጀው executable file ወደ RAM ይጫናል።
+
+ከዚያ CPU ፕሮግራሙን መከናወን ይጀምራል።
+
+ከshared libraries የሚያስፈልጉ ክፍሎች እንዲጫኑ ይደረጋል።
+
+🧠 አጠቃላይ ማስታወሻ
+
+እነዚህ አምስት እርምጃዎች በብዙ compiler ውስጥ በአንድ ትእዛዝ ይከናወናሉ።
+
+ተጨማሪ intermediate files አይታይም።
+
+ፕሮግራሙ ከመጻፍ እስከ መከናወን ድረስ የተደረጉት እርምጃዎች በተደራሽ እና በተደጋጋሚ ሂደት ይከናወናሉ።
