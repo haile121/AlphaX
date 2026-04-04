@@ -28,11 +28,25 @@ const api = axios.create({
   withCredentials: true,
 });
 
-// On 401, redirect to sign-in (client-side only)
+// On 401, redirect to sign-in (client-side only). Do not redirect for failed login/register — those return 401 on purpose.
+function isAuthCredentialRequest(url: string | undefined): boolean {
+  if (!url) return false;
+  return (
+    url.includes('/api/auth/login') ||
+    url.includes('/api/auth/register') ||
+    url.includes('/api/auth/logout')
+  );
+}
+
 api.interceptors.response.use(
   (res) => res,
   (error) => {
-    if (error.response?.status === 401 && typeof window !== 'undefined') {
+    const reqUrl = (error.config?.url as string | undefined) ?? '';
+    if (
+      error.response?.status === 401 &&
+      typeof window !== 'undefined' &&
+      !isAuthCredentialRequest(reqUrl)
+    ) {
       window.location.href = '/sign-in';
     }
     return Promise.reject(error);
@@ -48,6 +62,10 @@ export const authApi = {
   },
   logout() {
     return api.post('/api/auth/logout');
+  },
+  /** Always HTTP 200 — use for “is the session valid?” without 401 noise. */
+  session() {
+    return api.get<{ authenticated: boolean; user?: User }>('/api/auth/session');
   },
   me() {
     return api.get<{ user: User }>('/api/auth/me');
@@ -341,6 +359,39 @@ export const lessonsApi = {
   },
   download(id: string) {
     return api.get(`/api/lessons/${id}/download`, { responseType: 'blob' });
+  },
+};
+
+/** Optional per-track YouTube resource (admin); not required for progress. */
+export interface TrackCompletionVideo {
+  id: string;
+  track: 'cpp' | 'web';
+  youtube_url: string;
+  title: string;
+  description: string | null;
+  thumbnail_url: string | null;
+  video_id: string;
+  embed_url: string;
+  preview_thumbnail_url: string;
+}
+
+export const trackCompletionVideosApi = {
+  list() {
+    return api.get<{ videos: TrackCompletionVideo[] }>('/api/track-completion-videos');
+  },
+  upsert(
+    track: 'cpp' | 'web',
+    body: {
+      youtube_url: string;
+      title: string;
+      description?: string | null;
+      thumbnail_url?: string | null;
+    }
+  ) {
+    return api.put<{ video: TrackCompletionVideo }>(`/api/track-completion-videos/${track}`, body);
+  },
+  delete(track: 'cpp' | 'web') {
+    return api.delete<{ removed: boolean }>(`/api/track-completion-videos/${track}`);
   },
 };
 

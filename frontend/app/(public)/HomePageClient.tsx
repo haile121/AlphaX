@@ -88,7 +88,7 @@ const codeLines = [
 const learningPath = [
   { level: 'Beginner', color: 'bg-emerald-500', lessons: ['Variables & Types', 'Input / Output', 'Conditionals', 'Loops', 'Functions'], icon: Sprout },
   { level: 'Intermediate', color: 'bg-blue-500', lessons: ['Arrays & Strings', 'Pointers', 'Structs', 'File I/O', 'OOP Basics'], icon: Zap },
-  { level: 'Advanced', color: 'bg-violet-500', lessons: ['Templates', 'STL', 'Memory Mgmt', 'Algorithms', 'Design Patterns'], icon: Flame },
+  { level: 'Advanced', color: 'bg-teal-600', lessons: ['Templates', 'STL', 'Memory Mgmt', 'Algorithms', 'Design Patterns'], icon: Flame },
 ];
 
 const features = [
@@ -170,7 +170,7 @@ const features = [
 
 const testimonials = [
   { name: 'Abebe T.', role: 'Software Engineering Student', text: 'I struggled with C++ for two years. This platform explained pointers in Amharic in a way no English textbook ever could.', avatar: 'AT', color: '#2563EB' },
-  { name: 'Tigist M.', role: 'Self-taught Developer', text: 'The live compiler is a game changer. I practice on my phone during commutes. No laptop needed.', avatar: 'TM', color: '#7c3aed' },
+  { name: 'Tigist M.', role: 'Self-taught Developer', text: 'The live compiler is a game changer. I practice on my phone during commutes. No laptop needed.', avatar: 'TM', color: '#0d9488' },
   { name: 'Dawit K.', role: 'High School Student', text: 'I earned my Beginner certificate in 3 weeks. The streak system made me open the app every single day.', avatar: 'DK', color: '#059669' },
   { name: 'Sara H.', role: 'University Lecturer', text: 'I recommend this to all my students. The bilingual approach removes the language barrier that blocks most Ethiopian learners.', avatar: 'SH', color: '#d97706' },
   { name: 'Yonas A.', role: 'Bootcamp Graduate', text: 'The AI tutor answered my questions better than Stack Overflow. And it speaks Amharic.', avatar: 'YA', color: '#dc2626' },
@@ -243,7 +243,7 @@ function StatCard({ value, suffix, label, start }: { value: number; suffix: stri
       whileHover={reduceMotion ? undefined : { y: -5 }}
       transition={{ type: 'spring', stiffness: 420, damping: 28 }}
     >
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-blue-500/[0.06] via-transparent to-violet-500/[0.05] pointer-events-none" />
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-blue-500/[0.06] via-transparent to-teal-500/[0.06] pointer-events-none" />
       <div className="relative">
         <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tabular-nums tracking-tight">
           {count.toLocaleString()}
@@ -312,7 +312,7 @@ function CursorSpotlight() {
   }, [mouseX, mouseY, reduceMotion]);
 
   const lightSpot = useMotionTemplate`radial-gradient(580px circle at ${springX}px ${springY}px, rgba(59, 130, 246, 0.16), rgba(147, 197, 253, 0.06) 38%, transparent 58%)`;
-  const darkSpot = useMotionTemplate`radial-gradient(640px circle at ${springX}px ${springY}px, rgba(59, 130, 246, 0.14), transparent 52%), radial-gradient(420px circle at ${springX}px ${springY}px, rgba(139, 92, 246, 0.11), transparent 48%)`;
+  const darkSpot = useMotionTemplate`radial-gradient(640px circle at ${springX}px ${springY}px, rgba(59, 130, 246, 0.14), transparent 52%), radial-gradient(420px circle at ${springX}px ${springY}px, rgba(13, 148, 136, 0.12), transparent 48%)`;
 
   if (reduceMotion) return null;
 
@@ -390,7 +390,7 @@ function HeroSection({
         <div
           className="absolute top-[25%] right-[-8%] w-[480px] h-[480px] rounded-full blur-[100px] opacity-80"
           style={{
-            background: 'radial-gradient(circle at center, rgb(139 92 246 / 0.12), transparent 65%)',
+            background: 'radial-gradient(circle at center, rgb(13 148 136 / 0.14), transparent 65%)',
             animation: reduceMotion ? undefined : 'hero-blob-2 28s ease-in-out infinite',
           }}
         />
@@ -423,7 +423,7 @@ function HeroSection({
             className="relative group"
           >
             <div
-              className="absolute -inset-px rounded-full bg-gradient-to-r from-blue-500/40 via-violet-500/30 to-cyan-500/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500"
+              className="absolute -inset-px rounded-full bg-gradient-to-r from-blue-500/40 via-teal-500/30 to-cyan-500/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500"
               aria-hidden
             />
             <div className="relative inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-blue-200/90 dark:border-blue-500/30 bg-white/80 dark:bg-[#0c1220]/80 backdrop-blur-md text-blue-700 dark:text-blue-300 text-sm font-medium shadow-sm shadow-blue-500/5 dark:shadow-none">
@@ -447,7 +447,7 @@ function HeroSection({
               <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-extrabold tracking-[-0.03em] leading-[1.04]">
                 <span className="text-gray-900 dark:text-white">Master Programming</span>
                 <br />
-                <span className="inline-block mt-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-600 dark:from-blue-400 dark:via-violet-400 dark:to-cyan-400 bg-clip-text text-transparent animate-hero-gradient-text">
+                <span className="inline-block mt-1 bg-gradient-to-r from-blue-600 via-teal-600 to-blue-600 dark:from-blue-400 dark:via-teal-400 dark:to-cyan-400 bg-clip-text text-transparent animate-hero-gradient-text">
                   in Amharic
                 </span>
               </h1>
@@ -508,7 +508,7 @@ function HeroSection({
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: reduceMotion ? 0 : 0.45 + i * 0.06, type: 'spring', stiffness: 400, damping: 22 }}
                       className="w-9 h-9 rounded-full border-2 border-white dark:border-[#080810] flex items-center justify-center text-[10px] font-bold text-white shadow-md"
-                      style={{ background: ['#2563EB', '#7c3aed', '#059669', '#d97706', '#dc2626'][i] }}
+                      style={{ background: ['#2563EB', '#0d9488', '#059669', '#d97706', '#dc2626'][i] }}
                     >
                       {init}
                     </motion.div>
@@ -564,7 +564,7 @@ function HeroSection({
               <motion.div
                 className="absolute -inset-3 rounded-[1.35rem] opacity-70 dark:opacity-90 pointer-events-none"
                 style={{
-                  background: 'conic-gradient(from 180deg at 50% 50%, rgb(59 130 246 / 0.15), rgb(139 92 246 / 0.12), rgb(34 211 238 / 0.1), rgb(59 130 246 / 0.15))',
+                  background: 'conic-gradient(from 180deg at 50% 50%, rgb(59 130 246 / 0.15), rgb(13 148 136 / 0.14), rgb(34 211 238 / 0.12), rgb(59 130 246 / 0.15))',
                   filter: 'blur(24px)',
                 }}
                 animate={
@@ -574,7 +574,7 @@ function HeroSection({
                 }
                 transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
               />
-              <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/15 via-transparent to-violet-500/15 rounded-3xl blur-xl pointer-events-none" />
+              <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/15 via-transparent to-teal-500/15 rounded-3xl blur-xl pointer-events-none" />
 
               {[
                 { text: 'int', x: '-16%', y: '12%', delay: 0, dur: 8 },
@@ -682,6 +682,10 @@ function HeroSection({
           </motion.div>
         </div>
       </div>
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/70 to-transparent dark:from-[#080810] dark:via-[#080810]/85 dark:to-transparent"
+        aria-hidden
+      />
     </section>
   );
 }
@@ -696,21 +700,17 @@ export default function LandingPage() {
 
   useEffect(() => {
     const checkAuth = async () => {
-      if (!Cookies.get('logged_in')) {
-        setIsLoggedIn(false);
-        return;
-      }
       try {
         const baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
-        const res = await fetch(`${baseURL}/api/auth/me`, { credentials: 'include' });
-        if (res.ok) {
+        const res = await fetch(`${baseURL}/api/auth/session`, { credentials: 'include' });
+        const data = (await res.json()) as { authenticated?: boolean };
+        if (data.authenticated) {
           setIsLoggedIn(true);
         } else {
           Cookies.remove('logged_in');
           setIsLoggedIn(false);
         }
-      } catch (err) {
-        // If network error happens, we fall back to false to be safe on the landing page
+      } catch {
         setIsLoggedIn(false);
       }
     };
@@ -743,7 +743,7 @@ export default function LandingPage() {
         {/* ══ ANIMATED STATS ════════════════════════════════════════════════════ */}
         <section
           ref={statsRef}
-          className="py-16 sm:py-20 px-6 sm:px-10 lg:px-16 border-y border-gray-100/90 dark:border-white/[0.06] bg-gradient-to-b from-gray-50/90 via-white/50 to-gray-50/80 dark:from-[#0a0d14] dark:via-[#080810] dark:to-[#0c1018]"
+          className="py-16 sm:py-20 px-6 sm:px-10 lg:px-16 border-y border-gray-100/90 dark:border-white/[0.06] bg-gradient-to-b from-slate-50/95 via-white to-slate-50/90 dark:from-[#0a0d14] dark:via-[#080810] dark:to-[#0c1018]"
         >
           <div className="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
             <StatCard value={500} suffix="+" label="Active learners" start={statsInView} />
@@ -787,7 +787,7 @@ export default function LandingPage() {
                   whileHover={reduceMotion ? undefined : { y: -4, transition: { type: 'spring', stiffness: 400, damping: 25 } }}
                   className="group relative rounded-2xl border border-gray-200/90 dark:border-white/[0.08] bg-white/80 dark:bg-white/[0.03] backdrop-blur-sm overflow-hidden shadow-sm hover:shadow-lg hover:shadow-blue-500/5 dark:hover:shadow-black/30 transition-shadow duration-300"
                 >
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-blue-500/[0.04] via-transparent to-violet-500/[0.05] pointer-events-none" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-blue-500/[0.04] via-transparent to-teal-500/[0.06] pointer-events-none" />
                   <div className="relative flex items-center gap-4 px-6 py-4 border-b border-gray-100 dark:border-white/5">
                     <span className="w-9 h-9 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 flex items-center justify-center shadow-inner group-hover:border-blue-200/60 dark:group-hover:border-blue-500/25 transition-colors">
                       <level.icon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
@@ -834,8 +834,8 @@ export default function LandingPage() {
               { level: 'Beginner', icon: Dice5, title: 'Number Guessing Game', desc: 'Random number generator with hints. Tracks attempts and shows a score at the end.', tags: ['Loops', 'Random', 'I/O'], color: 'border-emerald-200 dark:border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-500/5' },
               { level: 'Intermediate', icon: ContactRound, title: 'Contact Book', desc: 'Store, search, and delete contacts using structs and file I/O. Data persists between runs.', tags: ['Structs', 'File I/O', 'Arrays'], color: 'border-blue-200 dark:border-blue-500/20 bg-blue-50/50 dark:bg-blue-500/5' },
               { level: 'Intermediate', icon: Landmark, title: 'Bank Account System', desc: 'OOP-based bank system with deposit, withdraw, and balance tracking using classes.', tags: ['OOP', 'Classes', 'Encapsulation'], color: 'border-blue-200 dark:border-blue-500/20 bg-blue-50/50 dark:bg-blue-500/5' },
-              { level: 'Advanced', icon: Search, title: 'Search Engine (Mini)', desc: 'Index a set of text files and search them by keyword using STL maps and vectors.', tags: ['STL', 'Templates', 'Algorithms'], color: 'border-violet-200 dark:border-violet-500/20 bg-violet-50/50 dark:bg-violet-500/5' },
-              { level: 'Advanced', icon: Sigma, title: 'Matrix Library', desc: 'A templated matrix class with addition, multiplication, and determinant calculation.', tags: ['Templates', 'Memory', 'Operators'], color: 'border-violet-200 dark:border-violet-500/20 bg-violet-50/50 dark:bg-violet-500/5' },
+              { level: 'Advanced', icon: Search, title: 'Search Engine (Mini)', desc: 'Index a set of text files and search them by keyword using STL maps and vectors.', tags: ['STL', 'Templates', 'Algorithms'], color: 'border-teal-200 dark:border-teal-500/25 bg-teal-50/60 dark:bg-teal-500/8' },
+              { level: 'Advanced', icon: Sigma, title: 'Matrix Library', desc: 'A templated matrix class with addition, multiplication, and determinant calculation.', tags: ['Templates', 'Memory', 'Operators'], color: 'border-teal-200 dark:border-teal-500/25 bg-teal-50/60 dark:bg-teal-500/8' },
             ].map((project, i) => (
             <motion.div
               key={project.title}
@@ -857,7 +857,7 @@ export default function LandingPage() {
                   'text-xs font-semibold px-2.5 py-1 rounded-full',
                   project.level === 'Beginner' ? 'bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400' :
                   project.level === 'Intermediate' ? 'bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-400' :
-                  'bg-violet-100 dark:bg-violet-500/15 text-violet-700 dark:text-violet-400'
+                  'bg-teal-100 dark:bg-teal-500/15 text-teal-800 dark:text-teal-400'
                 )}>{project.level}</span>
               </div>
               <div>
@@ -970,7 +970,7 @@ export default function LandingPage() {
                 whileHover={reduceMotion ? undefined : { y: -6 }}
                 className="relative p-8 rounded-2xl border border-gray-200/90 dark:border-white/[0.08] bg-white/90 dark:bg-white/[0.03] backdrop-blur-sm hover:border-blue-200/90 dark:hover:border-blue-500/35 hover:shadow-lg hover:shadow-blue-500/5 transition-shadow duration-300 group"
               >
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-blue-500/[0.04] to-violet-500/[0.03] pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-blue-500/[0.04] to-teal-500/[0.06] pointer-events-none" />
                 <div className="relative flex items-start gap-5 mb-6">
                   <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform shadow-sm">
                     <s.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
@@ -1145,7 +1145,7 @@ export default function LandingPage() {
                     { icon: Sprout, label: 'First Lesson', color: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-500/20' },
                     { icon: Zap, label: '7-Day Streak', color: 'bg-yellow-50 dark:bg-yellow-500/10 border-yellow-100 dark:border-yellow-500/20' },
                     { icon: Target, label: 'Perfect Quiz', color: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-500/20' },
-                    { icon: Trophy, label: 'Top 10', color: 'bg-violet-50 dark:bg-violet-500/10 border-violet-100 dark:border-violet-500/20' },
+                    { icon: Trophy, label: 'Top 10', color: 'bg-teal-50 dark:bg-teal-500/10 border-teal-100 dark:border-teal-500/20' },
                     { icon: Flame, label: '14-Day Streak', color: 'bg-orange-50 dark:bg-orange-500/10 border-orange-100 dark:border-orange-500/20' },
                   ].map((b) => (
                     <div key={b.label} className={cn('flex items-center gap-2 px-3 py-2 rounded-xl border text-xs font-medium text-gray-700 dark:text-gray-300', b.color)}>
@@ -1220,7 +1220,7 @@ export default function LandingPage() {
             {/* Right: certificate mockup */}
             <div className="flex-1 w-full max-w-lg mx-auto lg:mx-0">
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/8 to-violet-500/8 rounded-3xl blur-xl" />
+                <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/8 to-teal-500/10 rounded-3xl blur-xl" />
                 <div className="relative rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-[#0d1117] shadow-xl overflow-hidden">
                   {/* Certificate header */}
                   <div className="bg-blue-600 px-8 py-6 flex items-center justify-between">
@@ -1276,7 +1276,7 @@ export default function LandingPage() {
           <div className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-white/8 bg-white dark:bg-white/[0.02]">
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
             <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-violet-500/8 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
             <div className="relative flex flex-col md:flex-row items-center justify-between gap-10 px-10 sm:px-16 py-16">
               <div className="text-center md:text-left">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
@@ -1309,7 +1309,7 @@ export default function LandingPage() {
                 )}
               </div>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/40 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/35 to-transparent" />
           </div>
         </div>
       </section>

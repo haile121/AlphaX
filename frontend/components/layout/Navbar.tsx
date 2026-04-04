@@ -28,20 +28,17 @@ export function Navbar({ variant, unreadCount = 0, userName = 'User', userInitia
   // Check login state from the non-httpOnly flag cookie, and verify
   useEffect(() => {
     const checkAuth = async () => {
-      if (!Cookies.get('logged_in')) {
-        setIsLoggedIn(false);
-        return;
-      }
       try {
         const baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
-        const res = await fetch(`${baseURL}/api/auth/me`, { credentials: 'include' });
-        if (res.ok) {
+        const res = await fetch(`${baseURL}/api/auth/session`, { credentials: 'include' });
+        const data = (await res.json()) as { authenticated?: boolean };
+        if (data.authenticated) {
           setIsLoggedIn(true);
         } else {
           Cookies.remove('logged_in');
           setIsLoggedIn(false);
         }
-      } catch (err) {
+      } catch {
         setIsLoggedIn(false);
       }
     };
