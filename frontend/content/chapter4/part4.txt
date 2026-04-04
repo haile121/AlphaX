@@ -1,0 +1,245 @@
+4.7. Automatic versus static variables
+
+Automatic: they are erased when their function ends. You can designate a variable as automatic by prefixing its definition with the term auto
+
+The opposite of an automatic is a static variable. All global variables are static and, as mentioned, all static variables retain their values. 
+
+Automatic የምንላቸው variables የተጠቀማቸው function ስራውን ለምሳሌ የተለያዩ calculations ሰርቶ ሲጨርስ ወደ ነበሩበት ዋጋቸው የሚመለሱ ሲሆኑ static ግን ከስሙእንደምንረዳው አንዴ ከቀየርናቸው በኋላ ወደ ቀደመ ዋጋቸው የማይመለሱ ናቸው። ሁሉም global variableኦች static ናቸው። automatic ማድረግ ስንፈልግ ከፊት ለፊታቸው auto የሚል ቃል መጨመር ነው። ፍላጎታችን static variable ከሆነ ደግሞ static ን አስቀድሞ መጻፍ ነው።
+
+void my_fun() 
+
+{ 
+
+ static int num; 
+
+ static int count = 2; 
+
+ count=count*5; 
+
+ num=num+4; }
+
+ለምሳሌ ይሄን code ስንመለከት num መጀመሪያ ዋጋ የለውም ስለዚህ እንደ 0 ብንወስደው። num = num +4; ስንሰራ 0+4=4ይሆናል። አሁን የnum ዋጋ ወደ 4 ተቀይሯል። ስለዚህ functionኡን ድጋሜ call ስናደርገው የሚኖረን num=4+4 =8 ይሆናል ማለት ነው። ቀጣይ call ብናደርገው 12 እያለ ይቀጥላል። ነገር ግን የመጀመሪያ value-ን እንደያዘ አይቆይም። ይሄ ግን auto ሆኖ ቢሆን ድጋሜም call ሲደረግ የnum value 0 እንደሆነ ይቀጥል ነበር።
+
+countም በተመሳሳይ መጀመሪያ 2 ነበር ከዛ ተቀይሮ (በ5 ተባዝቶ) 10 ይሆናል። ከዛ 50 እያለ ድጋሜ በጠራነው ቁጥር አዲሱን ዋጋ እየያዘ ይቀጥላል። auto ብለነው ቢሆን ግን ድጋሜ ስንጠራው value 2 ይሆን ነበር።
+
+
+
+4.8. Inline functionsSuppose that a program frequently requires finding the absolute value 
+
+of an integer quantity. For a value denoted by n, this may be expressed 
+
+as: (n > 0 ? n : -n) 
+
+However, instead of replicating this expression in many places in the 
+
+program, it is better to define it as a function: 
+
+int Abs(int n) 
+
+{ 
+
+return n > 0 ? n : -n; 
+
+} 
+
+inline function ማለት የምንጽፈው program አንድን ስራ ደጋግሞ በተለያዩ ቦታዎች የሚጠይቅ ከሆነ ሁሌ ከመጻፍ አንዴ ጽፈን በተለያዩ ቦታዎች ግን function -ኡን ብቻ መጥራት ነው። (ሲጠራ ግን inline የሚል keyword ካለበት ይለያል። ወደ ታች እናየዋለን። አያሳስብም😊) ለምሳሌ absolute value በተደጋጋሚ የሚጠይቅ program ከሆነ absolute value function አንድ ጊዜ እንሰራና መጠቀም ስንፈልግ function call ብቻ እናደርጋለን። 
+
+ከላይ እንዳለው example ማለት ነው።
+
+➢ The function version has a number of advantages. - It leads to a more readable program. - It is reusable. ➢ The disadvantage of the function version, however is that - Its frequent use can lead to considerable performance penalty due to overheads associated with calling a function. 
+
+ይሄ የfunction አይነት ሁለት ጠቀሜታዎች አሉት። 
+
+1ኛ program-ኣችን የመነበብና ግልጽ እንዲሆን ያደርጋል።
+
+2ኛ በተደጋጋሚ መጠቀም እንችላለን።
+
+በተቃራኒው ደግሞ በተደጋጋሚ እነዚህን መጠቀም የcomputer performance ችግር ያስከትላል።
+
+The overhead can be avoided by defining Abs as an inline function. 
+
+inline int Abs(int n) 
+
+ይሄን የመደጋገም ችግር ለመፍታት ከfunction-ኣችን በፊት inline የሚል keyword መጠቀም አለብን።
+
+ይሄ መሆኑም Abs የሚባለው የፈጠርነው function call በሚደረግበት ጊዜ እንደ አዲስ Abs የሚባለውን code generate ከማድረግ ይልቅ የምንጽፈው program ውስጥ በማስገባት (expand and substitute) እንዲሰራ ያደርገዋል። 
+
+➢ Not every function can be inlined. Some typical reasons why inlining is sometimes not done include: 
+
+➠ the function calls itself, that is, is recursive 
+
+➠ the function contains loops such as for(;;) or while() ➠ the function size is too large 
+
+➢ ማንኛውም function ግን inline አይሆንም። ከማይሆኑትም ውስጥ recursive function ወይም ራሱን የሚጠራ function ከሆነ፣ loop የያዘ ከሆነ፣ ወይም የfunction ኡ ብዙ line of code ካለው የመሳሰሉትን መጥቀስ ይቻላል።
+
+➢ Another good reason to inline is that you can sometimes speed up your program by inlining the right function.
+
+ሌላው inline የማድረግ ጥቅም programኣችን ፈጣን እንዲሆን ያደርገዋል። ነገርግን inline የሚደረገው code ብዙ ከሆነ የጻፍነው program በጣም ትልቅ እና ውስብስብ ሊያደርግብን ይችላል።
+
+
+
+
+
+
+
+
+
+
+
+Another example 
+
+#include<iostream.h> 
+
+#include<conio.h> 
+
+void starLine(); //prototype of the function with a name starLine 
+
+int main() 
+
+{ 
+
+starLine(); //Calling the function with a name starLine 
+
+cout<< Data type Range << endl; 
+
+starLine(); 
+
+cout<< char -128 to 127 <<endl 
+
+<< short -32,768 to 32,767 <<endl 
+
+<<  int system dependent <<endl 
+
+<< long -2,147,483,648 to 2,147,483,647 << endl; 
+
+starLine(); 
+
+return 0; 
+
+} 
+
+void starLine() 
+
+{ 
+
+for(int j=0;j<45;j++) definition of the function with a 
+
+cout<< *; name starLine 
+
+cout<<endl; 
+
+} 
+
+
+
+
+
+
+
+⚡ ምሳሌ 1፡ የኮከብ ፕሮግራም ✨
+
+የታሪክ ጊዜ 🎭፡ (እስቲ ዘና እያልን እንማማር)
+
+int main() {
+
+   starLine();
+
+   cout << "Data type Range"" << endl;
+
+   starLine();
+
+}
+
+void starLine() {
+
+   for (int j=0; j<45; j++)
+
+      cout << "*";
+
+   cout << endl;
+
+}
+
+
+
+
+
+main() ልክ እንደ ተሰጥኦ ትርኢት አቅራቢ (መድረክ መሪ)  ነው።
+
+እንዲህ ይላል፡- “hey ተመልካቾች፣ ስለ Data type አንዳንድ መረጃዎች እኔ ጋር  አሉ!” ነገር ግን ከመናገሩ በፊት እና በኋላ፣  የሚያምር የኮከቦች ስዕል እንዲሳልለት ይፈልጋል።  ኮከቦችን በራሱ ከመሳል ይልቅ (በጣም ብዙ ስራ  ነው😮‍💨)፣ “ስማ starLine()፣ ና እዚህ ጋር  ኮከቦችን ሳል!” ብሎ ይጮኻል።
+
+starLine() በፍጥነት ገብቶ ኮከቦችን ይስል፣ እና ከመጋረጃው ጀርባ ይመለሳል።
+
+ስለዚህ:
+
+main() 👉 የሚጠራ / calling function
+
+starLine() 👉 የተጠራ  / called  function
+
+
+
+􀂾 Given the next program, which function is the calling function and which is the called function? 
+
+#include<iostream.h> 
+
+#include<conio.h> 
+
+void nextMsg() 
+
+int main() 
+
+{ 
+
+cout<< “Hello!\n”; 
+
+nextMsg(); 
+
+return 0; 
+
+} 
+
+void nextMsg() 
+
+{ 
+
+cout<< “GoodBye!\n”; 
+
+return; 
+
+} 
+
+
+
+
+
+
+
+:
+
+⚡ምሳሌ 2፡  The Hello & Goodbye Program 👋
+
+አሁንም Story mode😁 🎬፡
+
+main() በመጀመሪያ ወደ መድረክ መጥቶ “Hello!” ይላል 👋
+
+ከዚያም ያስባል 🤔- “Hmm፣ ለምን ሌላ ሰው ትርኢቱን እንዲያጠናቅቅልኝ አላረግም… ስማ nextMsg()፣ ወደዚህ ና!” 🎤 nextMsg() ወጥቶ እጁን እያወዛወዘ “ደህና ሁን!” ይላል 👋😢 ሁሉም ያጨበጭባል 👏👏👏
+
+ስለዚህ፡
+
+main() 👉 calling function (እርዳታ የሚጠይቀው አለቃ)
+
+nextMsg() 👉called function ("ባይ!" የሚለው ረዳት)።
+
+🥤 በእውነተኛ የህይወት ምሳሌ እንየው እስኪ
+
+በአንድ ካፌ ውስጥ እንዳላቹ አስቡት ☕:
+
+እርስዎ (ደንበኛው) = main()
+
+ባሪስታው = starLine() ወይም nextMsg()
+
+እናንተ፡- “እባክህን አንድ ቡና ታመጣልኝ!” ☕ ብትሉ እናንተ አሁን calling function ናችሁ። ቡናውን የሚሰራው ባሪስታ called function ነው። ያለ እርስዎ ትዕዛዝ ባሪስታው ቡና አይሰራም። ያለ ባሪስታው ቡና ማግኘት አይችሉም። አብረው ይሰራሉ ማለት ነው! 🤝
+
+✅ በአጭሩ:
+
+main() አብዛኛውን ጊዜ ሌሎች ተግባራትን የሚጠራው ነው። ሌሎች ተግባራት የሚጠሩት ሲጠሩ ብቻ ነው ስራቸውን የሚሰሩት።
