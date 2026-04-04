@@ -1,0 +1,128 @@
+-- Replaces ALL C++ placement questions with a fixed bilingual set (English + አማርኛ).
+-- options_am_json entries align by index with options_json; scoring still uses English correct_answer.
+-- Run AFTER migrate:003: npm run seed:cpp-placement
+
+SET NAMES utf8mb4;
+
+DELETE FROM assessment_questions WHERE track = 'cpp';
+
+INSERT INTO assessment_questions (id, question_en, question_am, options_json, options_am_json, correct_answer, difficulty, track) VALUES
+('cpp-pl-b1',
+ 'What is a variable in C++?',
+ 'በ C++ ውስጥ ተለዋዋጭ (variable) ምንድን ነው?',
+ JSON_ARRAY('A named place in memory that holds a value', 'A kind of loop', 'A compiler warning only', 'A comment line'),
+ JSON_ARRAY('ዋጋ የሚያከማች የሰይም ቦታ በማህደር', 'የድግግሞሽ አይነት', 'የኮምፓይለር ማስጠንቀቂያ ብቻ', 'የአስተያየት መስመር'),
+ 'A named place in memory that holds a value',
+ 'beginner', 'cpp'),
+
+('cpp-pl-b2',
+ 'Which operator assigns a value to a variable in C++?',
+ 'በ C++ ውስጥ ለተለዋዋጭ ዋጋ የሚመደብ አዘዋዋሪ (operator) የትኛው ነው?',
+ JSON_ARRAY('=', '==', ':=', '->'),
+ JSON_ARRAY('=', '==', ':=', '->'),
+ '=',
+ 'beginner', 'cpp'),
+
+('cpp-pl-b3',
+ 'What is the usual entry point where a C++ program begins execution?',
+ 'የ C++ ፕሮግራም አፈጻጸም የሚጀመርበት የተለመደ መግቢያ (entry point) ምንድን ነው?',
+ JSON_ARRAY('The main function', 'The #include line', 'The first comment', 'The closing brace of a class'),
+ JSON_ARRAY('የ main ፋንክሽን', 'የ #include መስመር', 'የመጀመሪያው አስተያየት', 'የክፍል የመዝጊያ መስቀለኛ ቅንፍ'),
+ 'The main function',
+ 'beginner', 'cpp'),
+
+('cpp-pl-b4',
+ 'What does #include <iostream> typically do?',
+ '#include <iostream> በተለምዶ ምን ያደርጋል?',
+ JSON_ARRAY('Brings declarations for standard input/output streams like cin and cout', 'Links the math library only', 'Starts the debugger', 'Deletes unused variables'),
+ JSON_ARRAY('ለ cin እና cout ያሉትን የመደበኛ ግብአት/ውጤት ፍሰቶች ማስታወቂያ ያመጣል', 'የሂሳብ ቤተመጽሐፍትን ብቻ ያገናኛል', 'ዲባግርን ያስጀምራል', 'ያልተጠቀሙ ተለዋዋጮችን ይሰርዛል'),
+ 'Brings declarations for standard input/output streams like cin and cout',
+ 'beginner', 'cpp'),
+
+('cpp-pl-b5',
+ 'What is a compile-time error?',
+ 'የኮምፓይል ጊዜ ስህተት ምንድን ነው?',
+ JSON_ARRAY('A problem detected by the compiler before the program runs', 'A crash while the program is running', 'A slow internet connection', 'A missing image file'),
+ JSON_ARRAY('ፕሮግራም ከመሮጥ በፊት በኮምፓይለር የሚገኝ ችግር', 'ፕሮግራም በሚሮጥበት ጊዜ መውደቅ', 'ዝግጁ የኢንተርኔት ግንኙነት', 'የጎደለ የምስል ፋይል'),
+ 'A problem detected by the compiler before the program runs',
+ 'beginner', 'cpp'),
+
+('cpp-pl-i1',
+ 'What does a pointer store in C++?',
+ 'በ C++ ውስጥ ጠቋሚ (pointer) ምን ያከማቻል?',
+ JSON_ARRAY('A memory address', 'Only integer values', 'A character only', 'The size of the hard disk'),
+ JSON_ARRAY('የማህደር አድራሻ', 'ኢንቲጀር ዋጋዎች ብቻ', 'ቁምፊ ብቻ', 'የጠንካራ ዲስክ መጠን'),
+ 'A memory address',
+ 'intermediate', 'cpp'),
+
+('cpp-pl-i2',
+ 'What is dynamic memory allocation with new used for?',
+ 'በ new የሚደረግ የተለዋዋጭ ማህደር ምደባ ለምን ይጠቀማል?',
+ JSON_ARRAY('Allocating memory at runtime whose size may not be known at compile time', 'Making the program smaller on disk', 'Speeding up the CPU clock', 'Printing to the console'),
+ JSON_ARRAY('በአፈጻጸም ጊዜ ማህደር ምደባ፣ መጠኑ በኮምፓይል ጊዜ ላይ ምን እንደሆነ ላይታወቅ ይችላል', 'ፕሮግራሙን በዲስክ ላይ አነስተኛ ማድረግ', 'የ CPU ሰዓት ፍጥነት ማሳደግ', 'ወደ ኮንሶል ማተም'),
+ 'Allocating memory at runtime whose size may not be known at compile time',
+ 'intermediate', 'cpp'),
+
+('cpp-pl-i3',
+ 'What is a reference in C++?',
+ 'በ C++ ውስጥ ማመሳከሪያ (reference) ምንድን ነው?',
+ JSON_ARRAY('An alias (another name) for an existing object', 'A copy that is always stored on disk', 'A pointer that cannot be null', 'A keyword that deletes memory'),
+ JSON_ARRAY('ለነባር ነገር ሌላ ስም (alias)', 'በዲስክ ላይ የሚከማች ቅጂ', 'ወደ null ሊሆን የማይችል ጠቋሚ', 'ማህደር የሚሰርዝ ቁልፍ ቃል'),
+ 'An alias (another name) for an existing object',
+ 'intermediate', 'cpp'),
+
+('cpp-pl-i4',
+ 'What is function overloading?',
+ 'የፋንክሽን overloading ምንድን ነው?',
+ JSON_ARRAY('Defining multiple functions with the same name but different parameters', 'Running the same loop twice', 'Using two main functions', 'Making the executable twice as large'),
+ JSON_ARRAY('ተመሳሳይ ስም ነገር ግን የተለያዩ መለኪያዎች ያሉትን ብዙ ፋንክሽኖች መግለጽ', 'ተመሳሳይ ድግግሞሽ ሁለት ጊዜ ማስኬድ', 'ሁለት main ፋንክሽን መጠቀም', 'ተግባራዊ ፋይልን ድርቅ እንዲሆን ማድረግ'),
+ 'Defining multiple functions with the same name but different parameters',
+ 'intermediate', 'cpp'),
+
+('cpp-pl-i5',
+ 'What is encapsulation in object-oriented programming?',
+ 'በነገር ተኮር ፕሮግራሚንግ ውስጥ encapsulation ምንድን ነው?',
+ JSON_ARRAY('Bundling data and the functions that work on it, often hiding internal details', 'Writing code only in one file', 'Using only global variables', 'Disabling all comments'),
+ JSON_ARRAY('ውሂብ እና በእሱ ላይ የሚሰሩ ፋንክሽኖችን ማዋሀድ፣ ብዙውን ውስጣዊ ዝርዝሮችን ማስደበቅ', 'ኮድ በአንድ ፋይል ብቻ መጻፍ', 'አለምአቀፍ ተለዋዋጮች ብቻ መጠቀም', 'ሁሉንም አስተያየቶች ማጥፋት'),
+ 'Bundling data and the functions that work on it, often hiding internal details',
+ 'intermediate', 'cpp'),
+
+('cpp-pl-a1',
+ 'What is RAII (Resource Acquisition Is Initialization) mainly about?',
+ 'RAII (Resource Acquisition Is Initialization) በአብዛኛው ስለምን ነው?',
+ JSON_ARRAY('Tying resource lifetime to object lifetime so cleanup happens automatically', 'Making all variables global', 'Disabling exceptions', 'Compiling without optimization'),
+ JSON_ARRAY('የግብዣ ዑደትን ከነገር ዑደት ጋር ማሰራት፣ ማጽዳዳት በራስ-ሰር እንዲሆን ማድረግ', 'ሁሉንም ተለዋዋጮች አለምአቀፍ ማድረግ', 'ልዩ ሁኔታዎችን ማጥፋት', 'ያለ ማመቻቸት ማኮምፓይል ማድረግ'),
+ 'Tying resource lifetime to object lifetime so cleanup happens automatically',
+ 'advanced', 'cpp'),
+
+('cpp-pl-a2',
+ 'What does the virtual keyword on a member function enable?',
+ 'በአባል ፋንክሽን ላይ ያለው virtual ቁልፍ ቃል ምን ያስችላል?',
+ JSON_ARRAY('Runtime polymorphism through dynamic dispatch', 'Faster compilation only', 'Static linking only', 'Removing the need for headers'),
+ JSON_ARRAY('በተለዋዋጭ ላከናወኝ በአፈጻጸም ጊዜ polymorphism', 'ፈጣን ኮምፓይል ብቻ', 'ስታቲክ ማገናኘት ብቻ', 'ሄደሮችን አለመፈለግ'),
+ 'Runtime polymorphism through dynamic dispatch',
+ 'advanced', 'cpp'),
+
+('cpp-pl-a3',
+ 'What is a class template in C++?',
+ 'በ C++ ውስጥ የክፍል አብነት (class template) ምንድን ነው?',
+ JSON_ARRAY('A blueprint for generating classes or functions parameterized by types', 'A comment style', 'A tool that deletes unused files', 'A keyword that makes code run slower'),
+ JSON_ARRAY('በአይነቶች የተመሰረተ ክፍሎችን ወይም ፋንክሽኖችን ለመፍጠር አብነት', 'የአስተያየት ዘይቤ', 'ያልተጠቀሙ ፋይሎችን የሚሰርዝ መሳሪያ', 'ኮድ ዝግጁ እንዲሆን የሚያደርግ ቁልፍ ቃል'),
+ 'A blueprint for generating classes or functions parameterized by types',
+ 'advanced', 'cpp'),
+
+('cpp-pl-a4',
+ 'What is undefined behavior in C++?',
+ 'በ C++ ውስጥ ያልተገደበ ባህሪ (undefined behavior) ምንድን ነው?',
+ JSON_ARRAY('Situations where the language standard imposes no requirements, so anything may happen', 'Code that always prints zero', 'A warning that can be ignored safely', 'A feature that only MSVC supports'),
+ JSON_ARRAY('የቋንቋ ደረጃ ምንም መስፈርት የማይጣልበት ሁኔታ፣ ማንኛውም ነገር ሊከሰት ይችላል', 'ዘወትር ዜሮ የሚያትም ኮድ', 'በደህና ሊዘንፍ የሚችል ማስጠንቀቂያ', 'MSVC ብቻ የሚደግፈው ባህሪ'),
+ 'Situations where the language standard imposes no requirements, so anything may happen',
+ 'advanced', 'cpp'),
+
+('cpp-pl-a5',
+ 'What is move semantics primarily used for?',
+ 'የ move semantics በአብዛኛው ለምን ይጠቀማል?',
+ JSON_ARRAY('Transferring resources cheaply instead of copying when the source is expiring', 'Making pointers always null', 'Disabling constructors', 'Forcing stack allocation only'),
+ JSON_ARRAY('ምንጩ ሲያልቅ ሀብት በርካታ ቅጂ በማድረግ በዝቅተኛ ዋጋ ማስተላለፍ', 'ጠቋሚዎችን ዘወትር null ማድረግ', 'ኮንስትራክተሮችን ማጥፋት', 'በስታክ ምደባ ብቻ ማስገደድ'),
+ 'Transferring resources cheaply instead of copying when the source is expiring',
+ 'advanced', 'cpp');
