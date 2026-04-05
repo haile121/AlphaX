@@ -18,6 +18,7 @@ export default function AiTutorPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [loadingSeconds, setLoadingSeconds] = useState(0);
   const [lang, setLang] = useState<Language>('en');
   const bottomRef = useRef<HTMLDivElement>(null);
   const { show } = useDialog();
@@ -25,6 +26,18 @@ export default function AiTutorPage() {
   useEffect(() => {
     setLang(getLanguage());
   }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      setLoadingSeconds(0);
+      return;
+    }
+    const t0 = Date.now();
+    const id = window.setInterval(() => {
+      setLoadingSeconds(Math.floor((Date.now() - t0) / 1000));
+    }, 500);
+    return () => window.clearInterval(id);
+  }, [loading]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -76,6 +89,11 @@ export default function AiTutorPage() {
               ? 'ስለ C++ ወይም የ ድር መሠረቶች (HTML፣ CSS፣ JS) ጥያቄዎን ይጠይቁ — ምክሮች እንጂ ተዘርዝሮ መልስ አይደለም'
               : 'Ask questions about C++ or Web fundamentals (HTML, CSS, JS) — get hints, not answers'}
           </p>
+          <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
+            {lang === 'am'
+              ? 'ምላሽ ለመጠበቅ 5–30 ሰከንድ ሊወስድ ይችላል — ይህ ነጋዕማዊ ነው።'
+              : 'Replies often take 5–30s — the model runs on Google/OpenAI servers.'}
+          </p>
         </div>
         <button
           onClick={toggleLang}
@@ -121,8 +139,14 @@ export default function AiTutorPage() {
 
         {loading && (
           <div className="flex justify-start">
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl rounded-bl-sm px-4 py-3">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-3 animate-pulse">
               <Spinner size="sm" />
+              <span className="text-sm text-gray-500 dark:text-gray-400">
+                {lang === 'am' ? 'በመመርመር ላይ…' : 'Thinking…'}
+                {loadingSeconds > 0 ? (
+                  <span className="tabular-nums text-gray-400 dark:text-gray-500"> · {loadingSeconds}s</span>
+                ) : null}
+              </span>
             </div>
           </div>
         )}

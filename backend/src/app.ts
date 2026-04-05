@@ -12,7 +12,7 @@ import authRouter from '../modules/auth/auth.router';
 import assessmentRouter from '../modules/assessment/assessment.router';
 import lessonsRouter from '../modules/lessons/lessons.router';
 import compilerRouter from '../modules/compiler/compiler.router';
-import aiTutorRouter from '../modules/ai-tutor/ai-tutor.router';
+import aiTutorRouter, { warmupAiTutorGeminiCache } from '../modules/ai-tutor/ai-tutor.router';
 import quizzesRouter from '../modules/quizzes/quizzes.router';
 import examsRouter from '../modules/exams/exams.router';
 import gamificationRouter from '../modules/gamification/gamification.router';
@@ -126,6 +126,9 @@ scheduleDailyCron();
 
 server.listen(PORT, () => {
   console.log(`Backend server running on port ${PORT}`);
+  setImmediate(() => {
+    void warmupAiTutorGeminiCache();
+  });
 });
 
 export default app;

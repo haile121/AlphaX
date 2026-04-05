@@ -38,6 +38,25 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+/** Shorter default = faster generation for hint-style answers (override with GEMINI_MAX_OUTPUT_TOKENS). */
+function geminiMaxOutputTokens(): number {
+  const raw = process.env.GEMINI_MAX_OUTPUT_TOKENS?.trim();
+  if (raw) {
+    const n = parseInt(raw, 10);
+    if (!Number.isNaN(n)) return Math.min(4096, Math.max(256, n));
+  }
+  return 1200;
+}
+
+function openAiMaxTokens(): number {
+  const raw = process.env.OPENAI_MAX_TOKENS?.trim();
+  if (raw) {
+    const n = parseInt(raw, 10);
+    if (!Number.isNaN(n)) return Math.min(4096, Math.max(256, n));
+  }
+  return 1000;
+}
+
 /** Seconds until retry from Gemini body or Retry-After header (capped). */
 function parseRetryDelaySeconds(rawBody: string, headers: Headers): number | null {
   const h = headers.get('retry-after');
@@ -206,7 +225,7 @@ async function geminiGenerateContent(
       },
     ],
     generationConfig: {
-      maxOutputTokens: 2048,
+      maxOutputTokens: geminiMaxOutputTokens(),
       temperature: 0.55,
     },
   };
@@ -344,7 +363,7 @@ async function callOpenAI(question: string, language: 'am' | 'en'): Promise<stri
         { role: 'system', content: systemPrompt(language) },
         { role: 'user', content: question },
       ],
-      max_tokens: 1600,
+      max_tokens: openAiMaxTokens(),
       temperature: 0.55,
     }),
   });
@@ -430,5 +449,22 @@ router.post('/ask', authenticate, async (req: Request, res: Response): Promise<v
 router.get('/history', authenticate, async (_req: Request, res: Response): Promise<void> => {
   res.json({ history: [] });
 });
+
+/**
+ * Preload Gemini ListModels + model order so the first user question is not paying that cost.
+ * No-op if GEMINI_API_KEY is missing or GEMINI_MODEL is set to a fixed model name.
+ */
+export async function warmupAiTutorGeminiCache(): Promise<void> {
+  const apiKey = process.env.GEMINI_API_KEY?.trim();
+  if (!apiKey) return;
+  const explicit = process.env.GEMINI_MODEL?.trim();
+  if (explicit && explicit.toLowerCase() !== 'auto') return;
+  try {
+    await getGeminiModelOrder(apiKey);
+    console.info('[ai-tutor] Gemini model list preloaded');
+  } catch (e) {
+    console.warn('[ai-tutor] Gemini model preload failed (non-fatal):', e instanceof Error ? e.message : e);
+  }
+}
 
 export default router;
