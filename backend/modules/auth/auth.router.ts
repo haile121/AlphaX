@@ -6,18 +6,33 @@ import { updateStreak } from '../gamification/gamification.service';
 
 const router = Router();
 
+/**
+ * When the SPA and API are on different hosts (e.g. two Railway URLs), browsers treat
+ * requests as cross-site. SameSite=Lax cookies are not sent on those fetches, so login/register
+ * appear broken. Use COOKIE_SAME_SITE=none on the API (requires HTTPS in production).
+ */
+function cookieSameSite(): 'lax' | 'none' {
+  const raw = process.env.COOKIE_SAME_SITE?.trim().toLowerCase();
+  return raw === 'none' ? 'none' : 'lax';
+}
+
+const isProd = process.env.NODE_ENV === 'production';
+const sameSite = cookieSameSite();
+/** SameSite=None must be paired with Secure; Lax uses Secure only in production. */
+const cookieSecure = sameSite === 'none' ? true : isProd;
+
 const COOKIE_OPTIONS = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'lax' as const,
+  secure: cookieSecure,
+  sameSite,
   maxAge: 7 * 24 * 60 * 60 * 1000,
 };
 
 // A non-httpOnly flag cookie so the frontend JS can detect auth state
 const FLAG_COOKIE_OPTIONS = {
   httpOnly: false,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'lax' as const,
+  secure: cookieSecure,
+  sameSite,
   maxAge: 7 * 24 * 60 * 60 * 1000,
 };
 
@@ -78,11 +93,10 @@ router.post('/login', async (req: Request, res: Response): Promise<void> => {
 
 // POST /logout
 router.post('/logout', (_req: Request, res: Response): void => {
-  const secure = process.env.NODE_ENV === 'production';
   // Clear with matching attributes to maximize cross-browser reliability.
-  res.clearCookie('token', { httpOnly: true, sameSite: 'lax', secure, path: '/' });
-  res.clearCookie('logged_in', { sameSite: 'lax', secure, path: '/' });
-  res.clearCookie('ws_token', { sameSite: 'lax', secure, path: '/' });
+  res.clearCookie('token', { httpOnly: true, sameSite, secure: cookieSecure, path: '/' });
+  res.clearCookie('logged_in', { sameSite, secure: cookieSecure, path: '/' });
+  res.clearCookie('ws_token', { sameSite, secure: cookieSecure, path: '/' });
   res.json({ message: 'Logged out' });
 });
 
@@ -107,8 +121,8 @@ router.get('/ws-token', authenticate, (req: Request, res: Response): void => {
   }
   res.cookie('ws_token', token, {
     httpOnly: false,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
+    secure: cookieSecure,
+    sameSite,
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
   res.json({ ok: true });
